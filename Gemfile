@@ -33,3 +33,7 @@ group :test do
   gem 'database_cleaner', '1.0.1'
   gem 'email_spec'
 end
+
+# Heroku-specific stuff
+gem 'rails_12factor', group: :production
+ruby '2.0.0'
