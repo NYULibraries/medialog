@@ -20,6 +20,8 @@ require 'spec_helper'
 
 describe MlogEntriesController do
 
+  render_views
+
   # This should return the minimal set of attributes required to create a valid
   # MlogEntry. As you add validations to MlogEntry, be sure to
   # adjust the attributes here as well.
