@@ -1,0 +1,2 @@
+module MlogEntriesHelper
+end

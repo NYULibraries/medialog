@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Medialog" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Medialog" %>">
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : 'Medialog' %>">
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
@@ -13,8 +13,12 @@
       <%= render 'layouts/navigation' %>
     </header>
     <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
+      <div class="container-fluid">
+	<div class="span12">
+	  <%= render 'layouts/messages' %>
+	  <%= yield %>
+	</div>
+      </div>
     </main>
   </body>
 </html>

@@ -20,4 +20,41 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  helpers:
+    label:
+      mlog_entry:
+        partner_id:             'Partner UUID'
+        collection_id:          'Collection UUID'
+        accession_id:           'Accession UUID'
+        media_id:               'Media ID'
+        mediatype:              'Media Type'
+        manufacturer:           'Manufacturer'
+        manufacturer_serial:    'Manufacturer Serial Number'
+        label_text:             'Label Text'
+        media_note:             'Media Note'
+        photo_url:              'Photo URL'
+        image_filename:         'Image Filename'
+        interface:              'Interface'
+        imaging_aoftware:       'Imaging Software'
+        hdd_interface:          'HDD Interface'
+        imaging_success:        'Imaging Success'
+        interpretation_success: 'Interpretation Success'
+        imaged_by:              'Imaged By'
+        imaging_note:           'Imaging Note'
+        image_format:           'Image Format'
+        encoding_scheme:        'Encoding Scheme'
+        partition_table_format: 'Partition Table Format'
+        number_of_partitions:   'Number of Partitions'
+        filesystem:             'File System'
+        has_dfxml:              'Has DFXML'
+        has_ftk_csv:            'Has FTK CSV'
+        image_size_in_bytes:    'Image Size in Bytes'
+        md5_checksum:           'MD5 Checksum'
+        sha1_checksum:          'SHA1 Checksum'
+        date_imaged:            'Date Imaged'
+        date_ftk_loaded:        'Date FTK Loaded'
+        date_metadata_extracted: 'Date Metadata Extracted'
+        date_photographed:       'Date Photographed'
+        date_qc:                 'Date QC-ed'
+        date_packaged:           'Date Packaged'
+        date_transferred:        'Date Transferred'

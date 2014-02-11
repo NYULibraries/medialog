@@ -1,0 +1,39 @@
+<h1>MediaLog Entries</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Partner Code</th>
+      <th>Collection Code</th>
+      <th>Accession ID</th>
+      <th>Media ID</th>
+      <th>Media Type</th>
+      <th>Imaging success</th>
+      <th>Image size bytes</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mlog_entries.each do |mlog_entry| %>
+      <tr>
+        <td><%= mlog_entry.partner_id %></td>
+        <td><%= mlog_entry.collection_id %></td>
+        <td><%= mlog_entry.accession_id %></td>
+        <td><%= mlog_entry.media_id %></td>
+        <td><%= mlog_entry.mediatype %></td>
+        <td><%= mlog_entry.imaging_success %></td>
+        <td><%= mlog_entry.image_size_bytes %></td>
+        <td><%= link_to 'Show', mlog_entry %></td>
+        <td><%= link_to 'Edit', edit_mlog_entry_path(mlog_entry) %></td>
+        <td><%= link_to 'Destroy', mlog_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New MediaLog Entry', new_mlog_entry_path %>
