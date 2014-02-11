@@ -23,9 +23,9 @@ en:
   helpers:
     label:
       mlog_entry:
-        partner_id:             'Partner UUID'
-        collection_id:          'Collection UUID'
-        accession_id:           'Accession UUID'
+        partner_code:           'Partner Code'
+        collection_code:        'Collection Code'
+        accession_num:          'Accession Number'
         media_id:               'Media ID'
         mediatype:              'Media Type'
         manufacturer:           'Manufacturer'

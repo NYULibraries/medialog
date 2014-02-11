@@ -2,17 +2,17 @@
 
 <p>
   <strong>Partner:</strong>
-  <%= @mlog_entry.partner_id %>
+  <%= @mlog_entry.partner_code %>
 </p>
 
 <p>
   <strong>Collection:</strong>
-  <%= @mlog_entry.collection_id %>
+  <%= @mlog_entry.collection_code %>
 </p>
 
 <p>
   <strong>Accession:</strong>
-  <%= @mlog_entry.accession_id %>
+  <%= @mlog_entry.accession_num %>
 </p>
 
 <p>
@@ -175,5 +175,5 @@
   <%= @mlog_entry.date_transferred %>
 </p>
 
-<%= link_to 'Edit', edit_mlog_entry_path(@mlog_entry) %> |
-<%= link_to 'Back', mlog_entries_path %>
+<%= link_to 'Edit', edit_mlog_entry_path(@mlog_entry), class: "btn btn-primary" %> 
+<%= link_to 'Back', mlog_entries_path, class: "btn btn-info" %>

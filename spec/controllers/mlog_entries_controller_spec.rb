@@ -23,7 +23,7 @@ describe MlogEntriesController do
   # This should return the minimal set of attributes required to create a valid
   # MlogEntry. As you add validations to MlogEntry, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "partner_id" => "771cea7a-303d-4082-aa37-48d4f11c1c07" } }
+  let(:valid_attributes) { { "partner_code" => "771cea7a-303d-4082-aa37-48d4f11c1c07" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe MlogEntriesController do
       it "assigns a newly created but unsaved mlog_entry as @mlog_entry" do
         # Trigger the behavior that occurs when invalid params are submitted
         MlogEntry.any_instance.stub(:save).and_return(false)
-        post :create, {:mlog_entry => { "partner_id" => "invalid value" }}, valid_session
+        post :create, {:mlog_entry => { "partner_code" => "invalid value" }}, valid_session
         assigns(:mlog_entry).should be_a_new(MlogEntry)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         MlogEntry.any_instance.stub(:save).and_return(false)
-        post :create, {:mlog_entry => { "partner_id" => "invalid value" }}, valid_session
+        post :create, {:mlog_entry => { "partner_code" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe MlogEntriesController do
         # specifies that the MlogEntry created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        MlogEntry.any_instance.should_receive(:update).with({ "partner_id" => "" })
-        put :update, {:id => mlog_entry.to_param, :mlog_entry => { "partner_id" => "" }}, valid_session
+        MlogEntry.any_instance.should_receive(:update).with({ "partner_code" => "" })
+        put :update, {:id => mlog_entry.to_param, :mlog_entry => { "partner_code" => "" }}, valid_session
       end
 
       it "assigns the requested mlog_entry as @mlog_entry" do
@@ -128,7 +128,7 @@ describe MlogEntriesController do
         mlog_entry = MlogEntry.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         MlogEntry.any_instance.stub(:save).and_return(false)
-        put :update, {:id => mlog_entry.to_param, :mlog_entry => { "partner_id" => "invalid value" }}, valid_session
+        put :update, {:id => mlog_entry.to_param, :mlog_entry => { "partner_code" => "invalid value" }}, valid_session
         assigns(:mlog_entry).should eq(mlog_entry)
       end
 
@@ -136,7 +136,7 @@ describe MlogEntriesController do
         mlog_entry = MlogEntry.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         MlogEntry.any_instance.stub(:save).and_return(false)
-        put :update, {:id => mlog_entry.to_param, :mlog_entry => { "partner_id" => "invalid value" }}, valid_session
+        put :update, {:id => mlog_entry.to_param, :mlog_entry => { "partner_code" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
