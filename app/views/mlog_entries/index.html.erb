@@ -26,9 +26,9 @@
         <td><%= mlog_entry.mediatype %></td>
         <td><%= mlog_entry.imaging_success %></td>
         <td><%= mlog_entry.image_size_bytes %></td>
-        <td><%= link_to 'Show', mlog_entry, class: "btn btn-info" %></td>
-        <td><%= link_to 'Edit', edit_mlog_entry_path(mlog_entry), class: "btn btn-primary" %></td>
-        <td><%= link_to 'Destroy', mlog_entry, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        <td><%= link_to 'Show', mlog_entry, class: "btn btn-info btn-xs" %></td>
+        <td><%= link_to 'Edit', edit_mlog_entry_path(mlog_entry), class: "btn btn-primary btn-xs" %></td>
+        <td><%= link_to 'Destroy', mlog_entry, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Entry', new_mlog_entry_path, class: "btn btn-primary" %>
+<%= link_to 'New Entry', new_mlog_entry_path, class: "btn btn-primary btn-sm" %>

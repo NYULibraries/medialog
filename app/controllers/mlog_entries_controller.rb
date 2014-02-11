@@ -28,7 +28,7 @@ class MlogEntriesController < ApplicationController
 
     respond_to do |format|
       if @mlog_entry.save
-        format.html { redirect_to @mlog_entry, notice: 'Mlog entry was successfully created.' }
+        format.html { redirect_to @mlog_entry, notice: 'Entry was successfully created.' }
         format.json { render action: 'show', status: :created, location: @mlog_entry }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class MlogEntriesController < ApplicationController
   def update
     respond_to do |format|
       if @mlog_entry.update(mlog_entry_params)
-        format.html { redirect_to @mlog_entry, notice: 'Mlog entry was successfully updated.' }
+        format.html { redirect_to @mlog_entry, notice: 'Entry was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

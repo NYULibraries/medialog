@@ -1,179 +1,179 @@
-<p id="notice"><%= notice %></p>
+<table class="table table-hover">
+<tr>
+  <td class="col-md-3"><strong><%= I18n.t 'helpers.label.mlog_entry.partner_code' %>:</strong></td>
+  <td><%= @mlog_entry.partner_code %></td>
+</tr>
 
-<p>
-  <strong>Partner:</strong>
-  <%= @mlog_entry.partner_code %>
-</p>
+<tr>
+  <td><strong><%= I18n.t 'helpers.label.mlog_entry.collection_code' %>:</strong></td>
+  <td><%= @mlog_entry.collection_code %></td>
+</tr>
 
-<p>
-  <strong>Collection:</strong>
-  <%= @mlog_entry.collection_code %>
-</p>
+<tr>
+  <td><strong><%= I18n.t 'helpers.label.mlog_entry.accession_num' %>:</strong></td>
+  <td><%= @mlog_entry.accession_num %></td>
+</tr>
 
-<p>
-  <strong>Accession:</strong>
-  <%= @mlog_entry.accession_num %>
-</p>
+<tr>
+  <td><strong><%= I18n.t 'helpers.label.mlog_entry.media_id' %>:</strong></td>
+  <td><%= @mlog_entry.media_id %></td>
+</tr>
 
-<p>
-  <strong>Media:</strong>
-  <%= @mlog_entry.media_id %>
-</p>
+<tr>
+  <td><strong><%= I18n.t 'helpers.label.mlog_entry.mediatype' %>:</strong></td>
+  <td><%= @mlog_entry.mediatype %></td>
+</tr>
 
-<p>
-  <strong>Mediatype:</strong>
-  <%= @mlog_entry.mediatype %>
-</p>
+<tr>
+  <td><strong><%= I18n.t 'helpers.label.mlog_entry.manufacturer' %>:</strong></td>
+  <td><%= @mlog_entry.manufacturer %></td>
+</tr>
 
-<p>
-  <strong>Manufacturer:</strong>
-  <%= @mlog_entry.manufacturer %>
-</p>
+<tr>
+  <td><strong><%= I18n.t 'helpers.label.mlog_entry.manufacturer_serial' %>:</strong></td>
+  <td><%= @mlog_entry.manufacturer_serial %></td>
+</tr>
 
-<p>
-  <strong>Manufacturer serial:</strong>
-  <%= @mlog_entry.manufacturer_serial %>
-</p>
+<tr>
+  <td><strong><%= I18n.t 'helpers.label.mlog_entry.label_text' %>:</strong></td>
+  <td><%= @mlog_entry.label_text %></td>
+</tr>
 
-<p>
-  <strong>Label text:</strong>
-  <%= @mlog_entry.label_text %>
-</p>
+<tr>
+  <td><strong><%= I18n.t 'helpers.label.mlog_entry.media_note' %>:</strong></td>
+  <td><%= @mlog_entry.media_note %></td>
+</tr>
 
-<p>
-  <strong>Media note:</strong>
-  <%= @mlog_entry.media_note %>
-</p>
+<tr>
+  <td><strong><%= I18n.t 'helpers.label.mlog_entry.photo_url' %>:</strong></td>
+  <td><%= @mlog_entry.photo_url %></td>
+</tr>
 
-<p>
-  <strong>Photo url:</strong>
-  <%= @mlog_entry.photo_url %>
-</p>
+<tr>
+  <td><strong><%= I18n.t 'helpers.label.mlog_entry.image_filename' %>:</strong></td>
+  <td><%= @mlog_entry.image_filename %></td>
+</tr>
 
-<p>
-  <strong>Image filename:</strong>
-  <%= @mlog_entry.image_filename %>
-</p>
+<tr>
+  <td><strong>Interface:</strong></td>
+  <td><%= @mlog_entry.interface %></td>
+</tr>
 
-<p>
-  <strong>Interface:</strong>
-  <%= @mlog_entry.interface %>
-</p>
+<tr>
+  <td><strong>Imaging software:</strong></td>
+  <td><%= @mlog_entry.imaging_software %></td>
+</tr>
 
-<p>
-  <strong>Imaging software:</strong>
-  <%= @mlog_entry.imaging_software %>
-</p>
+<tr>
+  <td><strong>Hdd interface:</strong></td>
+  <td><%= @mlog_entry.hdd_interface %></td>
+</tr>
 
-<p>
-  <strong>Hdd interface:</strong>
-  <%= @mlog_entry.hdd_interface %>
-</p>
+<tr>
+  <td><strong>Imaging success:</strong></td>
+  <td><%= @mlog_entry.imaging_success %></td>
+</tr>
 
-<p>
-  <strong>Imaging success:</strong>
-  <%= @mlog_entry.imaging_success %>
-</p>
+<tr>
+  <td><strong>Interpretation success:</strong></td>
+  <td><%= @mlog_entry.interpretation_success %></td>
+</tr>
 
-<p>
-  <strong>Interpretation success:</strong>
-  <%= @mlog_entry.interpretation_success %>
-</p>
+<tr>
+  <td><strong>Imaged by:</strong></td>
+  <td><%= @mlog_entry.imaged_by %></td>
+</tr>
 
-<p>
-  <strong>Imaged by:</strong>
-  <%= @mlog_entry.imaged_by %>
-</p>
+<tr>
+  <td><strong>Imaging note:</strong></td>
+  <td><%= @mlog_entry.imaging_note %></td>
+</tr>
 
-<p>
-  <strong>Imaging note:</strong>
-  <%= @mlog_entry.imaging_note %>
-</p>
+<tr>
+  <td><strong>Image format:</strong></td>
+  <td><%= @mlog_entry.image_format %></td>
+</tr>
 
-<p>
-  <strong>Image format:</strong>
-  <%= @mlog_entry.image_format %>
-</p>
+<tr>
+  <td><strong>Encoding scheme:</strong></td>
+  <td><%= @mlog_entry.encoding_scheme %></td>
+</tr>
 
-<p>
-  <strong>Encoding scheme:</strong>
-  <%= @mlog_entry.encoding_scheme %>
-</p>
+<tr>
+  <td><strong>Partition table format:</strong></td>
+  <td><%= @mlog_entry.partition_table_format %></td>
+</tr>
 
-<p>
-  <strong>Partition table format:</strong>
-  <%= @mlog_entry.partition_table_format %>
-</p>
+<tr>
+  <td><strong>Number of partitions:</strong></td>
+  <td><%= @mlog_entry.number_of_partitions %></td>
+</tr>
 
-<p>
-  <strong>Number of partitions:</strong>
-  <%= @mlog_entry.number_of_partitions %>
-</p>
+<tr>
+  <td><strong>Filesystem:</strong></td>
+  <td><%= @mlog_entry.filesystem %></td>
+</tr>
 
-<p>
-  <strong>Filesystem:</strong>
-  <%= @mlog_entry.filesystem %>
-</p>
+<tr>
+  <td><strong>Has dfxml:</strong></td>
+  <td><%= @mlog_entry.has_dfxml %></td>
+</tr>
 
-<p>
-  <strong>Has dfxml:</strong>
-  <%= @mlog_entry.has_dfxml %>
-</p>
+<tr>
+  <td><strong>Has ftk csv:</strong></td>
+  <td><%= @mlog_entry.has_ftk_csv %></td>
+</tr>
 
-<p>
-  <strong>Has ftk csv:</strong>
-  <%= @mlog_entry.has_ftk_csv %>
-</p>
+<tr>
+  <td><strong>Image size bytes:</strong></td>
+  <td><%= @mlog_entry.image_size_bytes %></td>
+</tr>
 
-<p>
-  <strong>Image size bytes:</strong>
-  <%= @mlog_entry.image_size_bytes %>
-</p>
+<tr>
+  <td><strong>Md5 checksum:</strong></td>
+  <td><%= @mlog_entry.md5_checksum %></td>
+</tr>
 
-<p>
-  <strong>Md5 checksum:</strong>
-  <%= @mlog_entry.md5_checksum %>
-</p>
+<tr>
+  <td><strong>Sha1 checksum:</strong></td>
+  <td><%= @mlog_entry.sha1_checksum %></td>
+</tr>
 
-<p>
-  <strong>Sha1 checksum:</strong>
-  <%= @mlog_entry.sha1_checksum %>
-</p>
+<tr>
+  <td><strong>Date imaged:</strong></td>
+  <td><%= @mlog_entry.date_imaged %></td>
+</tr>
 
-<p>
-  <strong>Date imaged:</strong>
-  <%= @mlog_entry.date_imaged %>
-</p>
+<tr>
+  <td><strong>Date ftk loaded:</strong></td>
+  <td><%= @mlog_entry.date_ftk_loaded %></td>
+</tr>
 
-<p>
-  <strong>Date ftk loaded:</strong>
-  <%= @mlog_entry.date_ftk_loaded %>
-</p>
+<tr>
+  <td><strong>Date metadata extracted:</strong></td>
+  <td><%= @mlog_entry.date_metadata_extracted %></td>
+</tr>
 
-<p>
-  <strong>Date metadata extracted:</strong>
-  <%= @mlog_entry.date_metadata_extracted %>
-</p>
+<tr>
+  <td><strong>Date photographed:</strong></td>
+  <td><%= @mlog_entry.date_photographed %></td>
+</tr>
 
-<p>
-  <strong>Date photographed:</strong>
-  <%= @mlog_entry.date_photographed %>
-</p>
+<tr>
+  <td><strong>Date qc:</strong></td>
+  <td><%= @mlog_entry.date_qc %></td>
+</tr>
 
-<p>
-  <strong>Date qc:</strong>
-  <%= @mlog_entry.date_qc %>
-</p>
+<tr>
+  <td><strong>Date packaged:</strong></td>
+  <td><%= @mlog_entry.date_packaged %></td>
+</tr>
 
-<p>
-  <strong>Date packaged:</strong>
-  <%= @mlog_entry.date_packaged %>
-</p>
-
-<p>
-  <strong>Date transferred:</strong>
-  <%= @mlog_entry.date_transferred %>
-</p>
+<tr>
+  <td><strong>Date transferred:</strong></td>
+  <td><%= @mlog_entry.date_transferred %></td>
+</tr>
+</table>
 
 <%= link_to 'Edit', edit_mlog_entry_path(@mlog_entry), class: "btn btn-primary" %> 
 <%= link_to 'Back', mlog_entries_path, class: "btn btn-info" %>
