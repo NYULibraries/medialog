@@ -125,31 +125,31 @@
   </div>
   <div class="field">
     <%= f.label :date_imaged %><br>
-    <%= f.datetime_select :date_imaged %>
+    <%= f.datetime_select :date_imaged, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :date_ftk_loaded %><br>
-    <%= f.datetime_select :date_ftk_loaded %>
+    <%= f.datetime_select :date_ftk_loaded, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :date_metadata_extracted %><br>
-    <%= f.datetime_select :date_metadata_extracted %>
+    <%= f.datetime_select :date_metadata_extracted, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :date_photographed %><br>
-    <%= f.datetime_select :date_photographed %>
+    <%= f.datetime_select :date_photographed, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :date_qc %><br>
-    <%= f.datetime_select :date_qc %>
+    <%= f.datetime_select :date_qc, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :date_packaged %><br>
-    <%= f.datetime_select :date_packaged %>
+    <%= f.datetime_select :date_packaged, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :date_transferred %><br>
-    <%= f.datetime_select :date_transferred %>
+    <%= f.datetime_select :date_transferred, :include_blank => true %>
   </div>
   <div class="actions">
     <%= f.submit "Create Entry", class: "btn btn-primary" %>
