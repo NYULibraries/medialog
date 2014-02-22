@@ -86,7 +86,10 @@
   <div class="field">
     <%= f.label :image_format %><br>
     <%= f.select(:image_format, MLOG_VOCAB["image_formats"].invert, :include_blank => true ) %>
-
+  </div>
+  <div class="field">
+    <%= f.label :number_of_image_segments %><br>
+    <%= f.number_field :number_of_image_segments %>
   </div>
   <div class="field">
     <%= f.label :encoding_scheme %><br>

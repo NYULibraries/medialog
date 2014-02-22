@@ -42,6 +42,7 @@ en:
         imaged_by:               Imaged By
         imaging_note:            Imaging Note
         image_format:            Image Format
+        number_of_image_segments: Number of Image Segments
         encoding_scheme:         Encoding Scheme
         partition_table_format:  Partition Table Format
         number_of_partitions:    Number of Partitions
