@@ -59,3 +59,6 @@ en:
         date_qc:                 Date QC-ed
         date_packaged:           Date Packaged
         date_transferred:        Date Transferred
+        section_phys_media_data: Physical Media Data
+        section_disk_image_data: Disk Image Data
+        section_workflow_job_tracking: Workflow Job Tracking

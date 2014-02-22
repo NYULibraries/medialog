@@ -1,161 +1,182 @@
-<%= form_for(@mlog_entry, html: {class: 'form-horizontal'}) do |f| %>
-  <% if @mlog_entry.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@mlog_entry.errors.count, "error") %> prohibited this mlog_entry from being saved:</h2>
+<%= form_for(@mlog_entry, html: {role: 'form'}) do |f| %>
+<% if @mlog_entry.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@mlog_entry.errors.count, "error") %> prohibited this mlog_entry from being saved:</h2>
 
-      <ul>
-      <% @mlog_entry.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <ul>
+    <% @mlog_entry.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="panel panel-info">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h4><%= t(:section_physical_data) %></h4></div>
+  <div class="panel-body">
+    <div class="field">
+      <%= f.label :partner_code %><br>
+      <%= f.select(:partner_code, MLOG_VOCAB["partner_codes"].invert, :include_blank => true ) %>
     </div>
-  <% end %>
+    <div class="field">
+      <%= f.label :collection_code %><br>
+      <%= f.select(:collection_code, MLOG_VOCAB["collection_codes"].invert, :include_blank => true ) %> 
+    </div>
+    <div class="field">
+      <%= f.label :accession_num %><br>
+      <%= f.text_field :accession_num %>
+    </div>
+    <div class="field">
+      <%= f.label :media_id %><br>
+      <%= f.number_field :media_id %>
+    </div>
+    <div class="field">
+      <%= f.label :mediatype %><br>
+      <%= f.select(:mediatype, MLOG_VOCAB["mediatypes"].invert, :include_blank => true ) %>
+    </div>
+    <div class="field">
+      <%= f.label :manufacturer %><br>
+      <%= f.text_field :manufacturer %>
+    </div>
+    <div class="field">
+      <%= f.label :manufacturer_serial %><br>
+      <%= f.text_field :manufacturer_serial %>
+    </div>
+    <div class="field">
+      <%= f.label :label_text %><br>
+      <%= f.text_field :label_text %>
+    </div>
+    <div class="field">
+      <%= f.label :media_note %><br>
+      <%= f.text_area :media_note %>
+    </div>
+    <div class="field">
+      <%= f.label :photo_url %><br>
+      <%= f.text_field :photo_url %>
+    </div>
+  </div>
+</div>
 
-  <div class="field">
-    <%= f.label :partner_code %><br>
-    <%= f.select(:partner_code, MLOG_VOCAB["partner_codes"].invert, :include_blank => true ) %>
+
+<div class="panel panel-info">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h4><%= t(:section_disk_image_data) %></h4></div>
+  <div class="panel-body">
+    <div class="field">
+      <%= f.label :image_filename %><br>
+      <%= f.text_field :image_filename %>
+    </div>
+    <div class="field">
+      <%= f.label :interface %><br>
+      <%= f.select(:interface, MLOG_VOCAB["interfaces"].invert, :include_blank => true ) %>
+    </div>
+    <div class="field">
+      <%= f.label :imaging_software %><br>
+      <%= f.select(:imaging_software, MLOG_VOCAB["imaging_software"].invert, :include_blank => true ) %>
+    </div>
+    <div class="field">
+      <%= f.label :hdd_interface %><br>
+      <%= f.select(:hdd_interface, MLOG_VOCAB["hdd_interfaces"].invert, :include_blank => true ) %>
+    </div>
+    <div class="field">
+      <%= f.label :imaging_success %><br>
+      <%= f.check_box :imaging_success %>
+    </div>
+    <div class="field">
+      <%= f.label :interpretation_success %><br>
+      <%= f.check_box :interpretation_success %>
+    </div>
+    <div class="field">
+      <%= f.label :imaged_by %><br>
+      <%= f.text_field :imaged_by %>
+    </div>
+    <div class="field">
+      <%= f.label :imaging_note %><br>
+      <%= f.text_area :imaging_note %>
+    </div>
+    <div class="field">
+      <%= f.label :image_format %><br>
+      <%= f.select(:image_format, MLOG_VOCAB["image_formats"].invert, :include_blank => true ) %>
+    </div>
+    <div class="field">
+      <%= f.label :number_of_image_segments %><br>
+      <%= f.number_field :number_of_image_segments %>
+    </div>
+    <div class="field">
+      <%= f.label :encoding_scheme %><br>
+      <%= f.select(:encoding_scheme, MLOG_VOCAB["encoding_schemes"].invert, :include_blank => true ) %>
+    </div>
+    <div class="field">
+      <%= f.label :partition_table_format %><br>
+      <%= f.text_field :partition_table_format %>
+    </div>
+    <div class="field">
+      <%= f.label :number_of_partitions %><br>
+      <%= f.number_field :number_of_partitions %>
+    </div>
+    <div class="field">
+      <%= f.label :filesystem %><br>
+      <%= f.select(:filesystem, MLOG_VOCAB["filesystems"].invert, :include_blank => true ) %>
+    </div>
+    <div class="field">
+      <%= f.label :has_dfxml %><br>
+      <%= f.check_box :has_dfxml %>
+    </div>
+    <div class="field">
+      <%= f.label :has_ftk_csv %><br>
+      <%= f.check_box :has_ftk_csv %>
+    </div>
+    <div class="field">
+      <%= f.label :image_size_bytes %><br>
+      <%= f.number_field :image_size_bytes %>
+    </div>
+    <div class="field">
+      <%= f.label :md5_checksum %><br>
+      <%= f.text_field :md5_checksum %>
+    </div>
+    <div class="field">
+      <%= f.label :sha1_checksum %><br>
+      <%= f.text_field :sha1_checksum %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :collection_code %><br>
-    <%= f.select(:collection_code, MLOG_VOCAB["collection_codes"].invert, :include_blank => true ) %> 
+</div>
+
+<div class="panel panel-info">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h4><%= t(:section_workflow_job_tracking) %></h4></div>
+  <div class="panel-body">
+    <div class="field">
+      <%= f.label :date_imaged %><br>
+      <%= f.datetime_select :date_imaged, :include_blank => true %>
+    </div>
+    <div class="field">
+      <%= f.label :date_ftk_loaded %><br>
+      <%= f.datetime_select :date_ftk_loaded, :include_blank => true %>
+    </div>
+    <div class="field">
+      <%= f.label :date_metadata_extracted %><br>
+      <%= f.datetime_select :date_metadata_extracted, :include_blank => true %>
+    </div>
+    <div class="field">
+      <%= f.label :date_photographed %><br>
+      <%= f.datetime_select :date_photographed, :include_blank => true %>
+    </div>
+    <div class="field">
+      <%= f.label :date_qc %><br>
+      <%= f.datetime_select :date_qc, :include_blank => true %>
+    </div>
+    <div class="field">
+      <%= f.label :date_packaged %><br>
+      <%= f.datetime_select :date_packaged, :include_blank => true %>
+    </div>
+    <div class="field">
+      <%= f.label :date_transferred %><br>
+      <%= f.datetime_select :date_transferred, :include_blank => true %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :accession_num %><br>
-    <%= f.text_field :accession_num %>
-  </div>
-  <div class="field">
-    <%= f.label :media_id %><br>
-    <%= f.number_field :media_id %>
-  </div>
-  <div class="field">
-    <%= f.label :mediatype %><br>
-    <%= f.select(:mediatype, MLOG_VOCAB["mediatypes"].invert, :include_blank => true ) %>
-  </div>
-  <div class="field">
-    <%= f.label :manufacturer %><br>
-    <%= f.text_field :manufacturer %>
-  </div>
-  <div class="field">
-    <%= f.label :manufacturer_serial %><br>
-    <%= f.text_field :manufacturer_serial %>
-  </div>
-  <div class="field">
-    <%= f.label :label_text %><br>
-    <%= f.text_field :label_text %>
-  </div>
-  <div class="field">
-    <%= f.label :media_note %><br>
-    <%= f.text_area :media_note %>
-  </div>
-  <div class="field">
-    <%= f.label :photo_url %><br>
-    <%= f.text_field :photo_url %>
-  </div>
-  <div class="field">
-    <%= f.label :image_filename %><br>
-    <%= f.text_field :image_filename %>
-  </div>
-  <div class="field">
-    <%= f.label :interface %><br>
-    <%= f.select(:interface, MLOG_VOCAB["interfaces"].invert, :include_blank => true ) %>
-  </div>
-  <div class="field">
-    <%= f.label :imaging_software %><br>
-    <%= f.select(:imaging_software, MLOG_VOCAB["imaging_software"].invert, :include_blank => true ) %>
-  </div>
-  <div class="field">
-    <%= f.label :hdd_interface %><br>
-    <%= f.select(:hdd_interface, MLOG_VOCAB["hdd_interfaces"].invert, :include_blank => true ) %>
-  </div>
-  <div class="field">
-    <%= f.label :imaging_success %><br>
-    <%= f.check_box :imaging_success %>
-  </div>
-  <div class="field">
-    <%= f.label :interpretation_success %><br>
-    <%= f.check_box :interpretation_success %>
-  </div>
-  <div class="field">
-    <%= f.label :imaged_by %><br>
-    <%= f.text_field :imaged_by %>
-  </div>
-  <div class="field">
-    <%= f.label :imaging_note %><br>
-    <%= f.text_area :imaging_note %>
-  </div>
-  <div class="field">
-    <%= f.label :image_format %><br>
-    <%= f.select(:image_format, MLOG_VOCAB["image_formats"].invert, :include_blank => true ) %>
-  </div>
-  <div class="field">
-    <%= f.label :number_of_image_segments %><br>
-    <%= f.number_field :number_of_image_segments %>
-  </div>
-  <div class="field">
-    <%= f.label :encoding_scheme %><br>
-    <%= f.select(:encoding_scheme, MLOG_VOCAB["encoding_schemes"].invert, :include_blank => true ) %>
-  </div>
-  <div class="field">
-    <%= f.label :partition_table_format %><br>
-    <%= f.text_field :partition_table_format %>
-  </div>
-  <div class="field">
-    <%= f.label :number_of_partitions %><br>
-    <%= f.number_field :number_of_partitions %>
-  </div>
-  <div class="field">
-    <%= f.label :filesystem %><br>
-    <%= f.select(:filesystem, MLOG_VOCAB["filesystems"].invert, :include_blank => true ) %>
-  </div>
-  <div class="field">
-    <%= f.label :has_dfxml %><br>
-    <%= f.check_box :has_dfxml %>
-  </div>
-  <div class="field">
-    <%= f.label :has_ftk_csv %><br>
-    <%= f.check_box :has_ftk_csv %>
-  </div>
-  <div class="field">
-    <%= f.label :image_size_bytes %><br>
-    <%= f.number_field :image_size_bytes %>
-  </div>
-  <div class="field">
-    <%= f.label :md5_checksum %><br>
-    <%= f.text_field :md5_checksum %>
-  </div>
-  <div class="field">
-    <%= f.label :sha1_checksum %><br>
-    <%= f.text_field :sha1_checksum %>
-  </div>
-  <div class="field">
-    <%= f.label :date_imaged %><br>
-    <%= f.datetime_select :date_imaged, :include_blank => true %>
-  </div>
-  <div class="field">
-    <%= f.label :date_ftk_loaded %><br>
-    <%= f.datetime_select :date_ftk_loaded, :include_blank => true %>
-  </div>
-  <div class="field">
-    <%= f.label :date_metadata_extracted %><br>
-    <%= f.datetime_select :date_metadata_extracted, :include_blank => true %>
-  </div>
-  <div class="field">
-    <%= f.label :date_photographed %><br>
-    <%= f.datetime_select :date_photographed, :include_blank => true %>
-  </div>
-  <div class="field">
-    <%= f.label :date_qc %><br>
-    <%= f.datetime_select :date_qc, :include_blank => true %>
-  </div>
-  <div class="field">
-    <%= f.label :date_packaged %><br>
-    <%= f.datetime_select :date_packaged, :include_blank => true %>
-  </div>
-  <div class="field">
-    <%= f.label :date_transferred %><br>
-    <%= f.datetime_select :date_transferred, :include_blank => true %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Create Entry", class: "btn btn-primary" %>
-  </div>
+</div>
+<div class="actions">
+  <%= f.submit "Create Entry", class: "btn btn-primary" %>
+</div>
 <% end %>
