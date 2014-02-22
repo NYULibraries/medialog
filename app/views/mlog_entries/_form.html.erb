@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :partner_code %><br>
-    <%= f.select(:partner_code, MLOG_VOCAB["partner_codes"].invert) %>
+    <%= f.select(:partner_code, MLOG_VOCAB["partner_codes"].invert, :include_blank => true ) %>
   </div>
   <div class="field">
     <%= f.label :collection_code %><br>
-    <%= f.select(:collection_code, MLOG_VOCAB["collection_codes"].invert) %> 
+    <%= f.select(:collection_code, MLOG_VOCAB["collection_codes"].invert, :include_blank => true ) %> 
   </div>
   <div class="field">
     <%= f.label :accession_num %><br>
@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :mediatype %><br>
-    <%= f.select(:mediatype, MLOG_VOCAB["mediatypes"].invert) %>
+    <%= f.select(:mediatype, MLOG_VOCAB["mediatypes"].invert, :include_blank => true ) %>
   </div>
   <div class="field">
     <%= f.label :manufacturer %><br>
@@ -57,15 +57,15 @@
   </div>
   <div class="field">
     <%= f.label :interface %><br>
-    <%= f.select(:interface, MLOG_VOCAB["interfaces"].invert) %>
+    <%= f.select(:interface, MLOG_VOCAB["interfaces"].invert, :include_blank => true ) %>
   </div>
   <div class="field">
     <%= f.label :imaging_software %><br>
-    <%= f.select(:imaging_software, MLOG_VOCAB["imaging_software"].invert) %>
+    <%= f.select(:imaging_software, MLOG_VOCAB["imaging_software"].invert, :include_blank => true ) %>
   </div>
   <div class="field">
     <%= f.label :hdd_interface %><br>
-    <%= f.select(:hdd_interface, MLOG_VOCAB["hdd_interfaces"].invert) %>
+    <%= f.select(:hdd_interface, MLOG_VOCAB["hdd_interfaces"].invert, :include_blank => true ) %>
   </div>
   <div class="field">
     <%= f.label :imaging_success %><br>
@@ -85,12 +85,12 @@
   </div>
   <div class="field">
     <%= f.label :image_format %><br>
-    <%= f.select(:image_format, MLOG_VOCAB["image_formats"].invert) %>
+    <%= f.select(:image_format, MLOG_VOCAB["image_formats"].invert, :include_blank => true ) %>
 
   </div>
   <div class="field">
     <%= f.label :encoding_scheme %><br>
-    <%= f.select(:encoding_scheme, MLOG_VOCAB["encoding_schemes"].invert) %>
+    <%= f.select(:encoding_scheme, MLOG_VOCAB["encoding_schemes"].invert, :include_blank => true ) %>
   </div>
   <div class="field">
     <%= f.label :partition_table_format %><br>
@@ -102,7 +102,7 @@
   </div>
   <div class="field">
     <%= f.label :filesystem %><br>
-    <%= f.select(:filesystem, MLOG_VOCAB["filesystems"].invert) %>
+    <%= f.select(:filesystem, MLOG_VOCAB["filesystems"].invert, :include_blank => true ) %>
   </div>
   <div class="field">
     <%= f.label :has_dfxml %><br>
