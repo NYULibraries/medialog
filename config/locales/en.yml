@@ -58,23 +58,3 @@ en:
         date_qc:                 Date QC-ed
         date_packaged:           Date Packaged
         date_transferred:        Date Transferred
-    values:
-      mlog_entry:
-        partner_codes:
-          afc:         Avery Fisher Center
-          apa:         Asian/Pacific/American Institute
-          bobst:       Bobst Library
-          columbia:    Columbia University Libraries
-          cornell:     Cornell University Libraries
-          dlts:        Digital Library Technology Services
-          fales:       Fales Library & Special Collections
-          ifa:         Institute of Fine Arts
-          isaw:        Institute for the Study of the Ancient World
-          nyu:         NYU Libraries
-          nyuarchives: NYU Archives
-          nyuhsl:      NYU Health Sciences Library
-          nyup:        NYU Press
-          nyupoly:     NYU Polytechnic Archives
-          pres:        Preservation and Conservation Department
-          princeton:   Princeton University Libraries
-          tamwag:      Tamiment Library and Robert F. Wagner Labor Archives

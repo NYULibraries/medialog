@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :partner_code %><br>
-    <%= f.text_field :partner_code %>
+    <%= f.select(:partner_code, MLOG_VOCAB["partner_codes"].invert) %>
   </div>
   <div class="field">
     <%= f.label :collection_code %><br>
-    <%= f.text_field :collection_code %>
+    <%= f.select(:collection_code, MLOG_VOCAB["collection_codes"].invert) %> 
   </div>
   <div class="field">
     <%= f.label :accession_num %><br>
@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :mediatype %><br>
-    <%= f.text_field :mediatype %>
+    <%= f.select(:mediatype, MLOG_VOCAB["mediatypes"].invert) %>
   </div>
   <div class="field">
     <%= f.label :manufacturer %><br>
@@ -57,15 +57,15 @@
   </div>
   <div class="field">
     <%= f.label :interface %><br>
-    <%= f.text_field :interface %>
+    <%= f.select(:interface, MLOG_VOCAB["interfaces"].invert) %>
   </div>
   <div class="field">
     <%= f.label :imaging_software %><br>
-    <%= f.text_field :imaging_software %>
+    <%= f.select(:imaging_software, MLOG_VOCAB["imaging_software"].invert) %>
   </div>
   <div class="field">
     <%= f.label :hdd_interface %><br>
-    <%= f.text_field :hdd_interface %>
+    <%= f.select(:hdd_interface, MLOG_VOCAB["hdd_interfaces"].invert) %>
   </div>
   <div class="field">
     <%= f.label :imaging_success %><br>
@@ -85,11 +85,12 @@
   </div>
   <div class="field">
     <%= f.label :image_format %><br>
-    <%= f.text_field :image_format %>
+    <%= f.select(:image_format, MLOG_VOCAB["image_formats"].invert) %>
+
   </div>
   <div class="field">
     <%= f.label :encoding_scheme %><br>
-    <%= f.text_field :encoding_scheme %>
+    <%= f.select(:encoding_scheme, MLOG_VOCAB["encoding_schemes"].invert) %>
   </div>
   <div class="field">
     <%= f.label :partition_table_format %><br>
@@ -101,7 +102,7 @@
   </div>
   <div class="field">
     <%= f.label :filesystem %><br>
-    <%= f.text_field :filesystem %>
+    <%= f.select(:filesystem, MLOG_VOCAB["filesystems"].invert) %>
   </div>
   <div class="field">
     <%= f.label :has_dfxml %><br>
