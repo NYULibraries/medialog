@@ -1,212 +1,198 @@
 <div class="panel panel-info">
-  <!-- Default panel contents -->
   <div class="panel-heading"><h4><%= t(:section_physical_data) %></h4></div>
-  <div class="panel-body">
-
-    <table class="table table-hover">
-      <tr>
-	<td class="col-md-3"><strong><%= t('helpers.label.mlog_entry.partner_code') %>:</strong></td>
-	<td><%= @mlog_entry.partner_code %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.collection_code') %>:</strong></td>
-	<td><%= @mlog_entry.collection_code %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.accession_num') %>:</strong></td>
-	<td><%= @mlog_entry.accession_num %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.media_id') %>:</strong></td>
-	<td><%= @mlog_entry.media_id %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.mediatype') %>:</strong></td>
-	<td><%= @mlog_entry.mediatype %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.manufacturer') %>:</strong></td>
-	<td><%= @mlog_entry.manufacturer %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.manufacturer_serial') %>:</strong></td>
-	<td><%= @mlog_entry.manufacturer_serial %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.label_text') %>:</strong></td>
-	<td><%= @mlog_entry.label_text %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.media_note') %>:</strong></td>
-	<td><%= @mlog_entry.media_note %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.photo_url') %>:</strong></td>
-	<td><%= @mlog_entry.photo_url %></td>
-      </tr>
-    </table>
-  </div>
 </div>
+<table class="table table-hover">
+  <tr>
+    <td class="col-md-3"><strong><%= t('helpers.label.mlog_entry.partner_code') %>:</strong></td>
+    <td><%= @mlog_entry.partner_code %></td>
+  </tr>
 
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.collection_code') %>:</strong></td>
+    <td><%= @mlog_entry.collection_code %></td>
+  </tr>
 
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.accession_num') %>:</strong></td>
+    <td><%= @mlog_entry.accession_num %></td>
+  </tr>
 
-<div class="panel panel-info">
-  <!-- Default panel contents -->
-  <div class="panel-heading"><h4><%= t(:section_disk_image_data) %></h4></div>
-  <div class="panel-body">
-    <table class="table table-hover">
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.image_filename') %>:</strong></td>
-	<td><%= @mlog_entry.image_filename %></td>
-      </tr>
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.media_id') %>:</strong></td>
+    <td><%= @mlog_entry.media_id %></td>
+  </tr>
 
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.interface') %>:</strong></td>
-	<td><%= @mlog_entry.interface %></td>
-      </tr>
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.mediatype') %>:</strong></td>
+    <td><%= @mlog_entry.mediatype %></td>
+  </tr>
 
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.imaging_software') %>:</strong></td>
-	<td><%= @mlog_entry.imaging_software %></td>
-      </tr>
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.manufacturer') %>:</strong></td>
+    <td><%= @mlog_entry.manufacturer %></td>
+  </tr>
 
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.hdd_interface') %>:</strong></td>
-	<td><%= @mlog_entry.hdd_interface %></td>
-      </tr>
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.manufacturer_serial') %>:</strong></td>
+    <td><%= @mlog_entry.manufacturer_serial %></td>
+  </tr>
 
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.imaging_success') %>:</strong></td>
-	<td><%= @mlog_entry.imaging_success %></td>
-      </tr>
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.label_text') %>:</strong></td>
+    <td><%= @mlog_entry.label_text %></td>
+  </tr>
 
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.interpretation_success') %>:</strong></td>
-	<td><%= @mlog_entry.interpretation_success %></td>
-      </tr>
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.media_note') %>:</strong></td>
+    <td><%= @mlog_entry.media_note %></td>
+  </tr>
 
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.imaged_by') %>:</strong></td>
-	<td><%= @mlog_entry.imaged_by %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.imaging_note') %>:</strong></td>
-	<td><%= @mlog_entry.imaging_note %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.image_format') %>:</strong></td>
-	<td><%= @mlog_entry.image_format %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.number_of_image_segments') %>:</strong></td>
-	<td><%= @mlog_entry.number_of_image_segments %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.encoding_scheme') %>:</strong></td>
-	<td><%= @mlog_entry.encoding_scheme %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.partition_table_format') %>:</strong></td>
-	<td><%= @mlog_entry.partition_table_format %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.number_of_partitions') %>:</strong></td>
-	<td><%= @mlog_entry.number_of_partitions %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.filesystem') %>:</strong></td>
-	<td><%= @mlog_entry.filesystem %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.has_dfxml') %>:</strong></td>
-	<td><%= @mlog_entry.has_dfxml %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.has_ftk_csv') %>:</strong></td>
-	<td><%= @mlog_entry.has_ftk_csv %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.image_size_bytes') %>:</strong></td>
-	<td><%= @mlog_entry.image_size_bytes %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.md5_checksum') %>:</strong></td>
-	<td><%= @mlog_entry.md5_checksum %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.sha1_checksum') %>:</strong></td>
-	<td><%= @mlog_entry.sha1_checksum %></td>
-      </tr>
-    </table>
-  </div>
-</div>
-
-
-<div class="panel panel-info">
-  <!-- Default panel contents -->
-  <div class="panel-heading"><h4><%= t(:section_workflow_job_tracking) %></h4></div>
-  <div class="panel-body">
-    <table class="table table-hover">
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.date_imaged') %>:</strong></td>
-	<td><%= @mlog_entry.date_imaged %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.date_ftk_loaded') %>:</strong></td>
-	<td><%= @mlog_entry.date_ftk_loaded %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.date_metadata_extracted') %>:</strong></td>
-	<td><%= @mlog_entry.date_metadata_extracted %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.date_photographed') %>:</strong></td>
-	<td><%= @mlog_entry.date_photographed %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.date_qc') %>:</strong></td>
-	<td><%= @mlog_entry.date_qc %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.date_packaged') %>:</strong></td>
-	<td><%= @mlog_entry.date_packaged %></td>
-      </tr>
-
-      <tr>
-	<td><strong><%= t('helpers.label.mlog_entry.date_transferred') %>:</strong></td>
-	<td><%= @mlog_entry.date_transferred %></td>
-      </tr>
-  </div>
-</div>
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.photo_url') %>:</strong></td>
+    <td><%= @mlog_entry.photo_url %></td>
+  </tr>
 </table>
+
+<div class="panel panel-info">
+  <div class="panel-heading"><h4><%= t(:section_disk_image_data) %></h4></div>
 </div>
+<table class="table table-hover">
+  <tr>
+    <td class="col-md-3"><strong><%= t('helpers.label.mlog_entry.image_filename') %>:</strong></td>
+    <td><%= @mlog_entry.image_filename %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.interface') %>:</strong></td>
+    <td><%= @mlog_entry.interface %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.imaging_software') %>:</strong></td>
+    <td><%= @mlog_entry.imaging_software %></td>
+  </tr>
+  
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.hdd_interface') %>:</strong></td>
+    <td><%= @mlog_entry.hdd_interface %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.imaging_success') %>:</strong></td>
+    <td><%= @mlog_entry.imaging_success %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.interpretation_success') %>:</strong></td>
+    <td><%= @mlog_entry.interpretation_success %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.imaged_by') %>:</strong></td>
+    <td><%= @mlog_entry.imaged_by %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.imaging_note') %>:</strong></td>
+    <td><%= @mlog_entry.imaging_note %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.image_format') %>:</strong></td>
+    <td><%= @mlog_entry.image_format %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.number_of_image_segments') %>:</strong></td>
+    <td><%= @mlog_entry.number_of_image_segments %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.encoding_scheme') %>:</strong></td>
+    <td><%= @mlog_entry.encoding_scheme %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.partition_table_format') %>:</strong></td>
+    <td><%= @mlog_entry.partition_table_format %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.number_of_partitions') %>:</strong></td>
+    <td><%= @mlog_entry.number_of_partitions %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.filesystem') %>:</strong></td>
+    <td><%= @mlog_entry.filesystem %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.has_dfxml') %>:</strong></td>
+    <td><%= @mlog_entry.has_dfxml %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.has_ftk_csv') %>:</strong></td>
+    <td><%= @mlog_entry.has_ftk_csv %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.image_size_bytes') %>:</strong></td>
+    <td><%= @mlog_entry.image_size_bytes %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.md5_checksum') %>:</strong></td>
+    <td><%= @mlog_entry.md5_checksum %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.sha1_checksum') %>:</strong></td>
+    <td><%= @mlog_entry.sha1_checksum %></td>
+  </tr>
+</table>
+
+
+<div class="panel panel-info">
+  <div class="panel-heading"><h4><%= t(:section_workflow_job_tracking) %></h4></div>
 </div>
+<table class="table table-hover">
+  <tr>
+    <td class="col-md-3"><strong><%= t('helpers.label.mlog_entry.date_imaged') %>:</strong></td>
+    <td><%= @mlog_entry.date_imaged %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.date_ftk_loaded') %>:</strong></td>
+    <td><%= @mlog_entry.date_ftk_loaded %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.date_metadata_extracted') %>:</strong></td>
+    <td><%= @mlog_entry.date_metadata_extracted %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.date_photographed') %>:</strong></td>
+    <td><%= @mlog_entry.date_photographed %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.date_qc') %>:</strong></td>
+    <td><%= @mlog_entry.date_qc %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.date_packaged') %>:</strong></td>
+    <td><%= @mlog_entry.date_packaged %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.date_transferred') %>:</strong></td>
+    <td><%= @mlog_entry.date_transferred %></td>
+  </tr>
+</table>
 
 <%= link_to 'Edit', edit_mlog_entry_path(@mlog_entry), class: "btn btn-primary" %> 
 <%= link_to 'Back', mlog_entries_path, class: "btn btn-info" %>
