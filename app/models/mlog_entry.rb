@@ -44,4 +44,6 @@
 #
 
 class MlogEntry < ActiveRecord::Base
+  validates_length_of :md5_checksum, :minimum => 32, :maximum => 32, :allow_blank => true
+  validates_length_of :sha1_checksum, :minimum => 40, :maximum => 40, :allow_blank => true
 end
