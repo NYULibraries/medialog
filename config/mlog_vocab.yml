@@ -118,3 +118,7 @@ filesystems:
   filesystem_hfs_plus:             "HFS+"
   filesystem_amiga_os:             "AmigaOS"
 
+image_success:
+  image_sucess_yes:		"Yes"
+  image_success_yeserror:	"Yes w/ errors"
+  image_success_no:		"No"
