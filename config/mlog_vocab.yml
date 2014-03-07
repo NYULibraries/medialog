@@ -84,10 +84,12 @@ mediatypes:
   mediatype_dvd:                  "DVD"
   mediatype_dvdr:                 "DVDR"
   mediatype_cd:                   "CD"
+  mediatype_zip:		  "Zip Disk"
 
 interfaces:
   interface_tableau_ultrabay:     "Tableau Ultrabay"
   interface_kryoflux:             "KryoFlux"
+  interface_tableau_t8r2:	  "Tableau T8-R2"
 
 imaging_software:
   imaging_software_kryoflux_imager:      "KryoFlux Imager"
@@ -120,5 +122,9 @@ filesystems:
 
 image_success:
   image_sucess_yes:		"Yes"
-  image_success_yeserror:	"Yes w/ errors"
   image_success_no:		"No"
+
+interpret_success: 
+  interpret_success_yes:	"Yes"
+  interpret_success_yes_errors:	"Yes W/Errors"
+  interpret_succes_no: 		"No"

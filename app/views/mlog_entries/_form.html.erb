@@ -85,7 +85,8 @@
     </div>
     <div class="field">
       <%= f.label :interpretation_success %><br>
-      <%= f.check_box :interpretation_success %>
+      <%= f.select(:interpretation_success, MLOG_VOCAB["interpret_success"].invert, :include_blank => true ) %>
+
     </div>
     <div class="field">
       <%= f.label :imaged_by %><br>

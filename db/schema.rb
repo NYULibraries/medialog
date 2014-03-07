@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307150502) do
+ActiveRecord::Schema.define(version: 20140307193758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20140307150502) do
     t.string   "imaging_software"
     t.string   "hdd_interface"
     t.string   "imaging_success"
-    t.boolean  "interpretation_success"
+    t.string   "interpretation_success"
     t.string   "imaged_by"
     t.text     "imaging_note"
     t.string   "image_format"
