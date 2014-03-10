@@ -82,18 +82,22 @@ mediatypes:
   mediatype_hard_disk_drive:      "Hard Disk Drive"
   mediatype_flash_drive:          "Flash Drive"
   mediatype_dvd:                  "DVD"
-  mediatype_dvdr:                 "DVDR"
+  mediatype_dvdr:                 "DVD-R"
+  mediatype_dvdrw:		  "DVD-RW"
   mediatype_cd:                   "CD"
+  mediatype_cdr:		  "CD-R"
+  mediatype_cdrw:		  "CD-RW"
   mediatype_zip:		  "Zip Disk"
 
 interfaces:
   interface_tableau_ultrabay:     "Tableau Ultrabay"
   interface_kryoflux:             "KryoFlux"
   interface_tableau_t8r2:	  "Tableau T8-R2"
+  interface_optical_HP:		  "HP CD/DVD Drive"
 
 imaging_software:
-  imaging_software_kryoflux_imager:      "KryoFlux Imager"
-  imaging_software_ftk_imager:           "FTK Imager"
+  imaging_software_kryoflux_imager_v220:      "KryoFlux Imager (DTC 2.20)"
+  imaging_software_ftk_imager_v3146:           "FTK Imager (v3.1.4.6)"
 
 hdd_interfaces:
   hdd_interface_usb:    "USB"
@@ -119,6 +123,8 @@ filesystems:
   filesystem_hfs:                  "HFS"
   filesystem_hfs_plus:             "HFS+"
   filesystem_amiga_os:             "AmigaOS"
+  filesystem_9660:		   "ISO 9660"
+  filesystem_9660_joliet:	   "ISO 9660 Joliet"
 
 image_success:
   image_sucess_yes:		"Yes"
