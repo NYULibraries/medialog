@@ -1,6 +1,17 @@
 class MlogEntriesController < ApplicationController
   before_action :set_mlog_entry, only: [:show, :edit, :update, :destroy]
 
+
+  def search
+    
+  end
+  
+  
+  def search_log
+    flash[:notice] = "Form was entered"
+    redirect_to action: 'search'
+  end
+
   # GET /mlog_entries
   # GET /mlog_entries.json
   def index
