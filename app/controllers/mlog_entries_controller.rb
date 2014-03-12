@@ -9,7 +9,10 @@ class MlogEntriesController < ApplicationController
   
   def search_log
     flash[:notice] = "Form was entered"
-    redirect_to action: 'search'
+    @params = params
+    
+    @result = MlogEntry.where  partner_code: params[:partner]
+
   end
 
   # GET /mlog_entries
