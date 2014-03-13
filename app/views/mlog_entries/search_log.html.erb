@@ -1,0 +1,32 @@
+<h2>Search Results</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>partner code</th>
+      <th>media id</th>
+      <th>accession id</th>
+      <th>media type</th>
+      <th></th>
+  </thead>
+  <tbody>
+    <% @result.each do |r| %>
+      <tr>
+	<td>
+	  <%= r[:partner_code] %>
+	</td>
+	<td>
+          <%= r[:collection_code] + "_" +  r[:media_id].to_s %>
+	<td>
+          <%= r[:accession_id] %>
+        </td>
+	<td>
+	  <%= r[:mediatype] %>
+	</td>
+	<td>
+	  <%= button_to 'Show', mlog_entry_path(id: r[:id]), :method => :get, :class => 'btn btn-primary' %>
+	</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
