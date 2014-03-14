@@ -7,12 +7,8 @@ class MlogEntriesController < ApplicationController
   end
   
   
-  def search_log
-    flash[:notice] = "Form was entered"
-    @params = params
-    
-    @result = MlogEntry.where  partner_code: params[:partner]
-
+  def search_log    
+    @result = MlogEntry.where(["partner_code = ? or collection_code = ?", params[:partner], params[:collection]]) 
   end
 
   # GET /mlog_entries
