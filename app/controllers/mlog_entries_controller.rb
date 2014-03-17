@@ -8,7 +8,7 @@ class MlogEntriesController < ApplicationController
   
   
   def search_log    
-    @result = MlogEntry.where(["partner_code = ? or collection_code = ?", params[:partner], params[:collection]]) 
+    @result = MlogEntry.where(["partner_code = ? or collection_code = ? or media_id = ?",params[:partner], params[:collection], params[:media].to_i]) 
   end
 
   # GET /mlog_entries
