@@ -1,5 +1,5 @@
 module ApplicationHelper
   def display_in_megabytes(bytes)
-    bytes.nil? ? '' : ((bytes / 1024) / 1024).round(2)
+    bytes.nil? ? '' : ((bytes / 1024.0) / 1024.0).round(2)
   end
 end
