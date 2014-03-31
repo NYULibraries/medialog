@@ -1,14 +1,81 @@
 # -*- coding: utf-8 -*-
 partner_codes:
+  afc:         Avery Fisher Center
+  apa:         Asian/Pacific/American Institute
+  bobst:       Bobst Library
+  columbia:    Columbia University Libraries
+  cornell:     Cornell University Libraries
+  dlts:        Digital Library Technology Services
   fales:       Fales Library & Special Collections
+  ifa:         Institute of Fine Arts
+  isaw:        Institute for the Study of the Ancient World
+  nyu:         NYU Libraries
   nyuarchives: NYU Archives
+  nyuhsl:      NYU Health Sciences Library
+  nyup:        NYU Press
+  nyupoly:     NYU Polytechnic Archives
+  pres:        Preservation and Conservation Department
+  princeton:   Princeton University Libraries
   tamwag:      Tamiment Library and Robert F. Wagner Labor Archives
 
 collection_codes:
-  blake:		"blake :: MSS 217 : Jeremy Blake Papers"
+  aco:           "aco :: Arabic Collections Online"
+  adl:           "adl :: Afghanistan Digital Library"
+  afi-ds:        "afi-ds :: American Film Institute - Director's Series"
+  aia031_002:    "aia031_002 :: Mick Moloney Irish-American Music and Popular Culture Field Recordings"
+  aiagih:        "aiagih :: AIA.030: Ireland House Oral History Collection"
+  aiamn:         "aiamn :; AIA.036 Miriam Nyhan Oral History Collection"
+  alba-moscow:   "alba-moscow :: ALBA PHOTO 177: International Brigades Archive, Moscow: Selected Images"
+  alba191:       "alba191 :: Robert Hale Merriman Papers"
+  alba226:       "alba226 :: Julia Newman \"Into the Fire\" Research Material"
+  apa:           "apa :: Records of the Asian/Pacific/American Institute"
+  apis:          "apis :: Advanced Papyrological Information System Images"
+  archivesphoto: "archivesphoto :: Archives Photograph Collection"
+  av:            "av :: AV Collection"
+  awdl:          "awdl :: Ancient World Digital Library"
+  beard:         "beard :: Voices from the Food Revolution: People Who Changed The Way Americans Eat"
+  berol:         "berol :: Alfred C. Berol Collection of Lewis Carroll"
+  blake:         "blake :: MSS 217 : Jeremy Blake Papers"
+  digpub:        "digpub :: Digital Publications"
+  dougherty:     "dougherty :: Peter Dougherty Collection"
+  egypt:         "egypt :: Egyptian Oversize Collection"
+  fawf:          "fawf :: The Fight Against War and Fascism"
+  frdl:          "frdl :: Friedlaender"
+  gcn:           "gcn :: Gay Cable Network Archives"
+  hering:               "hering :: D.W. Hering Papers"
+  hidvl:                "hidvl :: Hemispheric Institute Digital Video Library"
+  historic_photos:      "historic_photos :: Historic Photos"
+  hmark:                "hmark :: Herman Mark Collection"
+  iaaa:                 "iaaa :: Institute of Afro American Affairs"
+  io:                   "io :: Indian Ocean"
+  judson:               "judson :: Judson Memorial Church Archive"
+  levy:                 "levy :: Levy Dime Novel Collection"
+  lotringer:            "lotringer :: Sylvere Lotringer Papers and Semiotext(e) Archive"
+  mendez:               "mendez :: Mendez Mural Community Garden Archive"
+  misc:                 "misc :: Miscellaneous Collection"
+  moore:                "moore :: MSS 135: Frank Moore Papers"
+  mss084:               "mss084 :: Between C & D Collection"
+  mss208:               "mss208 :: Sylvester Manor Archive"
   mss384:               "mss384 :: Performance Studies International"
-  rg_35_2:		"rg35_2  :: Records of the Alternative Media Center and Interactive Telecommunications Program, Tisch School of the Arts"
+  mwm:                  "mwm :: Mondays with Merce"
+  nyupress:             "nyupress :: New York University Press Books"
+  ohal:                 "ohal :: OH.002 : Oral History of the American Left: Radical Histories"
+  ows:                  "ows :: TAM598: Occupy Wall Street Think Tank Collection"
+  randall-photo:        "randall-photo :: ALBA.PHOTO.011 : Harry Randall: Fifteenth International Brigade Photographs"
+  rg35_2:               "rg35_2 :: Records of the Alternative Media Center and Interactive Telecommunications Program, Tisch School of the Arts"
+  rivers:               "rivers :: mss293 : Larry Rivers Papers"
+  rosie:                "rosie :: OH.081 : Spargel Production Rosie the Riveter Media Collection"
+  specialcollections:   "Special Collections"
+  tam439:               "tam439 :: Camp Kinderland Records"
+  tam616:               "tam616 :: Bravo Collection"
   tam642:		"tam642 :: Dissident Magazine Records"
+  thane:                "thane  :: Lucy Thane Riot Grrrl"
+  theliberator:         "The Liberator"
+  themasses:            "The Masses"
+  var:                  "var :: Video At Risk"
+  washsquarephoto:      "washsquarephoto :: NYU.ARCH.PHOTO.00001 :: Washington Square Park, Area, and Campus Buildings Image Collection"
+  withers:              "withers :: Carl L. Withers Manuscript Collection"
+  wojnarowicz:          "wojnarowicz ::  David Wojnarowicz Papers"
 
 mediatypes:
   mediatype_floppy_3_5:           "3.5\" Floppy Disk"
