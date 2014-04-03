@@ -4,6 +4,6 @@ class ChangeImagingSuccessFormatInMlog < ActiveRecord::Migration
   end
 
   def down
-    change_column :mlog_entires, :imaging_success, :boolean
+    change_column :mlog_entries, :imaging_success, :boolean
   end
 end
