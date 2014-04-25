@@ -47,9 +47,9 @@
 
 FactoryGirl.define do
   factory :mlog_entry do
-    partner_code ""
-    collection_code ""
-    accession_num ""
+    partner_code "My Partner Code"
+    collection_code "My Collection Code"
+    accession_num "My Accession Number"
     media_id 1
     mediatype "MyString"
     manufacturer "MyString"
