@@ -5,6 +5,6 @@ Medialog::Application.routes.draw do
 
   get 'search' => 'mlog_entries#search'
   
-  post 'search' => 'mlog_entries#search_log'
-
+  post 'results' => 'mlog_entries#results'
+  get 'results' => 'mlog_entries#results'
 end

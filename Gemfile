@@ -11,6 +11,7 @@ gem 'bootstrap-sass', '>= 3.0.0.0'
 gem 'figaro'
 gem 'pg'
 gem 'thin'
+gem 'kaminari'
 
 group :development do
   gem 'better_errors'

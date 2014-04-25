@@ -17,6 +17,9 @@
   </thead>
 
   <tbody>
+    
+
+    <%= paginate @mlog_entries %>
     <% @mlog_entries.each do |mlog_entry| %>
       <tr>
         <td><%= mlog_entry.partner_code %></td>
@@ -31,6 +34,7 @@
         <td><%= link_to 'Destroy', mlog_entry, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
       </tr>
     <% end %>
+
   </tbody>
 </table>
 
