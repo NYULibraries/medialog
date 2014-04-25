@@ -1,0 +1,32 @@
+<h2>Search Results</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>partner code</th>
+      <th>collection code</th>
+      <th>media id</th>
+      <th>accession id</th>
+      <th>media type</th>
+      <th/>
+      <th/>
+      <th/>
+  </thead>
+  <tbody>
+    <%= paginate @results %>
+    <% @results.each do |r| %>
+      <tr>
+	<td><%= r[:partner_code] %></td>
+	<td><%= r[:collection_code] %></td>
+        <td><%= r[:media_id].to_s %></td>
+        <td><%= r[:accession_num] %></td>
+	<td><%= r[:mediatype] %></td>
+	<td><%= link_to 'Show', r, class: "btn btn-info btn-xs" %></td>
+        <td><%= link_to 'Edit', edit_mlog_entry_path(r), class: "btn btn-primary btn-xs" %></td>
+        <td><%= link_to 'Destroy', r, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'New Entry', new_mlog_entry_path, class: "btn btn-primary btn-sm" %>
+
