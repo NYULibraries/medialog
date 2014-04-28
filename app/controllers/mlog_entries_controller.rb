@@ -6,7 +6,16 @@ class MlogEntriesController < ApplicationController
   def search
     
   end
-  
+
+  def clone
+    flash[:notice] = "You made it to clone"
+    source_entry = MlogEntry.find(params[:id])
+    @mlog_entry = MlogEntry.new
+    @mlog_entry[:partner_code] = source_entry[:partner_code]
+    @mlog_entry[:collection_code] = source_entry[:collection_code]
+    @mlog_entry[:mediatype] = source_entry[:mediatype]
+    @mlog_entry[:media_id] = source_entry[:media_id] + 1
+  end
   
   def results
     @results = MlogEntry.where(["partner_code = ? or collection_code = ? or media_id = ?",params[:partner], params[:collection], params[:media].to_i]).order(partner_code: :asc, collection_code: :asc, media_id: :asc).page params[:page]

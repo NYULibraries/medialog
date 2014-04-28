@@ -7,4 +7,7 @@ Medialog::Application.routes.draw do
   
   post 'results' => 'mlog_entries#results'
   get 'results' => 'mlog_entries#results'
+  
+  get 'mlog_entries/:id/clone' => 'mlog_entries#clone'
+
 end
