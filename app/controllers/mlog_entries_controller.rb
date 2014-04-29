@@ -8,7 +8,6 @@ class MlogEntriesController < ApplicationController
   end
 
   def clone
-    flash[:notice] = "You made it to clone"
     source_entry = MlogEntry.find(params[:id])
     @mlog_entry = MlogEntry.new
     @mlog_entry[:partner_code] = source_entry[:partner_code]
