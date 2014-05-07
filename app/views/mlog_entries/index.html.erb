@@ -26,8 +26,8 @@
         <td><%= mlog_entry.collection_code %></td>
         <td><%= mlog_entry.accession_num %></td>
         <td><%= mlog_entry.media_id %></td>
-        <td><%= mlog_entry.mediatype %></td>
-        <td><%= mlog_entry.imaging_success %></td>
+        <td><%= MLOG_VOCAB["mediatypes"][mlog_entry.mediatype] %></td>
+        <td><%= MLOG_VOCAB["image_success"][mlog_entry.imaging_success] %></td>
         <td><%= display_in_megabytes(mlog_entry.image_size_bytes).to_s %></td>
         <td><%= link_to 'Show', mlog_entry, class: "btn btn-info btn-xs" %></td>
         <td><%= link_to 'Edit', edit_mlog_entry_path(mlog_entry), class: "btn btn-primary btn-xs" %></td>
