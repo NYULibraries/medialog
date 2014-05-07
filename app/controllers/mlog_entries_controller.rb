@@ -23,7 +23,7 @@ class MlogEntriesController < ApplicationController
   # GET /mlog_entries
   # GET /mlog_entries.json
   def index
-    @mlog_entries = MlogEntry.page params[:page]
+    @mlog_entries = MlogEntry.order(updated_at: :desc).page params[:page]
   end
 
   # GET /mlog_entries/1
