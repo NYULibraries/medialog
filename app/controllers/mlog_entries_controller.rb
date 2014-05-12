@@ -7,6 +7,14 @@ class MlogEntriesController < ApplicationController
     
   end
 
+  def repository
+    @collections = MlogEntry.select(:collection_code).where(["partner_code = ?", params[:repo]]).distinct
+  end
+
+  def collection
+    @mlog_entries = MlogEntry.where(["collection_code = ?", params[:collection_code]]).order(id: :asc)
+  end
+
   def clone
     source_entry = MlogEntry.find(params[:id])
     @mlog_entry = MlogEntry.new

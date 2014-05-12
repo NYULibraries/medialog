@@ -1,0 +1,19 @@
+<h2><%= MLOG_VOCAB["partner_codes"][params[:repo]] %></h2>
+
+<h3>collections</h3>
+<table class="table table-striped repository">
+  <theader>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+    <tr>
+  </theader>
+  <tbody>
+    <% @collections.each do |collection| %>
+    <% col = MLOG_VOCAB["collection_codes"][collection.collection_code].split(" :: ") %>
+    <tr>
+      <td><%= link_to col[0], "/collection/" + col[0] %></td>
+      <td><%= col[1] %></td>
+    </tr>
+  </tbody>
+<% end %>

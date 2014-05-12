@@ -6,8 +6,11 @@ Medialog::Application.routes.draw do
   get 'search' => 'mlog_entries#search'
   
   post 'results' => 'mlog_entries#results'
-  get 'results' => 'mlog_entries#results'
   
-  get 'mlog_entries/:id/clone', to: 'mlog_entries#clone', as: :clone_mlog_entry
+  get 'repository/:repo' => 'mlog_entries#repository'
 
+  get 'collection/:collection_code' => 'mlog_entries#collection'
+
+  get 'mlog_entries/:id/clone', to: 'mlog_entries#clone', as: :clone_mlog_entry
+  
 end
