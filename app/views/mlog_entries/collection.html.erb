@@ -16,6 +16,7 @@
   </thead>
 
   <tbody>
+    <% paginate @mlog_entries %>
     <% @mlog_entries.each do |mlog_entry| %>
       <tr>
         <td><%= mlog_entry.accession_num %></td>
