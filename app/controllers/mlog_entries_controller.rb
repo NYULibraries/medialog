@@ -12,7 +12,7 @@ class MlogEntriesController < ApplicationController
   end
 
   def collection
-    @mlog_entries = MlogEntry.where(["collection_code = ?", params[:collection_code]]).order(id: :asc).page params[:page]
+    @mlog_entries = MlogEntry.where(["collection_code = ?", params[:collection_code]]).order(media_id: :asc).page params[:page]
   end
 
   def clone
