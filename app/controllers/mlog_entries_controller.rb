@@ -26,6 +26,7 @@ class MlogEntriesController < ApplicationController
   
   def results
     @results = MlogEntry.where(["partner_code = ? or collection_code = ? or media_id = ?",params[:partner], params[:collection], params[:media].to_i]).order(partner_code: :asc, collection_code: :asc, media_id: :asc).page params[:page]
+    
   end
 
   # GET /mlog_entries

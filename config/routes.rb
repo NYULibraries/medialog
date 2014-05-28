@@ -7,6 +7,8 @@ Medialog::Application.routes.draw do
   
   post 'results' => 'mlog_entries#results'
   
+  get 'results' => 'mlog_entries#results'
+  
   get 'repository/:repo' => 'mlog_entries#repository'
 
   get 'collection/:collection_code' => 'mlog_entries#collection'

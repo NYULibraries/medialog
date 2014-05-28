@@ -12,6 +12,8 @@
       <th/>
   </thead>
   <tbody>
+ 
+    <h1>TEST: <%= @results.size %></h1>
     <%= paginate @results %>
     <% @results.each do |r| %>
       <tr>
