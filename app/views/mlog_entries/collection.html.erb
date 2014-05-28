@@ -1,9 +1,9 @@
-<h2><%= MLOG_VOCAB["partner_codes"][@mlog_entries[0].partner_code] %></h2>
-<h1><%= MLOG_VOCAB["collection_codes"][@mlog_entries[0].collection_code] %></h1>
+<h4><%= MLOG_VOCAB["partner_codes"][@mlog_entries[0].partner_code] %></h2>
+<h3><%= MLOG_VOCAB["collection_codes"][@mlog_entries[0].collection_code] %></h1>
 <b>media objects</b>
 
 <table class="table table-striped">
-  <thead>
+
     <tr>
       <th>Accession Num</th>
       <th>Media ID</th>
@@ -14,10 +14,10 @@
       <th></th>
       <th></th>
     </tr>
-  </thead>
 
-  <tbody>
-    <% paginate @mlog_entries %>
+
+    
+    <%= paginate @mlog_entries %>
     <% @mlog_entries.each do |mlog_entry| %>
       <tr>
         <td><%= mlog_entry.accession_num %></td>
@@ -47,7 +47,7 @@
       </tr>
     <% end %>
 
-  </tbody>
+
 </table>
 
 <br>
