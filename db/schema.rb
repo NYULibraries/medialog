@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140506201736) do
+ActiveRecord::Schema.define(version: 20140530133218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20140506201736) do
     t.string   "filesystem"
     t.boolean  "has_dfxml"
     t.boolean  "has_ftk_csv"
-    t.integer  "image_size_bytes"
+    t.integer  "image_size_bytes",         limit: 8
     t.string   "md5_checksum"
     t.string   "sha1_checksum"
     t.datetime "date_imaged"
