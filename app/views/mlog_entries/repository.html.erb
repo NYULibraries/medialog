@@ -10,10 +10,11 @@
   </theader>
   <tbody>
     <% @collections.each do |collection| %>
-    <% col = MLOG_VOCAB["collection_codes"][collection.collection_code].split(" :: ") %>
-    <tr>
-      <td><%= link_to col[0], "/collection/" + col[0] %></td>
-      <td><%= col[1] %></td>
-    </tr>
+      <% col = MLOG_VOCAB["collection_codes"][collection.collection_code].split(" :: ") %>
+      <tr>
+        <td><%= link_to col[0], "/collection/" + col[0] %></td>
+        <td><%= col[1] %></td>
+      </tr>
+    <% end %>   
   </tbody>
-<% end %>
+</table>

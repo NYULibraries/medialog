@@ -12,7 +12,13 @@ class MlogEntriesController < ApplicationController
   end
 
   def collection
-    @mlog_entries = MlogEntry.where(["collection_code = ?", params[:collection_code]]).order(media_id: :asc).page params[:page]
+    @mlog_entries = MlogEntry.where("collection_code = ?", params[:collection_code]).order(media_id: :asc).page params[:page]
+    @accessions = Set.new
+    @mlog_entries.each do |mlog|
+      unless mlog.accession_num.nil? || mlog.accession_num == ""
+        @accessions.add(mlog.accession_num)
+      end
+    end
   end
 
   def clone
@@ -22,6 +28,10 @@ class MlogEntriesController < ApplicationController
     @mlog_entry[:collection_code] = source_entry[:collection_code]
     @mlog_entry[:mediatype] = source_entry[:mediatype]
     @mlog_entry[:media_id] = source_entry[:media_id] + 1
+  end
+
+  def accession
+    @mlog_entries = MlogEntry.where("accession_num = ? and collection_code = ?", params[:accession], params[:collection]).order(media_id: :asc).page params[:page]
   end
   
   def results

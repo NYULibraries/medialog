@@ -11,6 +11,8 @@ Medialog::Application.routes.draw do
   
   get 'repository/:repo' => 'mlog_entries#repository'
 
+  get 'accession/' => 'mlog_entries#accession'
+
   get 'collection/:collection_code' => 'mlog_entries#collection'
 
   get 'mlog_entries/:id/clone', to: 'mlog_entries#clone', as: :clone_mlog_entry
