@@ -56,10 +56,10 @@
     <td><%= @mlog_entry.photo_url %></td>
   </tr>
 </table>
-
 <div class="panel panel-info">
-  <div class="panel-heading"><h4><%= t(:section_disk_image_data) %></h4></div>
+  <div class="panel-heading"><h4><%= t(:section_disk_imaging_data) %></h4></div>
 </div>
+
 <table class="table table-hover">
   <tr>
     <td class="col-md-3"><strong><%= t('helpers.label.mlog_entry.image_filename') %>:</strong></td>
@@ -100,7 +100,12 @@
     <td><strong><%= t('helpers.label.mlog_entry.imaging_note') %>:</strong></td>
     <td><%= @mlog_entry.imaging_note %></td>
   </tr>
+</table>
+<div class="panel panel-info">
+  <div class="panel-heading"><h4><%= t(:section_disk_image_data) %></h4></div>
+</div>
 
+<table class="table table-hover">
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.image_format') %>:</strong></td>
     <td><%= @mlog_entry.image_format %></td>
