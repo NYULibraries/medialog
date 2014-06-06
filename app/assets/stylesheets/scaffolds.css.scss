@@ -6,6 +6,8 @@ body {
   line-height: 18px;
 }
 
+nav.navbar-fixed-top ul a {padding: 1em; line-height: 50px; font-weight: bold; color: #fff;}
+
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -19,9 +21,9 @@ pre {
 }
 
 a {
-  color: #000;
+  color: #d11255;
   &:visited {
-    color: #fff;
+    color: #448ccb;
   }
   &:hover {
     color: #fff;
