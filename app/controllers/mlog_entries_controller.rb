@@ -20,6 +20,19 @@ class MlogEntriesController < ApplicationController
       end
     end
   end
+  
+  def nav 
+    mlog = MlogEntry.find(params[:id])    
+    nId = mlog.media_id
+    if params[:dir] == "next"
+     nId += 1
+    elsif params[:dir] == "prev"
+      nId -= 1
+    end
+
+    nextMlog = MlogEntry.where("collection_code = ? and partner_code = ? and media_id =?", mlog.collection_code, mlog.partner_code, nId)[0]['id']
+    redirect_to :action => 'show',  :id => nextMlog
+  end
 
   def clone
     source_entry = MlogEntry.find(params[:id])

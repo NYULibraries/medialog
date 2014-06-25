@@ -17,8 +17,8 @@
 #  interface                :string(255)
 #  imaging_software         :string(255)
 #  hdd_interface            :string(255)
-#  imaging_success          :boolean
-#  interpretation_success   :boolean
+#  imaging_success          :string(255)
+#  interpretation_success   :string(255)
 #  imaged_by                :string(255)
 #  imaging_note             :text
 #  image_format             :string(255)
@@ -41,6 +41,8 @@
 #  created_at               :datetime
 #  updated_at               :datetime
 #  number_of_image_segments :integer
+#  ref_id                   :string(255)
+#  has_mactime_csv          :boolean
 #
 
 class MlogEntry < ActiveRecord::Base
