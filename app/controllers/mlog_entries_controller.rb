@@ -6,6 +6,21 @@ class MlogEntriesController < ApplicationController
   def search
     
   end
+  
+  def results
+    
+    if (params[:partner].empty? and params[:collection].empty? and params[:media].empty?)
+      flash[:warning] = "One of the three fields must be filled in to execute the query"
+      redirect_to :action => 'search'
+    end
+    
+    @params = params
+    conditions = { partner_code: params[:partner], 
+               collection_code: params[:collection], 
+               media_id: (params[:media].to_i unless params[:media].blank?) }
+
+    @results = MlogEntry.where(conditions.delete_if {|k,v| v.blank?}).page params[:page]
+  end
 
   def repository
     @collections = MlogEntry.select(:collection_code).where(["partner_code = ?", params[:repo]]).distinct
@@ -45,11 +60,6 @@ class MlogEntriesController < ApplicationController
 
   def accession
     @mlog_entries = MlogEntry.where("accession_num = ? and collection_code = ?", params[:accession], params[:collection]).order(media_id: :asc).page params[:page]
-  end
-  
-  def results
-    @results = MlogEntry.where(["partner_code = ? or collection_code = ? or media_id = ?",params[:partner], params[:collection], params[:media].to_i]).order(partner_code: :asc, collection_code: :asc, media_id: :asc).page params[:page]
-    
   end
 
   # GET /mlog_entries

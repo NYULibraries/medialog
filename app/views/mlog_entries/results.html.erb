@@ -1,3 +1,4 @@
+<%= @bool %>
 <h2>Search Results</h2>
 <table class="table">
   <thead>
@@ -12,8 +13,7 @@
       <th/>
   </thead>
   <tbody>
- 
-    <h1>TEST: <%= @results.size %></h1>
+
     <%= paginate @results %>
     <% @results.each do |r| %>
       <tr>
