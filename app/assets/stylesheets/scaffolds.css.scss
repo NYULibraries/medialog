@@ -20,17 +20,6 @@ pre {
   font-size: 11px;
 }
 
-a {
-  color: #d11255;
-  &:visited {
-    color: #448ccb;
-  }
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
-}
-
 div {
   &.field, &.actions {
     margin-bottom: 10px;
