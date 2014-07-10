@@ -55,6 +55,7 @@ class MlogEntriesController < ApplicationController
     @mlog_entry[:partner_code] = source_entry[:partner_code]
     @mlog_entry[:collection_code] = source_entry[:collection_code]
     @mlog_entry[:mediatype] = source_entry[:mediatype]
+    @mlog_entry[:box_number] = source_entry[:box_number]
     @mlog_entry[:media_id] = source_entry[:media_id] + 1
   end
 
@@ -130,6 +131,6 @@ class MlogEntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mlog_entry_params
-      params.require(:mlog_entry).permit(:partner_code, :collection_code, :accession_num, :media_id, :mediatype, :manufacturer, :manufacturer_serial, :label_text, :media_note, :photo_url, :image_filename, :interface, :imaging_software, :hdd_interface, :imaging_success, :interpretation_success, :imaged_by, :imaging_note, :image_format, :encoding_scheme, :partition_table_format, :number_of_partitions, :filesystem, :has_dfxml, :has_ftk_csv, :image_size_bytes, :md5_checksum, :sha1_checksum, :date_imaged, :date_ftk_loaded, :date_metadata_extracted, :date_photographed, :date_qc, :date_packaged, :date_transferred, :number_of_image_segments, :ref_id)
+      params.require(:mlog_entry).permit(:partner_code, :collection_code, :accession_num, :media_id, :mediatype, :manufacturer, :manufacturer_serial, :label_text, :media_note, :photo_url, :image_filename, :interface, :imaging_software, :hdd_interface, :imaging_success, :interpretation_success, :imaged_by, :imaging_note, :image_format, :encoding_scheme, :partition_table_format, :number_of_partitions, :filesystem, :has_dfxml, :has_ftk_csv, :has_mactime_csv, :image_size_bytes, :md5_checksum, :sha1_checksum, :date_imaged, :date_ftk_loaded, :date_metadata_extracted, :date_photographed, :date_qc, :date_packaged, :date_transferred, :number_of_image_segments, :ref_id, :box_number)
     end
 end

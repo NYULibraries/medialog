@@ -25,7 +25,10 @@
     <td><strong><%= t('helpers.label.mlog_entry.media_id') %>:</strong></td>
     <td><%= @mlog_entry.media_id %></td>
   </tr>
-
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.box_number') %>:</strong></td>
+    <td><%= @mlog_entry.box_number %></td>
+  </tr>
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.mediatype') %>:</strong></td>
     <td><%= @mlog_entry.mediatype %></td>
@@ -144,6 +147,11 @@
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.has_ftk_csv') %>:</strong></td>
     <td><%= @mlog_entry.has_ftk_csv %></td>
+  </tr>
+
+    <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.has_mactime_csv') %>:</strong></td>
+    <td><%= @mlog_entry.has_mactime_csv %></td>
   </tr>
 
   <tr>

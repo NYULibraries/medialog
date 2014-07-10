@@ -43,6 +43,7 @@
 #  number_of_image_segments :integer
 #  ref_id                   :string(255)
 #  has_mactime_csv          :boolean
+#  box_number               :integer
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

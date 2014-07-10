@@ -11,9 +11,8 @@
 </div>
 <% end %>
 
-<div class="panel panel-info">
-  <!-- Default panel contents -->
-  <div class="panel-heading"><h4><%= t(:section_physical_data) %></h4></div>
+<div class="pane panel-info">
+  <div class="panel-heading"><h4><%= t(:section_collection_data) %></h4></div>
   <div class="panel-body">
     <div class="field">
       <%= f.label :partner_code %><br>
@@ -23,9 +22,21 @@
       <%= f.label :collection_code %><br>
       <%= f.select(:collection_code, MLOG_VOCAB["collection_codes"].invert, :include_blank => true ) %> 
     </div>
+  </div> 
+</div>
+<div class="panel panel-info">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h4><%= t(:section_physical_data) %></h4></div>
+  <div class="panel-body">
     <div class="field">
       <%= f.label :media_id %><br>
       <%= f.number_field :media_id %>
+    </div>
+    <div>
+      <div class="field">
+        <%= f.label "box_number" %><br>
+        <%= f.number_field :box_number %>
+      </div>
     </div>
     <div class="field">
       <%= f.label :accession_num %><br>

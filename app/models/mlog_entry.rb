@@ -43,6 +43,7 @@
 #  number_of_image_segments :integer
 #  ref_id                   :string(255)
 #  has_mactime_csv          :boolean
+#  box_number               :integer
 #
 
 class MlogEntry < ActiveRecord::Base

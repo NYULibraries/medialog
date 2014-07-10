@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625173425) do
+ActiveRecord::Schema.define(version: 20140710155102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20140625173425) do
     t.integer  "number_of_image_segments"
     t.string   "ref_id"
     t.boolean  "has_mactime_csv"
+    t.integer  "box_number"
   end
 
 end
