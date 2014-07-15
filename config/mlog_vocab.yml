@@ -5,26 +5,27 @@ partner_codes:
   tamwag:      Tamiment Library and Robert F. Wagner Labor Archives
 
 collection_codes:
-  blake:         "blake :: MSS 217 : Jeremy Blake Papers"
-  mss384:               "mss384 :: Performance Studies International"
-  rg35_2:               "rg35_2 :: Records of the Alternative Media Center and Interactive Telecommunications Program, Tisch School of the Arts"
-  tam642:		"tam642 :: Dissent Magazine Records"
-  mss343:		"mss343 :: MSS 343 : Exit Art Archive"
-  tam635:			"tam635 :: Brecht Forum Records" 
-  aia30:			"aia30 :: Ireland House Oral Histories" 
-  mss279:     "mss279 :: New York Womens Culinary Alliance"
+  blake:          "blake :: Jeremy Blake Papers"
+  mss384:         "mss384 :: Performance Studies International"
+  rg35_2:         "rg35_2 :: Records of the Alternative Media Center and Interactive Telecommunications Program, Tisch School of the Arts"
+  tam642:         "tam642 :: Dissent Magazine Records"
+  mss343:         "mss343 :: Exit Art Archive"
+  tam635:         "tam635 :: Brecht Forum Records" 
+  aia30:          "aia30 :: Ireland House Oral Histories" 
+  mss279:         "mss279 :: New York Womens Culinary Alliance"
+
 mediatypes:
-  mediatype_floppy_3_5:           "3.5\" Floppy Disk"
-  mediatype_floppy_5_25:          "5.25\" Floppy Disk"
+  mediatype_floppy_3_5:           "3.5 in. Floppy Disk"
+  mediatype_floppy_5_25:          "5.25 in. Floppy Disk"
   mediatype_hard_disk_drive:      "Hard Disk Drive"
   mediatype_flash_drive:          "Flash Drive"
   mediatype_dvd:                  "DVD"
   mediatype_dvdr:                 "DVD-R"
-  mediatype_dvdrw:		  "DVD-RW"
+  mediatype_dvdrw:		            "DVD-RW"
   mediatype_cd:                   "CD"
-  mediatype_cdr:		  "CD-R"
-  mediatype_cdrw:		  "CD-RW"
-  mediatype_zip:		  "Zip Disk"
+  mediatype_cdr:		              "CD-R"
+  mediatype_cdrw:		              "CD-RW"
+  mediatype_zip:		              "Zip Disk"
 
 interfaces:
   interface_tableau_ultrabay:     "Tableau Ultrabay"
