@@ -12,6 +12,7 @@ collection_codes:
   mss343:		"mss343 :: MSS 343 : Exit Art Archive"
   tam635:			"tam635 :: Brecht Forum Records" 
   aia30:			"aia30 :: Ireland House Oral Histories" 
+  mss279:     "mss279 :: New York Womens Culinary Alliance"
 mediatypes:
   mediatype_floppy_3_5:           "3.5\" Floppy Disk"
   mediatype_floppy_5_25:          "5.25\" Floppy Disk"
