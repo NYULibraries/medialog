@@ -20,7 +20,7 @@
 
 <table class="table table-hover">
   <tr>
-    <td><strong><%= t('helpers.label.mlog_entry.accession_num') %>:</strong></td>
+    <td class="col-md-3"><strong><%= t('helpers.label.mlog_entry.accession_num') %>:</strong></td>
     <td><%= @mlog_entry.accession_num %></td>
   </tr>
   
@@ -49,6 +49,11 @@
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.manufacturer_serial') %>:</strong></td>
     <td><%= @mlog_entry.manufacturer_serial %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.stock_size') %>:</strong></td>
+    <td><%= @mlog_entry.stock_size %></td>
   </tr>
 
   <tr>
@@ -111,13 +116,14 @@
     <td><%= @mlog_entry.imaging_note %></td>
   </tr>
 </table>
+
 <div class="panel panel-info">
   <div class="panel-heading"><h4><%= t(:section_disk_image_data) %></h4></div>
 </div>
 
 <table class="table table-hover">
   <tr>
-    <td><strong><%= t('helpers.label.mlog_entry.image_format') %>:</strong></td>
+    <td  class="col-md-3"><strong><%= t('helpers.label.mlog_entry.image_format') %>:</strong></td>
     <td><%= @mlog_entry.image_format %></td>
   </tr>
 
@@ -175,6 +181,10 @@
     <td><strong><%= t('helpers.label.mlog_entry.sha1_checksum') %>:</strong></td>
     <td><%= @mlog_entry.sha1_checksum %></td>
   </tr>
+  <tr>
+    <td><strong>SIP ID</strong></td>
+    <td><%= @mlog_entry.sip_id %></td>
+  </tr>
 </table>
 
 
@@ -217,11 +227,7 @@
   <td>
     <%= link_to 'Edit', edit_mlog_entry_path(@mlog_entry), class: "btn btn-primary" %>
     <%= link_to 'Clone', clone_mlog_entry_path(@mlog_entry), class: "btn btn-warning" %> 
-    <%= link_to 'Back', mlog_entries_path, class: "btn btn-info" %><br />
-  </td>
-</tr>
-<tr>
-  <td>
+    <%= link_to 'Back', mlog_entries_path, class: "btn btn-info" %>
     <%= link_to '<- Prev', '/nav?id=' + @mlog_entry.id + "&dir=prev", class: "btn btn-info" %>
     <%= link_to 'Next ->', '/nav?id=' + @mlog_entry.id + "&dir=next", class: "btn btn-info" %>
   </td>
