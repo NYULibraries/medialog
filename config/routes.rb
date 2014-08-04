@@ -4,6 +4,8 @@ Medialog::Application.routes.draw do
   root 'mlog_entries#index'
 
   get 'search' => 'mlog_entries#search'
+
+  get 'media/:id' => 'mlog_entries#media'
   
   post 'results' => 'mlog_entries#results'
   

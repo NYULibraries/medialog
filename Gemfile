@@ -12,6 +12,7 @@ gem 'figaro'
 gem 'pg'
 gem 'thin'
 gem 'kaminari'
+gem 'openurl', '~> 1.0.0'
 
 group :development do
   gem 'better_errors'

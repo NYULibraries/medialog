@@ -1,0 +1,17 @@
+<table class="table">
+  <tr>
+  	<th>name</th>
+  	<th>ext</th>
+  	<th>size</th>
+  	<th>format</th>
+  	<th>version</th>
+  </tr>
+<% @result.each do |entry| %>
+  <tr>
+  	<td><%= entry['filename'] %></td>
+  	<td><%= entry['extention'] %></td>
+  	<td><%= entry['size'] %></td>
+  	<td><%= entry['format_name'] %></td>
+  	<td><%= entry['format_version'] %></td>
+  </tr>
+<% end %>

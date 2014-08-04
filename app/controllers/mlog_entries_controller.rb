@@ -1,7 +1,14 @@
+require 'open-uri'
+
 class MlogEntriesController < ApplicationController
   include ApplicationHelper
   before_action :set_mlog_entry, only: [:show, :edit, :update, :destroy]
 
+
+  def media
+    @result = JSON.parse(open("http://localhost:9000/accession/media/" + params[:id]).read)
+    puts @result.class
+  end
 
   def search
     
