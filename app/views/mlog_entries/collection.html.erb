@@ -1,11 +1,14 @@
 <h4><%= MLOG_VOCAB["partner_codes"][@mlog_entries[0].partner_code] %></h2>
-<h3><%= MLOG_VOCAB["collection_codes"][@mlog_entries[0].collection_code] %></h1>
+<div class="lead"><%= MLOG_VOCAB["collection_codes"][@mlog_entries[0].collection_code] %></div>
 
-<b>accessions</b>: 
+<%= link_to "inventory view", "/collection/" + @mlog_entries[0].collection_code + "/uuids" %>
+<br>
+<b>accessions</b>:
+<div class="well"> 
 <% @accessions.each do |acc| %>
 	<i><%= link_to acc, ("/accession?accession=" + acc + "&collection=" + @mlog_entries[0].collection_code) %></i>
 <% end %>
-<br/><br/>
+</div>
 
 <b>media objects</b>
 <%= render 'btable' %>

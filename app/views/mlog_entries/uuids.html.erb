@@ -1,0 +1,24 @@
+<h4><%= MLOG_VOCAB["partner_codes"][@mlog_entries[0].partner_code] %></h4>
+<div class="lead"><%= MLOG_VOCAB["collection_codes"][@mlog_entries[0].collection_code].gsub(/ :: /, ": ") %></div>
+<%= link_to "collection view", "/collection/" + @mlog_entries[0].collection_code %>
+<br>
+<b>media objects</b>
+<br />
+<table class="table">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>type</th>
+      <th>uuid</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @mlog_entries.each do |mlog_entry| %>
+      <tr>
+ 	    <td><%= mlog_entry.media_id %></td>
+ 	    <td><%= mlog_entry.mediatype %></td>
+ 	    <td><%= link_to mlog_entry.id, mlog_entry_path(mlog_entry) %></td>
+ 	  </tr>
+    <% end %>
+  </tbody>
+</table>

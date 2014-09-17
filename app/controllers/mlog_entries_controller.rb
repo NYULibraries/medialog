@@ -70,6 +70,10 @@ class MlogEntriesController < ApplicationController
     @mlog_entries = MlogEntry.where("accession_num = ? and collection_code = ?", params[:accession], params[:collection]).order(media_id: :asc).page params[:page]
   end
 
+  def uuids
+    @mlog_entries = MlogEntry.where("collection_code = ?", params[:collection_code]).order(media_id: :asc)
+  end
+
   # GET /mlog_entries
   # GET /mlog_entries.json
   def index
