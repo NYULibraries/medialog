@@ -7,7 +7,7 @@ partner_codes:
 collection_codes:
   aia30:            "aia30 :: Ireland House Oral Histories"
   mss217:           "mss217 :: Jeremy Blake Papers"
-  mss279:           "mss279 :: New York Womens Culinary Alliance"
+  mss279:           "mss279 :: New York Womens Culinary Alliance
   mss343:           "mss343 :: Exit Art Archive"
   mss384:           "mss384 :: Performance Studies International"
   mss402:           "mss402 :: I'm From Driftwood Archives"
@@ -15,6 +15,7 @@ collection_codes:
   oh68:             "oh68 :: Squatters Collective Oral History Project"
   rg35_2:           "rg35_2 :: Records of the Alternative Media Center and Interactive Telecommunications Program, Tisch School of the Arts"
   rg37_49:          "rg37_49 :: NYU Humanities Inititive Records"
+  ua_rg21-46:       "rg21-46 :: ICAS 21 46"
   tam268:           "tam268 :: Sol Yurick Manuscripts for Publication"  
   tam642:           "tam642 :: Dissent Magazine Records"
   tam635:           "tam635 :: Brecht Forum Records" 
