@@ -55,6 +55,7 @@ image_formats:
   image_format_raw:     "Raw"
   image_format_e01:     "E01"
   image_format_ad1:     "AD1"
+  image_format_iso:     "ISO"
 
 encoding_schemes:
   encoding_scheme_mfm:           "MFM"
