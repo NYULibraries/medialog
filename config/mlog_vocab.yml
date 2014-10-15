@@ -11,11 +11,13 @@ collection_codes:
   mss343:           "mss343 :: Exit Art Archive"
   mss384:           "mss384 :: Performance Studies International"
   mss402:           "mss402 :: I'm From Driftwood Archives"
+  mss408:           "mss408 :: Heritage Radio Netowrk Collection"
   mss405:           "mss405 :: Larry Polansky Papers"
   oh68:             "oh68 :: Squatters Collective Oral History Project"
   rg35-2:           "rg35-2 :: Records of the Alternative Media Center and Interactive Telecommunications Program, Tisch School of the Arts"
   rg37-49:          "rg37-49 :: NYU Humanities Inititive Records"
   rg21-46:          "rg21-46 :: ICAS"
+  tam261:           "tam261 :: Robert Fitch Papers"
   tam268:           "tam268 :: Sol Yurick Manuscripts for Publication"  
   tam642:           "tam642 :: Dissent Magazine Records"
   tam635:           "tam635 :: Brecht Forum Records" 
@@ -32,6 +34,7 @@ mediatypes:
   mediatype_cd:                   "CD"
   mediatype_cdr:		              "CD-R"
   mediatype_cdrw:		              "CD-RW"
+  mediatype_jaz:                  "Jaz Drive"
   mediatype_zip:		              "Zip Disk"
 
 interfaces:
