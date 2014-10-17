@@ -19,8 +19,14 @@
 </div>
 
 <table class="table table-hover">
+
   <tr>
-    <td class="col-md-3"><strong><%= t('helpers.label.mlog_entry.accession_num') %>:</strong></td>
+    <td class="col-md-3"><strong><%= t('helpers.label.mlog_entry.original_id') %>:</strong></td>
+    <td><%= @mlog_entry.original_id %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.accession_num') %>:</strong></td>
     <td><%= @mlog_entry.accession_num %></td>
   </tr>
   
@@ -28,14 +34,17 @@
     <td><strong><%= t('helpers.label.mlogentry.ref_id') %>:</strong></td>
     <td><%= @mlog_entry.ref_id %></td>
   </tr>
+  
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.media_id') %>:</strong></td>
     <td><%= @mlog_entry.media_id %></td>
   </tr>
+  
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.box_number') %>:</strong></td>
     <td><%= @mlog_entry.box_number %></td>
   </tr>
+  
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.mediatype') %>:</strong></td>
     <td><%= @mlog_entry.mediatype %></td>
@@ -71,6 +80,7 @@
     <td><%= @mlog_entry.photo_url %></td>
   </tr>
 </table>
+
 <div class="panel panel-info">
   <div class="panel-heading"><h4><%= t(:section_disk_imaging_data) %></h4></div>
 </div>

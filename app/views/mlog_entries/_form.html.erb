@@ -29,24 +29,34 @@
   <!-- Default panel contents -->
   <div class="panel-heading"><h4><%= t(:section_physical_data) %></h4></div>
   <div class="panel-body">
+   
     <div class="field">
       <%= f.label :media_id %><br>
       <%= f.number_field :media_id %>
     </div>
+   
     <div>
       <div class="field">
         <%= f.label "box_number" %><br>
         <%= f.number_field :box_number %>
       </div>
     </div>
+    
+    <div class="field">
+      <%= f.label :original_id %><br>
+      <%= f.text_field :original_id %>
+    </div>
+
     <div class="field">
       <%= f.label :accession_num %><br>
       <%= f.text_field :accession_num %>
     </div>
+    
     <div class="field">
       <%= f.label :ref_id %><br>
       <%= f.text_field :ref_id %>
     </div>
+
     <div class="field">
       <%= f.label :mediatype %><br>
       <%= f.select(:mediatype, MLOG_VOCAB["mediatypes"].invert, :include_blank => true ) %>
