@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 partner_codes:
-  fales:       Fales Library & Special Collections
+  fales:       Fales Library and Special Collections
   nyuarchives: NYU Archives
   tamwag:      Tamiment Library and Robert F. Wagner Labor Archives
 
@@ -16,9 +16,10 @@ collection_codes:
   mss408:           "mss408 :: Heritage Radio Network Collection"
   mss405:           "mss405 :: Larry Polansky Papers"
   oh68:             "oh68 :: Squatters Collective Oral History Project"
-  rg35-2:           "rg35-2 :: Records of the Alternative Media Center and Interactive Telecommunications Program, Tisch School of the Arts"
-  rg37-49:          "rg37-49 :: NYU Humanities Inititive Records"
-  rg21-46:          "rg21-46 :: ICAS"
+  rg35_2:           "rg35-2 :: Records of the Alternative Media Center and Interactive Telecommunications Program, Tisch School of the Arts"
+  rg37_49:          "rg37-49 :: NYU Humanities Inititive Records"
+  rg21_46:          "rg21-46 :: ICAS"
+  rg233:            "rg233 :: Tony Judt Papers"
   tam261:           "tam261 :: Robert Fitch Papers"
   tam268:           "tam268 :: Sol Yurick Manuscripts for Publication"  
   tam642:           "tam642 :: Dissent Magazine Records"
