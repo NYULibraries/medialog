@@ -44,7 +44,7 @@
 #  ref_id                   :string(255)
 #  has_mactime_csv          :boolean
 #  box_number               :integer
-#
+
 
 class MlogEntry < ActiveRecord::Base
   validates_length_of :md5_checksum, :minimum => 32, :maximum => 32, :allow_blank => true
