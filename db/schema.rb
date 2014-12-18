@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141017142533) do
+ActiveRecord::Schema.define(version: 20141218200246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20141017142533) do
     t.string   "stock_size"
     t.integer  "sip_id"
     t.string   "original_id"
+    t.string   "disposition_note"
   end
 
 end
