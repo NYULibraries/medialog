@@ -22,5 +22,7 @@ Medialog::Application.routes.draw do
   get 'mlog_entries/:id/clone', to: 'mlog_entries#clone', as: :clone_mlog_entry
 
   get 'collection/:collection_code/uuids/' => 'mlog_entries#uuids'
+
+  get 'mlog_entries/:file/text' => 'mlog_entries#textfile'
   
 end

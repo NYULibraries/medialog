@@ -14,6 +14,14 @@ class MlogEntriesController < ApplicationController
     
   end
   
+  def textfile
+    @request = params[:file].split("_")
+    @partner = @request[0]
+    @col_code = @request[1]
+    @col_num = @request[2]
+    @media_num = @request[3]
+  end
+
   def results
     
     if (params[:partner].empty? and params[:collection].empty? and params[:media].empty?)
