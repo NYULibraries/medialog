@@ -16,10 +16,26 @@ class MlogEntriesController < ApplicationController
   
   def textfile
     @request = params[:file].split("_")
-    @partner = @request[0]
-    @col_code = @request[1]
-    @col_num = @request[2]
+    @partner = MLOG_VOCAB["filename_partner_codes"][@request[0]]
+    @col_code = @request[1] + @request[2]
     @media_num = @request[3]
+    @result = MlogEntry.where("collection_code = ? and partner_code = ? and media_id =?", @col_code, @partner, @media_num)
+    @size = @result.size
+    puts @size.class
+
+    respond_to do |format|
+      format.html { 
+        if @size == 1 then render json: @result[0].id 
+        elsif @size == 0 then render json: "no resource" 
+        end
+      }
+
+      format.json { 
+        if @size == 1 then render json: @result[0].id 
+        elsif @size == 0 then render json: "no resource" 
+        end
+      }
+    end
   end
 
   def results

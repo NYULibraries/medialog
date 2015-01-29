@@ -4,6 +4,11 @@ partner_codes:
   nyuarchives: NYU Archives
   tamwag:      Tamiment Library and Robert F. Wagner Labor Archives
 
+filename_partner_codes:
+  fa:          fales
+  tw:          tamwag
+  us:          nyuarchives
+
 collection_codes:
   aia30:            "aia30 :: Ireland House Oral Histories"
   mc233:            "mc233 :: Tony Judt Papers"
