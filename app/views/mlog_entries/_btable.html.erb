@@ -30,6 +30,7 @@
             </button>
             <ul class="dropdown-menu">
               <li><%= link_to 'All', mlog_entry, class: "btn btn-info btn-xs" %></li>
+              <li><%= link_to 'json', "mlog_entries/" + mlog_entry.id + "/json" %></li>
               <li><a href="#">Object</a></li>
               <li><a href="#">Image Info</a></li>
               <li><a href="#">Workflow</a></li>

@@ -24,5 +24,7 @@ Medialog::Application.routes.draw do
   get 'collection/:collection_code/uuids/' => 'mlog_entries#uuids'
 
   get 'mlog_entries/:file/text' => 'mlog_entries#textfile'
+
+  get 'mlog_entries/:id/json' => 'mlog_entries#mlog_json'
   
 end

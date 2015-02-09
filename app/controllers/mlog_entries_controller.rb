@@ -94,6 +94,18 @@ class MlogEntriesController < ApplicationController
     @mlog_entries = MlogEntry.where("accession_num = ? and collection_code = ?", params[:accession], params[:collection]).order(media_id: :asc).page params[:page]
   end
 
+  def mlog_json
+    respond_to do |format|
+      format.html { 
+        render json: MlogEntry.where("id = ?", params[:id])
+      }
+
+      format.json { 
+        render json: params[:id]
+      }
+    end
+  end
+
   def uuids
     @mlog_entries = MlogEntry.where("collection_code = ?", params[:collection_code]).order(media_id: :asc)
   end
