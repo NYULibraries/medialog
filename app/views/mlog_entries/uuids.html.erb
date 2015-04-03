@@ -7,9 +7,10 @@
 <table class="table">
   <thead>
     <tr>
-      <th>id</th>
-      <th>type</th>
-      <th>uuid</th>
+      <th width="5%">id</th>
+      <th width="25%">type</th>
+      <th width="35%">lable text</th>
+      <th width="35%">uuid</th>
     </tr>
   </thead>
   <tbody>
@@ -17,6 +18,7 @@
       <tr>
  	    <td><%= mlog_entry.media_id %></td>
  	    <td><%= mlog_entry.mediatype %></td>
+      <td><%= mlog_entry.label_text %></td>
  	    <td><%= link_to mlog_entry.id, mlog_entry_path(mlog_entry) %></td>
  	  </tr>
     <% end %>
