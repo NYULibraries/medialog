@@ -19,12 +19,18 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe MlogEntriesController do
+  let :user do
+    User.create!(email: "me@home.com", password: "watching the telly")
+  end
+  
+  before { sign_in user }
 
   render_views
 
   # This should return the minimal set of attributes required to create a valid
   # MlogEntry. As you add validations to MlogEntry, be sure to
   # adjust the attributes here as well.
+  
   let(:valid_attributes) { { "partner_code" => "771cea7a-303d-4082-aa37-48d4f11c1c07", "collection_code" => "my code", "mediatype" => "my media", "media_id" => 1 } }
 
   # This should return the minimal set of values that should be in the session

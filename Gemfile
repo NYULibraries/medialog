@@ -13,6 +13,7 @@ gem 'pg'
 gem 'thin'
 gem 'kaminari'
 gem 'openurl', '~> 1.0.0'
+gem 'devise'
 
 group :development do
   gem 'better_errors'

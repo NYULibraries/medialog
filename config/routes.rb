@@ -1,4 +1,5 @@
 Medialog::Application.routes.draw do
+  devise_for :users
   resources :mlog_entries
 
   root 'mlog_entries#index'
