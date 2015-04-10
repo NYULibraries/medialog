@@ -1,5 +1,6 @@
 Medialog::Application.routes.draw do
   devise_for :users
+  resources :users, except: :create
   resources :mlog_entries
 
   root 'mlog_entries#index'
@@ -27,5 +28,7 @@ Medialog::Application.routes.draw do
   get 'mlog_entries/:file/text' => 'mlog_entries#textfile'
 
   get 'mlog_entries/:id/json' => 'mlog_entries#mlog_json'
+
+  post 'create_user' => 'users#create', as: :create_user 
   
 end

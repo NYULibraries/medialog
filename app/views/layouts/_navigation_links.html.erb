@@ -4,3 +4,12 @@
 <%= link_to 'Fales', "/repository/fales" %>
 <%= link_to 'Tamiment Wagner', "/repository/tamwag" %>
 <%= link_to 'University Archives', "/repository/nyuarchives" %>
+<%= link_to 'Reports', '#' %>
+
+<% if current_user.try(:admin?) %>
+  <%= link_to 'Register User', '/users/new' %>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% end %>

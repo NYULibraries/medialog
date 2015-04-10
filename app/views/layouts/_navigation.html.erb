@@ -14,9 +14,6 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <%= render 'layouts/navigation_links' %>
-	<% if current_user.try(:admin?) %>
-	 <%= link_to 'Register User', "/users/sign_up" %>
-	 <% end %>
       </ul>
     </div>
   </div>
