@@ -3,11 +3,17 @@ class UsersController < ApplicationController
 
   def create
     # admins only
-
+    @u = params['user']
+    @user = User.new
+    @user.email = @u['email']
+    @user.password = @u['password']
+    @user.admin = false
+    @user.save
+    redirect_to root_path, notice: ('Account created for ' + @user.email)
   end
 
   def show
-    redirect_to root_path, alert: 'Contact and admin to register'
+    redirect_to root_path, alert: 'Contact an admin to register'
   end
 
   private
