@@ -2,6 +2,7 @@ require 'open-uri'
 
 class MlogEntriesController < ApplicationController
   include ApplicationHelper
+  
   before_action :set_mlog_entry, only: [:show, :edit, :update, :destroy]
 
   def media
