@@ -28,6 +28,8 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'therubyracer'
+  gem 'capistrano'
+  gem 'capistrano-passenger'
 end
 
 group :development, :test do
