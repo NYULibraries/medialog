@@ -88,3 +88,4 @@ pickle-email-*.html
 /config/application.yml
 
 /config/accounts.yml
+/config/secrets.yml
