@@ -30,7 +30,8 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'therubyracer'
-  gem 'capistrano', '~> 2.2'
+  gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano-passenger'
 end
 
 group :development, :test do
