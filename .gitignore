@@ -33,6 +33,7 @@ db/*.sqlite3
 .sass-cache
 /config/config.yml
 /config/database.yml
+/config/accounts.yml
 /coverage.data
 /coverage/
 /db/*.javadb/
@@ -44,6 +45,8 @@ db/*.sqlite3
 /public/cache
 /public/stylesheets/compiled
 /public/system/*
+/public/assets/*
+/public/assets/bootstrap/*
 /spec/tmp/*
 /cache
 /capybara*
@@ -86,3 +89,5 @@ pickle-email-*.html
 # Ignore application configuration
 /config/application.yml
 
+/config/accounts.yml
+/config/secrets.yml

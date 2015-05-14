@@ -2,9 +2,9 @@ Medialog::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Basic authentication
-  config.middleware.use '::Rack::Auth::Basic' do |u, p|
-    [u, p] == [ENV['HTTP_USER'], ENV['HTTP_PASSWORD']]
-  end
+  #config.middleware.use '::Rack::Auth::Basic' do |u, p|
+  #  [u, p] == [ENV['HTTP_USER'], ENV['HTTP_PASSWORD']]
+  #end
 
 
   # Code is not reloaded between requests.
