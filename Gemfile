@@ -16,6 +16,7 @@ gem 'kaminari'
 gem 'openurl', '~> 1.0.0'
 gem 'devise'
 gem 'thin'
+gem 'therubyracer'
 
 group :development do
   gem 'pry'
@@ -29,9 +30,11 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
-  gem 'therubyracer'
   gem 'capistrano', '~> 3.4.0'
   gem 'capistrano-passenger'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
 end
 
 group :development, :test do
