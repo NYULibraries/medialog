@@ -29,6 +29,10 @@ Medialog::Application.routes.draw do
 
   get 'mlog_entries/:id/json' => 'mlog_entries#mlog_json'
 
-  post 'create_user' => 'users#create', as: :create_user 
+  post 'create_user' => 'users#create', as: :create_user
+
+  get 'password' => 'users#reset_password'
+
+  post 'password' => 'users#update_password', as: :update_password 
   
 end

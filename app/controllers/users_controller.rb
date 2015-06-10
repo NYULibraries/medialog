@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_filter :authorize_admin
+  
 
   def create
+    before_filter :authorize_admin
     # admins only
     @u = params['user']
     @user = User.new
@@ -11,6 +12,23 @@ class UsersController < ApplicationController
     @user.save
     redirect_to root_path, notice: ('Account created for ' + @user.email)
   end
+
+  def reset_password
+    @user = User.where(:id => current_user.id)[0]
+  end
+
+  def update_password
+    @password = params['password_request']['password']
+    @user = User.where(:id => current_user.id)[0]
+    @user.password = @password
+    @user.password_confirmation = @password
+    if @user.save then
+      redirect_to root_path, notice: 'password updated'
+    else
+      redirect_to root_path, alert: 'password update unsuccessful'
+    end
+  end
+
 
   def show
     redirect_to root_path, alert: 'Contact an admin to register'
