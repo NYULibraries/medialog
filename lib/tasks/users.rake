@@ -29,4 +29,21 @@ namespace :users do
       puts "email not found"
     end
   end
+
+  desc "Updgrade a user to admin"
+  task make_admin: :environment do
+    puts "Enter the email address to make admin: "
+    email = STDIN.gets.chomp
+    u = User.where("email = ?", email)
+
+    if(u.length == 1) then
+      u = u.first
+      u.admin = true
+      if(u.save) then
+        puts "user account now admin"
+      end
+    else
+      puts "email not found"
+    end
+  end
 end
