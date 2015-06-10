@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   
 
   def create
-    before_filter :authorize_admin
+    :authorize_admin
     # admins only
     @u = params['user']
     @user = User.new
