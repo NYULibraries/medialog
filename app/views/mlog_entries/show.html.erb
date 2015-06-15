@@ -33,7 +33,7 @@
 
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.mediatype') %>:</strong></td>
-    <td><%= @mlog_entry.mediatype %></td>
+    <td><%= MLOG_VOCAB["mediatypes"][@mlog_entry.mediatype] %></td>
   </tr>
 
 
@@ -175,7 +175,7 @@
     <td><strong><%= t('helpers.label.mlog_entry.filesystem') %>:</strong></td>
     <td><%= @mlog_entry.filesystem %></td>
   </tr>
-
+<!--
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.has_dfxml') %>:</strong></td>
     <td><%= @mlog_entry.has_dfxml %></td>
@@ -190,7 +190,7 @@
     <td><strong><%= t('helpers.label.mlog_entry.has_mactime_csv') %>:</strong></td>
     <td><%= @mlog_entry.has_mactime_csv %></td>
   </tr>
-
+-->
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.image_size_bytes') %>:</strong></td>
     <td><%= @mlog_entry.image_size_bytes %></td>
