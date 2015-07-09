@@ -5,17 +5,17 @@
 <table class="table table-hover">
   <tr>
     <td class="col-md-3"><strong><%= t('helpers.label.mlog_entry.partner_code') %>:</strong></td>
-    <td><%= @mlog_entry.partner_code %></td>
+    <td><%= link_to(@mlog_entry.partner_code, "/repository/" + @mlog_entry.partner_code)  %></td>
   </tr>
 
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.collection_code') %>:</strong></td>
-    <td><%= @mlog_entry.collection_code %></td>
+    <td><%= link_to(@mlog_entry.collection_code, "/collection/" + @mlog_entry.collection_code) %></td>
   </tr>
 
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.accession_num') %>:</strong></td>
-    <td><%= @mlog_entry.accession_num %></td>
+    <td><%= link_to(@mlog_entry.accession_num, "/accession?accession=" + @mlog_entry.accession_num + "&collection=" + @mlog_entry.collection_code) %></td>
   </tr>
 
 </table>

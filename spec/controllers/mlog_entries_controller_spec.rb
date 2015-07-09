@@ -18,7 +18,8 @@ describe MlogEntriesController do
     "partner_code" => "771cea7a-303d-4082-aa37-48d4f11c1c07", 
     "collection_code" => "my code", 
     "mediatype" => "my media", 
-    "media_id" => 1 } }
+    "media_id" => 1,
+    "accession_num" => "0000" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
