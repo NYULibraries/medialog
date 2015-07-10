@@ -1,0 +1,36 @@
+<% @types.each do |type| %>
+  <%= link_to(type[1], type[0]) %> |
+<% end %>
+all
+
+<br />
+
+<h3><%= MLOG_VOCAB["mediatypes"][@type] %></h3>
+
+<br />
+<%= @entries.size %> entries in database
+<br />
+total stock size: <%= @sum %>
+<br />
+total size imaged: <%= @image_sum %>
+<hr />
+<table class="table table-bordered">
+  <thead>
+    <tr>
+  	  <th>partner-col</th>
+  	  <th>id</th>
+  	  <th>stock size (MB)</th>
+  	  <th>image size</th>
+    </tr>
+  </thead>
+  <tbody>
+	  <% @entries.each do |entry| %>
+		<tr>
+		  <td width="15%"><%= entry.partner_code + "-" + entry.collection_code %></td>
+		  <td width="5%"><%= entry.media_id %></td>
+		  <td width="10%"><%= entry.stock_size_num.to_s + " " + entry.stock_unit %></td>
+		  <td><%= entry.image_size_bytes %></td>
+		</tr>
+	  <% end %>
+  </tbody>
+</table>

@@ -33,6 +33,12 @@ Medialog::Application.routes.draw do
 
   get 'password' => 'users#reset_password'
 
-  post 'password' => 'users#update_password', as: :update_password 
+  post 'password' => 'users#update_password', as: :update_password
+
+  get 'reports' => 'reports#index' 
+
+  get 'reports/format' => 'reports#format'
+
+  get 'reports/format/:type' => 'reports#type'  
   
 end
