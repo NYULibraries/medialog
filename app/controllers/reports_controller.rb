@@ -10,13 +10,15 @@ class ReportsController < ApplicationController
   def type
   	@types = MLOG_VOCAB["mediatypes"]
     @type = params[:type]
-    @entries = MlogEntry.where("mediatype = ?", @type)
+    @entries = MlogEntry.where("mediatype = ?", @type).order(:partner_code, :collection_code)
     @entries_size = MlogEntry.select("image_size_bytes")
   
     @sum = 0.0
     @entries.each do |entry|
       if(entry.stock_unit == 'MB') then
         @sum = @sum + mb_to_byte(entry.stock_size_num)
+      elsif (entry.stock_unit == 'GB') then
+        @sum = @sum + gb_to_byte(entry.stock_size_num)  
       end
     end
 

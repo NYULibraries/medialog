@@ -26,10 +26,19 @@ total size imaged: <%= @image_sum %>
   <tbody>
 	  <% @entries.each do |entry| %>
 		<tr>
-		  <td width="15%"><%= entry.partner_code + "-" + entry.collection_code %></td>
-		  <td width="5%"><%= entry.media_id %></td>
-		  <td width="10%"><%= entry.stock_size_num.to_s + " " + entry.stock_unit %></td>
-		  <td><%= entry.image_size_bytes %></td>
+		  <td width="15%">
+        <%= link_to(entry.partner_code + "-" + entry.collection_code, "/collection/" +  entry.collection_code) %>
+      </td>
+		  <td width="5%"><%= link_to(entry.media_id, "/mlog_entries/" + entry.id) %></td>
+      <% if entry.stock_size_num != nil then %>
+		    <td width="10%"><%= entry.stock_size_num.to_s + " " + entry.stock_unit %></td>
+      <% else %><td width="10%">--</td>
+      <% end %>
+
+      <% if entry.image_size_bytes != nil then %>
+        <td width="20%"><%= human_size(entry.image_size_bytes) %></td>
+      <% else %><td width="20%">--</td>
+      <% end %>
 		</tr>
 	  <% end %>
   </tbody>
