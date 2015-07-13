@@ -79,8 +79,13 @@
     </div>
       
     <div class="field">
-      <%= f.label :stock_size %><br>
-      <%= f.text_field :stock_size %>
+      <%= f.label :stock_size_num %><br>
+      <%= f.number_field :stock_size_num, :class => 'text_field', :step => 'any' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :stock_unit %><br>
+      <%= f.select :stock_unit, options_for_select([["Select One", ""], "KB", "MB", "GB", "TB"]) %>
     </div>
 
     <div class="field">
