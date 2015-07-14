@@ -128,7 +128,26 @@ class MlogEntriesController < ApplicationController
   end
 
   def accession
+    
+    @mlog_entries = MlogEntry.where("accession_num = ? and collection_code = ?", params[:accession], params[:collection])
+    @sum = 0.0
+    @image_sum = 0.0
+    @mlog_entries.each do |entry|
+      if(entry.stock_unit == 'MB') then
+        @sum = @sum + mb_to_byte(entry.stock_size_num)
+      elsif (entry.stock_unit == 'GB') then
+        @sum = @sum + gb_to_byte(entry.stock_size_num)
+      end
+
+      if(entry.image_size_bytes != nil) then
+        @image_sum = @image_sum + entry.image_size_bytes
+      end
+    end
+
+    @sum = human_size(@sum)
+    @image_sum = human_size(@image_sum)
     @mlog_entries = MlogEntry.where("accession_num = ? and collection_code = ?", params[:accession], params[:collection]).order(media_id: :asc).page params[:page]
+
   end
 
   def mlog_json
