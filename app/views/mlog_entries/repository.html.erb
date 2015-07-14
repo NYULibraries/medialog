@@ -1,19 +1,27 @@
 <h2><%= MLOG_VOCAB["partner_codes"][params[:repo]] %></h2>
 
+<p>
+  total stock size: <%= @sum_stock %><br />
+  total size imaged: <%= @sum_image %><br />
+</p>
+
 <h3>collections</h3>
 <table class="table table-striped repository">
   <theader>
     <tr>
       <th>id</th>
       <th>name</th>
+      <th>stock size</th>
+      <th>image size</th>
     <tr>
   </theader>
   <tbody>
-    <% @collections.each do |collection| %>
-      <% col = MLOG_VOCAB["collection_codes"][collection.collection_code].split(" :: ") %>
+    <% @collections.each do |coll| %>
       <tr>
-        <td><%= link_to col[0], "/collection/" + col[0] %></td>
-        <td><%= col[1] %></td>
+        <td><%= link_to coll[0].to_s, "/collection/" + coll[0].to_s %></td>
+        <td><%= coll[1].name %></td>
+        <td><%= human_size(coll[1].stock_size) %></td>
+        <td><%= human_size(coll[1].image_size) %></td>
       </tr>
     <% end %>   
   </tbody>
