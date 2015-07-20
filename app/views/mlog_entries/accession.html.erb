@@ -1,6 +1,13 @@
 <h4><%= MLOG_VOCAB["partner_codes"][@mlog_entries[0].partner_code] %></h4>
 <h5><%= MLOG_VOCAB["collection_codes"][@mlog_entries[0].collection_code].gsub(/ :: /, ": ") + ", accession: " + @mlog_entries[0].accession_num %></h5>
 <br />
+<%= @mlog_entries.size %> entries in database
+<br />
+total stock size: <%= @sum %>
+<br />
+total size imaged: <%= @image_sum %>
+
+<br />
 <b>media objects</b>
 <br />
 
