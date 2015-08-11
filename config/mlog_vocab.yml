@@ -35,6 +35,7 @@ collection_codes:
   tam616:           "tam616 :: Estela and Ernesto Bravo Film and Video Collection"
   tam642:           "tam642 :: Dissent Magazine Records"
   tam635:           "tam635 :: Brecht Forum Records"
+  vid18:            "vid18 :: Tamiment Library Video Oral Histories"
 
 mediatypes:
   mediatype_transfer:             "Network Transfer"
