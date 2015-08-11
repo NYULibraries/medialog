@@ -52,6 +52,7 @@ mediatypes:
   mediatype_cdda:		              "Audio CD"
   mediatype_jaz:                  "Jaz Drive"
   mediatype_zip:		              "Zip Disk"
+  mediatype_sd:                   "SD Card"
 
 interfaces:
   interface_tableau_ultrabay:     "Tableau Ultrabay"
