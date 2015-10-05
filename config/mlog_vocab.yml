@@ -38,10 +38,11 @@ collection_codes:
   tam616:           "tam616 :: Estela and Ernesto Bravo Film and Video Collection"
   tam642:           "tam642 :: Dissent Magazine Records"
   tam635:           "tam635 :: Brecht Forum Records"
-  tam644:	    "tam644 :: Virginia Cornue Papers"
+  tam644:	          "tam644 :: Virginia Cornue Papers"
   tam675:           "tam675 :: Gay Asian & Pacific Islander Men of New York Records"
   vid18:            "vid18 :: Tamiment Library Video Oral Histories"
-  wag328:	    "wag328 :: NYC Labor Council for Latin American Advancement Records"
+  wag328:	          "wag328 :: NYC Labor Council for Latin American Advancement Records"
+  wag332:           "wag332 :: US Labor Against the War Records" 
 
 mediatypes:
   mediatype_transfer:             "Network Transfer"
