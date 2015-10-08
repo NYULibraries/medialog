@@ -86,7 +86,8 @@
     <div class="field">
       <%= f.label :stock_unit %><br>
       <%= f.select(:stock_unit, MLOG_VOCAB["stock_unit"].invert, :include_blank => false ) %>
-
+    </div>
+    
     <div class="field">
       <%= f.label :media_note %><br>
       <%= f.text_area :media_note %>
