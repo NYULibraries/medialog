@@ -108,3 +108,10 @@ interpret_success:
   interpret_success_yes:	"Yes"
   interpret_success_yes_errors:	"Yes W/Errors"
   interpret_succes_no: 		"No"
+
+stock_unit:
+  KB: "Kilabytes"
+  MB: "Megabytes"
+  GB: "Gigabytes"
+  TB: "Terabytes"
+
