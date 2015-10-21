@@ -12,14 +12,14 @@
 <% end %>
 
 <div class="pane panel-info">
-  <div class="panel-heading"><h4><%= t(:section_collection_data) %></h4></div>
+  <div class="panel-heading"><h4><%= t(:collection_data) %></h4></div>
   <div class="panel-body">
     <div class="field">
-      <%= f.label :partner_code %><br>
+      <%= f.label :repository %><br>
       <%= f.select(:partner_code, MLOG_VOCAB["partner_codes"].invert, :include_blank => true ) %>
     </div>
     <div class="field">
-      <%= f.label :collection_code %><br>
+      <%= f.label :collection %><br>
       <%= f.select(:collection_code, MLOG_VOCAB["collection_codes"].invert, :include_blank => true ) %> 
     </div>
 
@@ -33,9 +33,16 @@
 
 <div class="panel panel-info">
   <!-- Default panel contents -->
-  <div class="panel-heading"><h4><%= t(:section_physical_data) %></h4></div>
+  <div class="panel-heading"><h4><%= t(:physical_data) %></h4></div>
   <div class="panel-body">
    
+    <div>
+      <div class="field">
+        <%= f.label "box_number" %><br>
+        <%= f.number_field :box_number %>
+      </div>
+    </div>
+
     <div class="field">
       <%= f.label :media_id %><br>
       <%= f.number_field :media_id %>
@@ -46,16 +53,20 @@
       <%= f.select(:mediatype, MLOG_VOCAB["mediatypes"].invert, :include_blank => true ) %>
     </div>
 
-    <div>
-      <div class="field">
-        <%= f.label "box_number" %><br>
-        <%= f.number_field :box_number %>
-      </div>
+
+    <div class="field">
+      <table >
+        <tr>
+          <td><%= f.label :stock_size_num %></td><td><%= f.label :stock_unit %></td>
+        </tr>
+          <td><%= f.number_field :stock_size_num, :class => 'text_field', :step => 'any' %></td><td><%= f.select(:stock_unit, MLOG_VOCAB["stock_unit"].invert, :include_blank => false ) %></td>
+        </tr>
+      </table>
     </div>
-    
+
     <div class="field">
       <%= f.label :label_text %><br>
-      <%= f.text_area :label_text %>
+      <%= f.text_area :label_text, size: "80x10" %>
     </div>
 
     <div class="field">
@@ -77,25 +88,16 @@
       <%= f.label :manufacturer_serial %><br>
       <%= f.text_field :manufacturer_serial %>
     </div>
-      
-    <div class="field">
-      <%= f.label :stock_size_num %><br>
-      <%= f.number_field :stock_size_num, :class => 'text_field', :step => 'any' %>
-    </div>
 
-    <div class="field">
-      <%= f.label :stock_unit %><br>
-      <%= f.select(:stock_unit, MLOG_VOCAB["stock_unit"].invert, :include_blank => false ) %>
-    </div>
     
     <div class="field">
       <%= f.label :media_note %><br>
-      <%= f.text_area :media_note %>
+      <%= f.text_area :media_note, size: "40x5" %>
     </div>
 
     <div class="field">
       <%= f.label :disposition_note %><br>
-      <%= f.text_area:disposition_note %>
+      <%= f.text_area :disposition_note, size: "40x5" %>
     </div>
   </div>
 </div>
