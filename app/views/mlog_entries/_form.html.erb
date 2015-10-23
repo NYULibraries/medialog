@@ -104,7 +104,7 @@
 
 <div class="panel panel-info">
   <!-- Default panel contents -->
-  <div class="panel-heading"><h4><%= t(:section_disk_image_data) %></h4></div>
+  <div class="panel-heading"><h4><%= t(:image_file_data) %></h4></div>
   <div class="panel-body">
     <div class="field">
       <%= f.label :image_filename %><br>
@@ -129,7 +129,6 @@
     <div class="field">
       <%= f.label :interpretation_success %><br>
       <%= f.select(:interpretation_success, MLOG_VOCAB["interpret_success"].invert, :include_blank => true ) %>
-
     </div>
     <div class="field">
       <%= f.label :imaged_by %><br>
@@ -164,6 +163,19 @@
       <%= f.select(:filesystem, MLOG_VOCAB["filesystems"].invert, :include_blank => true ) %>
     </div>
     <div class="field">
+      <%= f.label :image_size_bytes %><br>
+      <%= f.number_field :image_size_bytes %>
+    </div>
+    <div class="field">
+      <%= f.label :md5_checksum %><br>
+      <%= f.text_field :md5_checksum %>
+    </div>
+    <div class="field">
+      <%= f.label :sha1_checksum %><br>
+      <%= f.text_field :sha1_checksum %>
+    </div>
+    <!--
+    <div class="field">
       <%= f.label :has_dfxml %><br>
       <%= f.check_box :has_dfxml %>
     </div>
@@ -176,21 +188,10 @@
       <%= f.check_box :has_mactime_csv %>
     </div>
     <div class="field">
-      <%= f.label :image_size_bytes %><br>
-      <%= f.number_field :image_size_bytes %>
-    </div>
-    <div class="field">
-      <%= f.label :md5_checksum %><br>
-      <%= f.text_field :md5_checksum %>
-    </div>
-    <div class="field">
-      <%= f.label :sha1_checksum %><br>
-      <%= f.text_field :sha1_checksum %>
-    </div>
-    <div class="field">
       <%= f.label :sip_id %><br>
       <%= f.number_field :sip_id %>
     </div>
+  -->
   </div>
 </div>
 
