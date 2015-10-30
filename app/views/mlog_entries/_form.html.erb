@@ -35,13 +35,6 @@
   <!-- Default panel contents -->
   <div class="panel-heading"><h4><%= t(:physical_data) %></h4></div>
   <div class="panel-body">
-   
-    <div>
-      <div class="field">
-        <%= f.label "box_number" %><br>
-        <%= f.number_field :box_number %>
-      </div>
-    </div>
 
     <div class="field">
       <%= f.label :media_id %><br>
@@ -69,6 +62,13 @@
       <%= f.text_area :label_text, size: "80x10" %>
     </div>
 
+    <div>
+      <div class="field">
+        <%= f.label "box_number" %><br>
+        <%= f.number_field :box_number %>
+      </div>
+    </div>
+    
     <div class="field">
       <%= f.label 'Original Id'%><br>
       <%= f.text_field :original_id %>
