@@ -20,6 +20,7 @@ collection_codes:
   mss270:           "mss270 :: Public Art Fund Records"
   mss279:           "mss279 :: New York Womens Culinary Alliance"
   mss326:           "mss326 :: Robert Flaherty Film Seminar Archive"
+  mss347:           "mss347 :: Mary Ellen Carroll Papers"
   mss350:           "mss350 :: Malcolm Goldstein Papers"   
   mss343:           "mss343 :: Exit Art Archive"
   mss384:           "mss384 :: Performance Studies International"
@@ -33,6 +34,7 @@ collection_codes:
   mss426:           "mss426 :: Gay USA"
   mss429:           "mss429 :: José Muñoz Papers"
   mss443:           "mss443 :: Hedi El Kholti Semiotext(e) Papers" 
+  mss448:           "mss448 :: Chris Kraus Papers"
   oh68:             "oh68 :: Squatters Collective Oral History Project"
   rg35-2:           "rg35-2 :: Records of the Alternative Media Center and Interactive Telecommunications Program, Tisch School of the Arts"
   rg37-49:          "rg37-49 :: NYU Humanities Inititive Records"
@@ -56,6 +58,7 @@ collection_codes:
   wag265:           "wag265 :: American Federation of State, County, and Municipal Employees (AFSCME), District Council 37 Records"
   wag328:	          "wag328 :: NYC Labor Council for Latin American Advancement Records"
   wag332:           "wag332 :: US Labor Against the War Records" 
+  wag261:           "wag261 :: Robert Fitch Papers"
 
 mediatypes:
   mediatype_transfer:             "Network Transfer"
