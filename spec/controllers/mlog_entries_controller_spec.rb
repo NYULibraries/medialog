@@ -15,8 +15,8 @@ describe MlogEntriesController do
     "amdin" => false } }
   
   let(:valid_attributes) { { 
-    "partner_code" => "771cea7a-303d-4082-aa37-48d4f11c1c07", 
-    "collection_code" => "my code", 
+    "partner_code" => "fa", 
+    "collection_code" => "mss217", 
     "mediatype" => "my media", 
     "media_id" => 1,
     "accession_num" => "0000" } }
