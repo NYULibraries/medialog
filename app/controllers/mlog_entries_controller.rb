@@ -56,7 +56,7 @@ class MlogEntriesController < ApplicationController
 
   def repository
 
-    @entries = MlogEntry.where(["partner_code = ?", params[:repo]])
+    @entries = MlogEntry.where(["partner_code = ?", params[:repo]]).order(collection_code: :asc)
     @collections = get_sizes(@entries)
     @sum_stock = 0.0
     @sum_image = 0.0
