@@ -175,15 +175,23 @@ class MlogEntriesController < ApplicationController
   # GET /mlog_entries/1
   # GET /mlog_entries/1.json
   def show
+    @creator = "unknown"
+    @modifier = "unknown"
+
+    if @mlog_entry.created_by != nil then @creator = User.find(@mlog_entry.created_by).email end
+    if @mlog_entry.modified_by != nil then @modifier = User.find(@mlog_entry.modified_by).email end
   end
 
   # GET /mlog_entries/new
   def new
+
     @mlog_entry = MlogEntry.new
   end
 
   # GET /mlog_entries/1/edit
   def edit
+    u = current_user
+    @user = User.find(u)  
   end
 
   # POST /mlog_entries
@@ -240,6 +248,6 @@ class MlogEntriesController < ApplicationController
         :image_format, :encoding_scheme, :partition_table_format, :number_of_partitions, :filesystem, :has_dfxml, 
         :has_ftk_csv, :has_mactime_csv, :image_size_bytes, :md5_checksum, :sha1_checksum, :date_imaged, :date_ftk_loaded, 
         :date_metadata_extracted, :date_photographed, :date_qc, :date_packaged, :date_transferred, :number_of_image_segments, 
-        :ref_id, :box_number, :stock_size, :sip_id, :original_id, :disposition_note, :stock_unit, :stock_size_num)
+        :ref_id, :box_number, :stock_size, :sip_id, :original_id, :disposition_note, :stock_unit, :stock_size_num, :created_by, :modified_by)
     end
 end

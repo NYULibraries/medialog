@@ -1,19 +1,6 @@
+
 <br>
-
-
-<table>
-<tr>
-  <td>
-    <%= link_to 'Edit', edit_mlog_entry_path(@mlog_entry), class: "btn btn-primary" %>
-    <%= link_to 'Clone', clone_mlog_entry_path(@mlog_entry), class: "btn btn-warning" %> 
-    <%= link_to 'Back', mlog_entries_path, class: "btn btn-info" %>
-    <%= link_to '<- Prev', '/nav?id=' + @mlog_entry.id + "&dir=prev", class: "btn btn-info" %>
-    <%= link_to 'Next ->', '/nav?id=' + @mlog_entry.id + "&dir=next", class: "btn btn-info" %>
-  </td>
-  </tr>
-</table>
-
-<br />
+<%= render 'nav' %>
 <h3>
   <%= link_to(MLOG_VOCAB["partner_codes"][@mlog_entry.partner_code], "/repository/" + @mlog_entry.partner_code) %>
 </h3>
@@ -23,7 +10,10 @@
 
 <h4><%= link_to("accession: " + @mlog_entry.accession_num, "/accession?accession=" + @mlog_entry.accession_num + "&collection=" + @mlog_entry.collection_code) %></h4>
 
-<p><b>record created: </b><%= @mlog_entry.created_at.to_s %> <b>last modified</b> <%= @mlog_entry.updated_at.to_s %></p>
+<p>
+  <b>created by: </b><%= @creator %><b> on: </b><%= @mlog_entry.created_at.to_s %><br/> 
+  <b>modified by: </b><%= @modifier %><b> on: </b><%= @mlog_entry.updated_at.to_s %>
+</p>
 
 
 <br />
@@ -34,7 +24,7 @@
 
 <table class="table table-hover">
 
-  q<tr>
+  <tr>
     <td><strong><%= t('helpers.label.mlog_entry.media_id') %>:</strong></td>
     <td><%= @mlog_entry.media_id %></td>
   </tr>
@@ -257,14 +247,4 @@
   </tr>
 </table>
 
-<table class="table">
-<tr>
-  <td>
-    <%= link_to 'Edit', edit_mlog_entry_path(@mlog_entry), class: "btn btn-primary" %>
-    <%= link_to 'Clone', clone_mlog_entry_path(@mlog_entry), class: "btn btn-warning" %> 
-    <%= link_to 'Back', mlog_entries_path, class: "btn btn-info" %>
-    <%= link_to '<- Prev', '/nav?id=' + @mlog_entry.id + "&dir=prev", class: "btn btn-info" %>
-    <%= link_to 'Next ->', '/nav?id=' + @mlog_entry.id + "&dir=next", class: "btn btn-info" %>
-  </td>
-  </tr>
-</table>
+<%= render 'nav' %>

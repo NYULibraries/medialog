@@ -1,0 +1,11 @@
+<table>
+<tr>
+  <td>
+    <%= link_to 'Edit', edit_mlog_entry_path(@mlog_entry), class: "btn btn-primary" %>
+    <%= link_to 'Clone', clone_mlog_entry_path(@mlog_entry), class: "btn btn-warning" %> 
+    <%= link_to 'Back', mlog_entries_path, class: "btn btn-info" %>
+    <%= link_to '<- Prev', '/nav?id=' + @mlog_entry.id + "&dir=prev", class: "btn btn-info" %>
+    <%= link_to 'Next ->', '/nav?id=' + @mlog_entry.id + "&dir=next", class: "btn btn-info" %>
+  </td>
+  </tr>
+</table>
