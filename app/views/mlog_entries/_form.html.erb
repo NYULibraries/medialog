@@ -174,24 +174,6 @@
       <%= f.label :sha1_checksum %><br>
       <%= f.text_field :sha1_checksum %>
     </div>
-    <!--
-    <div class="field">
-      <%= f.label :has_dfxml %><br>
-      <%= f.check_box :has_dfxml %>
-    </div>
-    <div class="field">
-      <%= f.label :has_ftk_csv %><br>
-      <%= f.check_box :has_ftk_csv %>
-    </div>
-    <div class="field">
-      <%= f.label :has_mactime_csv %><br >
-      <%= f.check_box :has_mactime_csv %>
-    </div>
-    <div class="field">
-      <%= f.label :sip_id %><br>
-      <%= f.number_field :sip_id %>
-    </div>
-  -->
   </div>
 </div>
 
@@ -225,7 +207,10 @@
     </div>
   </div>
 </div>
-
+<%= f.hidden_field :modified_by, :value => current_user.id %>
+<% if action_name == "new" %>
+  <%= f.hidden_field :created_by, :value => current_user.id %>
+<% end %>
 <div class="actions">
   <input type="submit" value="Submit" class="btn btn-primary"/>
 </div>
