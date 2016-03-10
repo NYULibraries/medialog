@@ -108,27 +108,27 @@
 
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.interface') %>:</strong></td>
-    <td><%= @mlog_entry.interface %></td>
+    <td><%= MLOG_VOCAB["interfaces"][@mlog_entry.interface] %></td>
   </tr>
 
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.imaging_software') %>:</strong></td>
-    <td><%= @mlog_entry.imaging_software %></td>
+    <td><%= MLOG_VOCAB["imaging_software"][@mlog_entry.imaging_software] %></td>
   </tr>
   
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.hdd_interface') %>:</strong></td>
-    <td><%= @mlog_entry.hdd_interface %></td>
+    <td><%= MLOG_VOCAB["hdd_interfaces"][@mlog_entry.hdd_interface] %></td>
   </tr>
 
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.imaging_success') %>:</strong></td>
-    <td><%= @mlog_entry.imaging_success %></td>
+    <td><%= MLOG_VOCAB["image_success"][@mlog_entry.imaging_success] %></td>
   </tr>
 
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.interpretation_success') %>:</strong></td>
-    <td><%= @mlog_entry.interpretation_success %></td>
+    <td><%= MLOG_VOCAB["interpret_success"][@mlog_entry.interpretation_success] %></td>
   </tr>
 
   <tr>
@@ -149,7 +149,7 @@
 <table class="table table-hover">
   <tr>
     <td  class="col-md-3"><strong><%= t('helpers.label.mlog_entry.image_format') %>:</strong></td>
-    <td><%= @mlog_entry.image_format %></td>
+    <td><%= MLOG_VOCAB["image_formats"][@mlog_entry.image_format] %></td>
   </tr>
 
   <tr>
@@ -159,14 +159,15 @@
 
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.encoding_scheme') %>:</strong></td>
-    <td><%= @mlog_entry.encoding_scheme %></td>
+    <td><%= MLOG_VOCAB["encoding_schemes"][@mlog_entry.encoding_scheme] %></td>
   </tr>
 
+<!--
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.partition_table_format') %>:</strong></td>
     <td><%= @mlog_entry.partition_table_format %></td>
   </tr>
-
+-->
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.number_of_partitions') %>:</strong></td>
     <td><%= @mlog_entry.number_of_partitions %></td>
@@ -174,7 +175,7 @@
 
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.filesystem') %>:</strong></td>
-    <td><%= @mlog_entry.filesystem %></td>
+    <td><%= MLOG_VOCAB["filesystems"][@mlog_entry.filesystem] %></td>
   </tr>
 <!--
   <tr>

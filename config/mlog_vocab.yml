@@ -125,6 +125,7 @@ filesystems:
   filesystem_9660:		              "ISO 9660"
   filesystem_9660_joliet:	          "ISO 9660 Joliet"
   filesystem_udf:		                "UDF"
+  filesystem_uknown:                "Uknown"
 
 image_success:
   image_sucess_yes:		"Yes"
