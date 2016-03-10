@@ -40,5 +40,10 @@ Medialog::Application.routes.draw do
   get 'reports/format' => 'reports#format'
 
   get 'reports/format/:type' => 'reports#type'  
-  
+
+  namespace :api, constraints: { format: 'json' } do
+    namespace :v0 do
+      get :accession
+    end
+  end  
 end
