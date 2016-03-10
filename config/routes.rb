@@ -44,9 +44,6 @@ Medialog::Application.routes.draw do
   namespace :api, constraints: { format: 'json' } do
     namespace :v0 do
       get :accession
-      get :repository
-      get :collection
-      get :media 
     end
   end  
 end
