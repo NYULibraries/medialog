@@ -2,7 +2,7 @@ Medialog::Application.routes.draw do
   devise_for :users
   resources :users, except: :create
   resources :mlog_entries
-
+  resources :collections
   root 'mlog_entries#index'
 
   get 'search' => 'mlog_entries#search'

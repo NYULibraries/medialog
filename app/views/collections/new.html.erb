@@ -1,0 +1,20 @@
+<%= form_for :collection, url: collections_path  do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+      <%= f.label :repository %><br>
+      <%= f.select(:partner_code, MLOG_VOCAB["partner_codes"].invert, :include_blank => false ) %>
+  <p>
+ 
+  <p>
+    <%= f.label :collection_code %><br>
+    <%= f.text_field :collection_code %>
+  </p>
+
+  <p>  
+    <%= f.submit %>
+  </p>
+<% end %>
