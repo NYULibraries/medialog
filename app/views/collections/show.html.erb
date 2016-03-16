@@ -1,0 +1,5 @@
+<h3>
+  <%= link_to(MLOG_VOCAB["partner_codes"][@col.partner_code], "/repository/" + @col.partner_code) %>
+</h3>
+<h4><%= @col.collection_code + " " + @col.title %></h4>
+<p>created at <%= @col.created_at %> updated at <%= @col.updated_at %> </p>

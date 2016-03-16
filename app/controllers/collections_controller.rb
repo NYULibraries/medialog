@@ -1,8 +1,21 @@
 class CollectionsController < ApplicationController
   
+  def index
+    @collections = Collection.order(updated_at: :desc).page params[:page]
+  end
+
   def show
-    @collection = Collection.find(params[:id])
-    render json: @collection
+    @col = Collection.find(params[:id])
+  end
+
+  def edit
+    @col = Collection.find(params[:id])
+  end
+
+  def update
+    @col = Collection.find(params[:id])
+    @col.update(collection_params)
+    redirect_to @col
   end
 
   def new 

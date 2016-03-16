@@ -1,0 +1,24 @@
+<%= form_for :collection, url: collection_path(@col), method: :patch do |f| %>
+
+<p>
+  <%= f.label :partner_code %><br>
+  <%= f.text_field :partner_code, :value => @col.partner_code %>
+</p>
+
+<p>
+  <%= f.label :collection_code %><br>
+  <%= f.text_field :collection_code, :value => @col.collection_code %>
+</p>
+
+<p>
+  <%= f.label :title %><br>
+  <%= f.text_field :title, :value => @col.title %>
+</p>
+
+<p>
+  <%= f.submit %>
+</p>
+
+<% end %>
+
+<%= link_to 'Back', collections_path %>

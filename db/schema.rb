@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160315201320) do
+ActiveRecord::Schema.define(version: 20160316125253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20160315201320) do
     t.float    "stock_size_num"
     t.integer  "created_by"
     t.integer  "modified_by"
+    t.integer  "collection_id"
   end
 
   create_table "users", force: true do |t|

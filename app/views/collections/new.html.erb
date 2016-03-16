@@ -1,8 +1,4 @@
 <%= form_for :collection, url: collections_path  do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
 
   <p>
       <%= f.label :repository %><br>
@@ -12,6 +8,11 @@
   <p>
     <%= f.label :collection_code %><br>
     <%= f.text_field :collection_code %>
+  </p>
+
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
   </p>
 
   <p>  
