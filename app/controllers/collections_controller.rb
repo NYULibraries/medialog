@@ -1,7 +1,7 @@
 class CollectionsController < ApplicationController
   
   def index
-    @collections = Collection.order(updated_at: :desc).page params[:page]
+    @collections = Collection.order(updated_at: :desc)
   end
 
   def show
@@ -10,6 +10,12 @@ class CollectionsController < ApplicationController
 
   def edit
     @col = Collection.find(params[:id])
+  end
+
+  def destroy
+    @col = Collection.find(params[:id])
+    @col.destroy
+    redirect_to :action => "index"
   end
 
   def update
