@@ -42,6 +42,11 @@ class CollectionsController < ApplicationController
     redirect_to @collection
   end
 
+  def uuids
+    @collection = Collection.find(params[:id])
+    @mlog_entries = MlogEntry.where("collection_id = ?", params[:id]).order(media_id: :asc)
+  end
+
   private 
     def collection_params
       params.require(:collection).permit(:title, :collection_code, :partner_code)

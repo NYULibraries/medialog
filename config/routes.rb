@@ -1,8 +1,10 @@
 Medialog::Application.routes.draw do
+  
   devise_for :users
   resources :users, except: :create
   resources :mlog_entries
   resources :collections
+
   root 'mlog_entries#index'
 
   get 'search' => 'mlog_entries#search'
@@ -16,14 +18,12 @@ Medialog::Application.routes.draw do
   get 'repository/:repo' => 'mlog_entries#repository'
 
   get 'accession/' => 'mlog_entries#accession'
-
-  get 'collection/:collection_code' => 'mlog_entries#collection'
   
   get 'nav/' => 'mlog_entries#nav'
 
   get 'mlog_entries/:id/clone', to: 'mlog_entries#clone', as: :clone_mlog_entry
 
-  get 'collection/:collection_code/uuids/' => 'mlog_entries#uuids'
+  get 'collections/:id/uuid/' => 'collections#uuids'
 
   get 'mlog_entries/:file/text' => 'mlog_entries#textfile'
 

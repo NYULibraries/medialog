@@ -76,35 +76,6 @@ class MlogEntriesController < ApplicationController
     @sum_stock = human_size(@sum_stock)
  
   end
-
-  def collection
-    @mlog_entries = MlogEntry.where("collection_code = ?", params[:collection_code]).order(media_id: :asc)
-    @accessions = Set.new
-    @mlog_entries.each do |mlog|
-      unless mlog.accession_num.nil? || mlog.accession_num == ""
-        @accessions.add(mlog.accession_num)
-      end
-    end
-
-
-    @sum = 0.0
-    @image_sum = 0.0
-    @mlog_entries.each do |entry|
-      if(entry.stock_unit == 'MB') then
-        @sum = @sum + mb_to_byte(entry.stock_size_num)
-      elsif (entry.stock_unit == 'GB') then
-        @sum = @sum + gb_to_byte(entry.stock_size_num)  
-      end
-
-      if(entry.image_size_bytes != nil) then
-        @image_sum = @image_sum + entry.image_size_bytes
-      end
-    end
-
-    @sum = human_size(@sum)
-    @image_sum = human_size(@image_sum)
-    @mlog_entries = MlogEntry.where("collection_code = ?", params[:collection_code]).order(media_id: :asc).page params[:page]
-  end
   
   def nav 
     mlog = MlogEntry.find(params[:id])    
@@ -132,6 +103,7 @@ class MlogEntriesController < ApplicationController
   def accession
     
     @mlog_entries = MlogEntry.where("accession_num = ? and collection_code = ?", params[:accession], params[:collection])
+    @col = Collection.find(@mlog_entries[0].collection_id)
     @sum = 0.0
     @image_sum = 0.0
     @mlog_entries.each do |entry|
@@ -162,10 +134,6 @@ class MlogEntriesController < ApplicationController
         render json: params[:id]
       }
     end
-  end
-
-  def uuids
-    @mlog_entries = MlogEntry.where("collection_code = ?", params[:collection_code]).order(media_id: :asc)
   end
 
   # GET /mlog_entries
