@@ -179,7 +179,7 @@ class MlogEntriesController < ApplicationController
   def show
     @creator = "unknown"
     @modifier = "unknown"
-
+    @collection = Collection.find(@mlog_entry.collection_id)
     if @mlog_entry.created_by != nil then @creator = User.find(@mlog_entry.created_by).email end
     if @mlog_entry.modified_by != nil then @modifier = User.find(@mlog_entry.modified_by).email end
   end
@@ -194,7 +194,8 @@ class MlogEntriesController < ApplicationController
   # GET /mlog_entries/1/edit
   def edit
     u = current_user
-    @user = User.find(u)  
+    @user = User.find(u)
+    @col = Collection.find(@mlog_entry.collection_id) 
   end
 
   # POST /mlog_entries
@@ -216,9 +217,10 @@ class MlogEntriesController < ApplicationController
   # PATCH/PUT /mlog_entries/1
   # PATCH/PUT /mlog_entries/1.json
   def update
+    @col = Collection.find(@mlog_entry.collection_id)
     respond_to do |format|
       if @mlog_entry.update(mlog_entry_params)
-        format.html { redirect_to @mlog_entry, notice: 'Entry was successfully updated.' }
+        format.html { redirect_to @col, notice: 'Entry was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

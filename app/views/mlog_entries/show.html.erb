@@ -1,14 +1,12 @@
 
 <br>
 <%= render 'nav' %>
-<h3>
-  <%= link_to(MLOG_VOCAB["partner_codes"][@mlog_entry.partner_code], "/repository/" + @mlog_entry.partner_code) %>
-</h3>
 
-<h2><%= link_to(MLOG_VOCAB["collection_codes"][@mlog_entry.collection_code].split(" :: ")[0] + ": " + MLOG_VOCAB["collection_codes"][@mlog_entry.collection_code].split(" :: ")[1], "/collection/" + @mlog_entry.collection_code) %>
-# <%= @mlog_entry.media_id %></h2>
+<h3><%= link_to(@collection.partner_code, "/repository/" + @collection.partner_code) %></h3>
 
-<h4><%= link_to("accession: " + @mlog_entry.accession_num, "/accession?accession=" + @mlog_entry.accession_num + "&collection=" + @mlog_entry.collection_code) %></h4>
+<h2><%= link_to(@collection.collection_code + ": " + @collection.title, @collection) %> # <%= @mlog_entry.media_id %></h2>
+
+<h4><%= link_to("accession: " + @mlog_entry.accession_num, "/accession?accession=" + @mlog_entry.accession_num + "&collection=" + @collection.collection_code) %></h4>
 
 <p>
   <b>created by: </b><%= @creator %><b> on: </b><%= @mlog_entry.created_at.to_s %><br/> 

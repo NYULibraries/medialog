@@ -15,9 +15,16 @@ class CollectionsController < ApplicationController
   end
 
   def destroy
-    @col = Collection.find(params[:id])
-    @col.destroy
-    redirect_to :action => "index"
+
+    col = Collection.find(params[:id])
+    mlog_entries = MlogEntry.where("collection_id = ?", col.id)
+  
+    mlog_entries.each do |entry|
+      entry.destroy
+    end
+  
+    col.destroy
+    redirect_to :controller => "mlog_entries", :action => "repository", :repo => col.partner_code
   end
 
   def update
