@@ -56,12 +56,13 @@ class MlogEntriesController < ApplicationController
 
   def repository
 
-    @entries = MlogEntry.where(["partner_code = ?", params[:repo]]).order(collection_code: :asc)
-    @collections = get_sizes(@entries)
+    collections = Collection.where("partner_code = ?", params[:repo])
+    @colls = get_sizes(collections)
+
     @sum_stock = 0.0
     @sum_image = 0.0
-  
-    @collections.each do |coll|
+
+    @colls.each do |coll|
       if coll[1].stock_size != nil then
         @sum_stock = @sum_stock + coll[1].stock_size
       end
@@ -73,6 +74,7 @@ class MlogEntriesController < ApplicationController
     
     @sum_image = human_size(@sum_image)
     @sum_stock = human_size(@sum_stock)
+ 
   end
 
   def collection
@@ -186,6 +188,7 @@ class MlogEntriesController < ApplicationController
   def new
 
     @mlog_entry = MlogEntry.new
+    @col = Collection.find(params[:id])
   end
 
   # GET /mlog_entries/1/edit
@@ -198,10 +201,10 @@ class MlogEntriesController < ApplicationController
   # POST /mlog_entries.json
   def create
     @mlog_entry = MlogEntry.new(mlog_entry_params)
-
+    @col = Collection.find(@mlog_entry.collection_id)
     respond_to do |format|
       if @mlog_entry.save
-        format.html { redirect_to @mlog_entry, notice: 'Entry was successfully created.' }
+        format.html { redirect_to @col, notice: 'Entry was successfully created.' }
         format.json { render action: 'show', status: :created, location: @mlog_entry }
       else
         format.html { render action: 'new' }
@@ -248,6 +251,6 @@ class MlogEntriesController < ApplicationController
         :image_format, :encoding_scheme, :partition_table_format, :number_of_partitions, :filesystem, :has_dfxml, 
         :has_ftk_csv, :has_mactime_csv, :image_size_bytes, :md5_checksum, :sha1_checksum, :date_imaged, :date_ftk_loaded, 
         :date_metadata_extracted, :date_photographed, :date_qc, :date_packaged, :date_transferred, :number_of_image_segments, 
-        :ref_id, :box_number, :stock_size, :sip_id, :original_id, :disposition_note, :stock_unit, :stock_size_num, :created_by, :modified_by)
+        :ref_id, :box_number, :stock_size, :sip_id, :original_id, :disposition_note, :stock_unit, :stock_size_num, :created_by, :modified_by, :collection_id)
     end
 end

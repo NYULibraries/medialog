@@ -6,17 +6,18 @@
 </p>
 
 <h3>collections</h3>
+
 <table class="table table-striped repository">
   <theader>
     <tr>
       <th>id</th>
       <th>name</th>
       <th>stock size</th>
-      <th>image size</th>
+      <th>amount imaged</th>
     <tr>
   </theader>
   <tbody>
-    <% @collections.each do |coll| %>
+    <% @colls.each do |coll| %>
       <tr>
         
         <td><%= link_to coll[0].to_s, "/collections/" + coll[1].id.to_s %> </td>
