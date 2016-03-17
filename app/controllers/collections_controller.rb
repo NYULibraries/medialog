@@ -6,6 +6,8 @@ class CollectionsController < ApplicationController
 
   def show
     @col = Collection.find(params[:id])
+    @mlog_entries = MlogEntry.where("collection_id = ?", params[:id]).order(media_id: :asc).page params[:page]
+    
   end
 
   def edit

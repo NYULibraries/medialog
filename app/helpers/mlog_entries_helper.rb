@@ -2,12 +2,13 @@ module MlogEntriesHelper
   
   class Repository_Coll
     
-    attr_accessor :name, :stock_size, :image_size
+    attr_accessor :name, :stock_size, :image_size, :id
 
-    def initialize(name, stock_size, image_size)
+    def initialize(name, stock_size, image_size, id)
       @name = name
       @stock_size = stock_size
       @image_size = image_size
+      @id = id
     end
 
   end
@@ -16,7 +17,11 @@ module MlogEntriesHelper
     colls = Hash.new
 
     entries.each do |entry|
-      col_title = MLOG_VOCAB["collection_codes"][entry.collection_code].split(" :: ")[1]
+      collection = Collection.find(entry.collection_id)
+      puts(collection)
+      col_title = collection.title #MLOG_VOCAB["collection_codes"][entry.collection_code].split(" :: ")[1]
+      col_id = collection.id
+      col_code = collection.collection_code
       stock_size = 0.0
       image_size = 0.0
 
@@ -35,12 +40,12 @@ module MlogEntriesHelper
       end
 
       if !colls.include? entry.collection_code then
-        colls[entry.collection_code.to_sym] = Repository_Coll.new(col_title, stock_size, image_size)
+        colls[col_code.to_sym] = Repository_Coll.new(col_title, stock_size, image_size, col_id)
       else 
-        coll = colls[entry.collection_code]
+        coll = colls[col_code]
         new_image_size  = coll.image_size + image_size
         new_stock_size = coll.stock_size + stock_size
-        colls[entry.collection_code.to_sym] = Repository_Coll.new(col_title, stock_size, new_image_size)
+        colls[col_code.to_sym] = Repository_Coll.new(col_title, stock_size, new_image_size, col_id)
       end
     end
 

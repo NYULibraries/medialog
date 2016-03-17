@@ -1,0 +1,40 @@
+<table class="table table-striped">
+
+  <tr>
+    <th>Accession Num</th>
+    <th>Media ID</th>
+    <th>Media Type</th>
+    <th>Imaging success</th>
+    <th>Size</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+
+  <div calss="page">
+  <%= paginate @mlog_entries %>
+  </div>
+  <% @mlog_entries.each do |mlog_entry| %>
+    <tr>
+      <td><%= mlog_entry.accession_num %></td>
+      <td><%= mlog_entry.media_id %></td>
+      <td><%= MLOG_VOCAB["mediatypes"][mlog_entry.mediatype] %></td>
+      <td><%= MLOG_VOCAB["image_success"][mlog_entry.imaging_success] %></td>
+      <td>
+        <% if mlog_entry.image_size_bytes != nil then %>
+          <%= human_size(mlog_entry.image_size_bytes) %>
+        <% else %>
+         --
+        <% end %>
+      </td>
+
+      <td><%= link_to 'Show', mlog_entry, class: "btn btn-info btn-xs" %>
+      <td><%= link_to 'Edit', edit_mlog_entry_path(mlog_entry), class: "btn btn-primary btn-xs" %></td>
+      <td><%= link_to 'Destroy', mlog_entry, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" \
+%></td>
+    </tr>
+  <% end %>
+
+
+</table>

@@ -5,3 +5,5 @@
 <p>created at <%= @col.created_at %> updated at <%= @col.updated_at %> </p>
 <%= link_to 'Edit', edit_collection_path(@col), class: "btn btn-primary" %>
 <%= link_to 'Destroy', @col, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+<b>media objects</b>
+<%= render 'entrytable' %>
