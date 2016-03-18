@@ -10,10 +10,6 @@ class MlogEntriesController < ApplicationController
     @result = JSON.parse(open("http://localhost:9000/accession/media/" + params[:id]).read)
     puts @result.class
   end
-
-  def search
-    
-  end
   
   def textfile
     @request = params[:file].split("_")
@@ -37,21 +33,6 @@ class MlogEntriesController < ApplicationController
         end
       }
     end
-  end
-
-  def results
-    
-    if (params[:partner].empty? and params[:collection].empty? and params[:media].empty?)
-      flash[:warning] = "One of the three fields must be filled in to execute the query"
-      redirect_to :action => 'search'
-    end
-    
-    @params = params
-    conditions = { partner_code: params[:partner], 
-               collection_code: params[:collection], 
-               media_id: (params[:media].to_i unless params[:media].blank?) }
-
-    @results = MlogEntry.where(conditions.delete_if {|k,v| v.blank?}).page params[:page]
   end
 
   def repository

@@ -7,13 +7,7 @@ Medialog::Application.routes.draw do
 
   root 'mlog_entries#index'
 
-  get 'search' => 'mlog_entries#search'
-
   get 'media/:id' => 'mlog_entries#media'
-  
-  post 'results' => 'mlog_entries#results'
-  
-  get 'results' => 'mlog_entries#results'
   
   get 'repository/:repo' => 'mlog_entries#repository'
 
