@@ -1,0 +1,14 @@
+<table class="table">
+  <tr>
+    <th>repository</th>
+    <th>collection</th>
+    <th />
+  </tr>
+  <% @collections.each do |col| %>
+    <tr>
+      <td><%= col.partner_code %></td>
+      <td><%= link_to (col.collection_code + " " +  col.title), col %></td>
+      <td><%= link_to 'Edit', edit_collection_path(col) %> <%= link_to 'Destroy', @col, method: :delete, data: { confirm: 'Are you sure?' }, :style=>'color:#FF0000;' %></td>
+    <tr>
+  <% end %>
+</table>

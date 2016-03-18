@@ -11,25 +11,13 @@
 </div>
 <% end %>
 
-<div class="pane panel-info">
-  <div class="panel-heading"><h4><%= t(:collection_data) %></h4></div>
-  <div class="panel-body">
-    <div class="field">
-      <%= f.label :repository %><br>
-      <%= f.select(:partner_code, MLOG_VOCAB["partner_codes"].invert, :include_blank => true ) %>
-    </div>
-    <div class="field">
-      <%= f.label :collection %><br>
-      <%= f.select(:collection_code, MLOG_VOCAB["collection_codes"].invert, :include_blank => true ) %> 
-    </div>
 
-    <div class="field">
-      <%= f.label :accession_num %><br>
-      <%= f.text_field :accession_num %>
-    </div>
-
-  </div> 
-</div>
+  <h3><%= MLOG_VOCAB["partner_codes"][@col.partner_code] %></h3>
+  <h2><%= @col.title %></h2>
+  <div class="field">
+    <%= f.label :accession_num %><br>
+    <%= f.text_field :accession_num %>
+  </div>
 
 <div class="panel panel-info">
   <!-- Default panel contents -->
@@ -177,8 +165,9 @@
   </div>
 </div>
 
+<!--
 <div class="panel panel-info">
-  <!-- Default panel contents -->
+
   <div class="panel-heading"><h4><%= t(:section_workflow_job_tracking) %></h4></div>
   <div class="panel-body">
     <div class="field">
@@ -207,6 +196,8 @@
     </div>
   </div>
 </div>
+-->
+<%= f.hidden_field :collection_id, :value => @col.id %>
 <%= f.hidden_field :modified_by, :value => current_user.id %>
 <% if action_name == "new" %>
   <%= f.hidden_field :created_by, :value => current_user.id %>

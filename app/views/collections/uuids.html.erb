@@ -1,7 +1,10 @@
-<h4><%= MLOG_VOCAB["partner_codes"][@mlog_entries[0].partner_code] %></h4>
-<div class="lead"><%= MLOG_VOCAB["collection_codes"][@mlog_entries[0].collection_code].gsub(/ :: /, ": ") %></div>
-<%= link_to "collection view", "/collection/" + @mlog_entries[0].collection_code %>
-<br>
+<br />
+
+<h3><%= link_to(MLOG_VOCAB["partner_codes"][@collection.partner_code], "/repository/" + @collection.partner_code) %></h3>
+
+<h4><%= link_to(@collection.collection_code + ": " + @collection.title, @collection) %></h2>
+
+<br />
 <b>media objects</b>
 <br />
 <table class="table">

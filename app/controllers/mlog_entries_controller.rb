@@ -10,10 +10,6 @@ class MlogEntriesController < ApplicationController
     @result = JSON.parse(open("http://localhost:9000/accession/media/" + params[:id]).read)
     puts @result.class
   end
-
-  def search
-    
-  end
   
   def textfile
     @request = params[:file].split("_")
@@ -39,29 +35,15 @@ class MlogEntriesController < ApplicationController
     end
   end
 
-  def results
-    
-    if (params[:partner].empty? and params[:collection].empty? and params[:media].empty?)
-      flash[:warning] = "One of the three fields must be filled in to execute the query"
-      redirect_to :action => 'search'
-    end
-    
-    @params = params
-    conditions = { partner_code: params[:partner], 
-               collection_code: params[:collection], 
-               media_id: (params[:media].to_i unless params[:media].blank?) }
-
-    @results = MlogEntry.where(conditions.delete_if {|k,v| v.blank?}).page params[:page]
-  end
-
   def repository
 
-    @entries = MlogEntry.where(["partner_code = ?", params[:repo]]).order(collection_code: :asc)
-    @collections = get_sizes(@entries)
+    collections = Collection.where("partner_code = ?", params[:repo])
+    @colls = get_sizes(collections)
+
     @sum_stock = 0.0
     @sum_image = 0.0
-  
-    @collections.each do |coll|
+
+    @colls.each do |coll|
       if coll[1].stock_size != nil then
         @sum_stock = @sum_stock + coll[1].stock_size
       end
@@ -73,35 +55,7 @@ class MlogEntriesController < ApplicationController
     
     @sum_image = human_size(@sum_image)
     @sum_stock = human_size(@sum_stock)
-  end
-
-  def collection
-    @mlog_entries = MlogEntry.where("collection_code = ?", params[:collection_code]).order(media_id: :asc)
-    @accessions = Set.new
-    @mlog_entries.each do |mlog|
-      unless mlog.accession_num.nil? || mlog.accession_num == ""
-        @accessions.add(mlog.accession_num)
-      end
-    end
-
-
-    @sum = 0.0
-    @image_sum = 0.0
-    @mlog_entries.each do |entry|
-      if(entry.stock_unit == 'MB') then
-        @sum = @sum + mb_to_byte(entry.stock_size_num)
-      elsif (entry.stock_unit == 'GB') then
-        @sum = @sum + gb_to_byte(entry.stock_size_num)  
-      end
-
-      if(entry.image_size_bytes != nil) then
-        @image_sum = @image_sum + entry.image_size_bytes
-      end
-    end
-
-    @sum = human_size(@sum)
-    @image_sum = human_size(@image_sum)
-    @mlog_entries = MlogEntry.where("collection_code = ?", params[:collection_code]).order(media_id: :asc).page params[:page]
+ 
   end
   
   def nav 
@@ -130,6 +84,7 @@ class MlogEntriesController < ApplicationController
   def accession
     
     @mlog_entries = MlogEntry.where("accession_num = ? and collection_code = ?", params[:accession], params[:collection])
+    @col = Collection.find(@mlog_entries[0].collection_id)
     @sum = 0.0
     @image_sum = 0.0
     @mlog_entries.each do |entry|
@@ -162,10 +117,6 @@ class MlogEntriesController < ApplicationController
     end
   end
 
-  def uuids
-    @mlog_entries = MlogEntry.where("collection_code = ?", params[:collection_code]).order(media_id: :asc)
-  end
-
   # GET /mlog_entries
   # GET /mlog_entries.json
   def index
@@ -177,7 +128,7 @@ class MlogEntriesController < ApplicationController
   def show
     @creator = "unknown"
     @modifier = "unknown"
-
+    @collection = Collection.find(@mlog_entry.collection_id)
     if @mlog_entry.created_by != nil then @creator = User.find(@mlog_entry.created_by).email end
     if @mlog_entry.modified_by != nil then @modifier = User.find(@mlog_entry.modified_by).email end
   end
@@ -186,22 +137,24 @@ class MlogEntriesController < ApplicationController
   def new
 
     @mlog_entry = MlogEntry.new
+    @col = Collection.find(params[:id])
   end
 
   # GET /mlog_entries/1/edit
   def edit
     u = current_user
-    @user = User.find(u)  
+    @user = User.find(u)
+    @col = Collection.find(@mlog_entry.collection_id) 
   end
 
   # POST /mlog_entries
   # POST /mlog_entries.json
   def create
     @mlog_entry = MlogEntry.new(mlog_entry_params)
-
+    @col = Collection.find(@mlog_entry.collection_id)
     respond_to do |format|
       if @mlog_entry.save
-        format.html { redirect_to @mlog_entry, notice: 'Entry was successfully created.' }
+        format.html { redirect_to @col, notice: 'Entry was successfully created.' }
         format.json { render action: 'show', status: :created, location: @mlog_entry }
       else
         format.html { render action: 'new' }
@@ -213,9 +166,10 @@ class MlogEntriesController < ApplicationController
   # PATCH/PUT /mlog_entries/1
   # PATCH/PUT /mlog_entries/1.json
   def update
+    @col = Collection.find(@mlog_entry.collection_id)
     respond_to do |format|
       if @mlog_entry.update(mlog_entry_params)
-        format.html { redirect_to @mlog_entry, notice: 'Entry was successfully updated.' }
+        format.html { redirect_to @col, notice: 'Entry was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -248,6 +202,6 @@ class MlogEntriesController < ApplicationController
         :image_format, :encoding_scheme, :partition_table_format, :number_of_partitions, :filesystem, :has_dfxml, 
         :has_ftk_csv, :has_mactime_csv, :image_size_bytes, :md5_checksum, :sha1_checksum, :date_imaged, :date_ftk_loaded, 
         :date_metadata_extracted, :date_photographed, :date_qc, :date_packaged, :date_transferred, :number_of_image_segments, 
-        :ref_id, :box_number, :stock_size, :sip_id, :original_id, :disposition_note, :stock_unit, :stock_size_num, :created_by, :modified_by)
+        :ref_id, :box_number, :stock_size, :sip_id, :original_id, :disposition_note, :stock_unit, :stock_size_num, :created_by, :modified_by, :collection_id)
     end
 end

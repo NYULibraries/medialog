@@ -5,20 +5,24 @@
   total size imaged: <%= @sum_image %><br />
 </p>
 
+<%= link_to 'Add Collection', new_collection_path, class: "btn btn-primary" %>
+
 <h3>collections</h3>
+
 <table class="table table-striped repository">
   <theader>
     <tr>
       <th>id</th>
       <th>name</th>
       <th>stock size</th>
-      <th>image size</th>
+      <th>amount imaged</th>
     <tr>
   </theader>
   <tbody>
-    <% @collections.each do |coll| %>
+    <% @colls.each do |coll| %>
       <tr>
-        <td><%= link_to coll[0].to_s, "/collection/" + coll[0].to_s %></td>
+        
+        <td><%= link_to coll[0].to_s, "/collections/" + coll[1].id.to_s %> </td>
         <td><%= coll[1].name %></td>
         <td><%= human_size(coll[1].stock_size) %></td>
         <td><%= human_size(coll[1].image_size) %></td>

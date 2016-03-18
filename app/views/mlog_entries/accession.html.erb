@@ -1,5 +1,9 @@
-<h4><%= MLOG_VOCAB["partner_codes"][@mlog_entries[0].partner_code] %></h4>
-<h5><%= MLOG_VOCAB["collection_codes"][@mlog_entries[0].collection_code].gsub(/ :: /, ": ") + ", accession: " + @mlog_entries[0].accession_num %></h5>
+<h3><%= link_to(MLOG_VOCAB["partner_codes"][@col.partner_code], "/repository/" + @col.partner_code) %></h3>
+
+<h4><%= link_to(@col.collection_code + ": " + @col.title, @col) %></h2>
+
+<h4>accession number: <%= params[:accession] %></h2>
+
 <br />
 <%= @mlog_entries.size %> entries in database
 <br />
