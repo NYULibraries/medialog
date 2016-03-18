@@ -37,5 +37,5 @@ RSpec.describe CollectionsController, type: :controller do
       assigns(:col).should eq(col)
     end
   end
-
+  
 end
