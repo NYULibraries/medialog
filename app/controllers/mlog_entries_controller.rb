@@ -59,26 +59,35 @@ class MlogEntriesController < ApplicationController
   end
   
   def nav 
-    mlog = MlogEntry.find(params[:id])    
-    nId = mlog.media_id
+    mlog = MlogEntry.find(params[:id]) 
+    id = mlog.media_id
+    nId = 0
     if params[:dir] == "next"
-     nId += 1
-    elsif params[:dir] == "prev"
-      nId -= 1
+     nId = id + 1
+    elsif params[:dir] == "previous"
+      nId = id - 1
     end
 
-    nextMlog = MlogEntry.where("collection_code = ? and partner_code = ? and media_id =?", mlog.collection_code, mlog.partner_code, nId)[0]['id']
-    redirect_to :action => 'show',  :id => nextMlog
+    nextMlog = MlogEntry.where("collection_id = ? and media_id =?", mlog.collection_id, nId)
+    
+    if nextMlog[0] != nil 
+      redirect_to :action => 'show',  :id => nextMlog[0]
+    else
+      flash[:notice] = "The #{params[:dir]} record does not exist."
+      redirect_to :action => 'show',  :id => mlog
+    end 
+
   end
 
   def clone
     source_entry = MlogEntry.find(params[:id])
     @mlog_entry = MlogEntry.new
-    @mlog_entry[:partner_code] = source_entry[:partner_code]
-    @mlog_entry[:collection_code] = source_entry[:collection_code]
+    @mlog_entry[:collection_id] = source_entry[:collection_id]
+    @mlog_entry[:accession_num] = source_entry[:accession_num]
     @mlog_entry[:mediatype] = source_entry[:mediatype]
     @mlog_entry[:box_number] = source_entry[:box_number]
     @mlog_entry[:media_id] = source_entry[:media_id] + 1
+    @col = Collection.find(source_entry.collection_id)
   end
 
   def accession
