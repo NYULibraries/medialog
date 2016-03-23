@@ -22,7 +22,7 @@
     <% @colls.each do |coll| %>
       <tr>
         
-        <td><%= link_to coll[0].to_s, "/collections/" + coll[1].id.to_s %> </td>
+        <td><%= link_to @min_cols[coll[0]].c_code, collection_path(coll[1].id.to_s) %> </td>
         <td><%= coll[1].name %></td>
         <td><%= human_size(coll[1].stock_size) %></td>
         <td><%= human_size(coll[1].image_size) %></td>
