@@ -8,7 +8,7 @@
 
 <h4><%= link_to(@collection.collection_code + ": " + @collection.title, @collection) %> # <%= @mlog_entry.media_id %></h2>
 
-<h4><%= link_to("accession number: " + @mlog_entry.accession_num, "/accession?accession=" + @mlog_entry.accession_num + "&collection=" + @collection.collection_code) %></h4>
+<h4><%= link_to("accession number: " + @mlog_entry.accession_num, "/accession?accession=" + @mlog_entry.accession_num + "&collection=" + @collection.id.to_s) %></h4>
 
 <p>
   <b>created by: </b><%= @creator %><b> on: </b><%= @mlog_entry.created_at.to_s %><br/> 
