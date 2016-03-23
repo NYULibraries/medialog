@@ -39,6 +39,7 @@ describe MlogEntriesController do
 
   describe "GET index" do
     it "assigns all mlog_entries as @mlog_entries" do
+      col = Collection.create! valid_col_attributes
       mlog_entry = MlogEntry.create! valid_entry_attributes
       get :index, {}, valid_session
       assigns(:mlog_entries).should eq([mlog_entry])
@@ -130,7 +131,7 @@ describe MlogEntriesController do
         mlog_entry = MlogEntry.create! valid_entry_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         MlogEntry.any_instance.stub(:save).and_return(false)
-        put :update, {:id => mlog_entry.to_param, :mlog_entry => { "partner_code" => "invalid value" }}, valid_session
+        put :update, {:id => mlog_entry.to_param, :mlog_entry => { "collection_id" => "invalid value" }}, valid_session
         assigns(:mlog_entry).should eq(mlog_entry)
       end
     end  

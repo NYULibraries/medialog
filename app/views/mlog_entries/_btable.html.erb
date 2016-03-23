@@ -12,13 +12,16 @@
   </tr>
 
 
-  <div calss="page">
+  <div class="page">
   <%= paginate @mlog_entries %>
   </div>
   <% @mlog_entries.each do |mlog_entry| %>
     <tr>
-      <td><%= mlog_entry.accession_num %></td>
-      <td><%= mlog_entry.media_id %></td>
+      <td>
+        <%= link_to(mlog_entry.accession_num, 
+            "/accession?accession=" + mlog_entry.accession_num + "&collection=" + mlog_entry.collection_id.to_s) %>
+      </td>
+      <td><%= link_to mlog_entry.media_id, mlog_entry_path(mlog_entry) %></td>
       <td><%= MLOG_VOCAB["mediatypes"][mlog_entry.mediatype] %></td>
       <td><%= MLOG_VOCAB["image_success"][mlog_entry.imaging_success] %></td>
       <td>

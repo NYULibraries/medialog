@@ -55,6 +55,7 @@ class MlogEntriesController < ApplicationController
     
     @sum_image = human_size(@sum_image)
     @sum_stock = human_size(@sum_stock)
+    @min_cols = getMinimalCols
  
   end
   
@@ -92,8 +93,8 @@ class MlogEntriesController < ApplicationController
 
   def accession
     
-    @mlog_entries = MlogEntry.where("accession_num = ? and collection_code = ?", params[:accession], params[:collection])
-    @col = Collection.find(@mlog_entries[0].collection_id)
+    @mlog_entries = MlogEntry.where("accession_num = ? and collection_id = ?", params[:accession], params[:collection])
+    @col = Collection.find(params[:collection])
     @sum = 0.0
     @image_sum = 0.0
     @mlog_entries.each do |entry|
@@ -110,7 +111,7 @@ class MlogEntriesController < ApplicationController
 
     @sum = human_size(@sum)
     @image_sum = human_size(@image_sum)
-    @mlog_entries = MlogEntry.where("accession_num = ? and collection_code = ?", params[:accession], params[:collection]).order(media_id: :asc).page params[:page]
+    @mlog_entries = MlogEntry.where("accession_num = ? and collection_id = ?", params[:accession], params[:collection]).order(media_id: :asc).page params[:page]
 
   end
 
@@ -130,6 +131,7 @@ class MlogEntriesController < ApplicationController
   # GET /mlog_entries.json
   def index
     @mlog_entries = MlogEntry.order(updated_at: :desc).page params[:page]
+    @cols = getMinimalCols
   end
 
   # GET /mlog_entries/1
@@ -205,7 +207,7 @@ class MlogEntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mlog_entry_params
-      params.require(:mlog_entry).permit(:partner_code, :collection_code, :accession_num, :media_id, :mediatype, 
+      params.require(:mlog_entry).permit(:accession_num, :media_id, :mediatype, 
         :manufacturer, :manufacturer_serial, :label_text, :media_note, :photo_url, :image_filename, :interface, 
         :imaging_software, :hdd_interface, :imaging_success, :interpretation_success, :imaged_by, :imaging_note, 
         :image_format, :encoding_scheme, :partition_table_format, :number_of_partitions, :filesystem, :has_dfxml, 

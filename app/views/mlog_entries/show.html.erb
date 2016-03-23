@@ -2,7 +2,9 @@
 <br>
 <%= render 'nav' %>
 
-<h3><%= link_to(MLOG_VOCAB["partner_codes"][@collection.partner_code], "/repository/" + @collection.partner_code) %></h3>
+<h3>
+  <%= link_to(MLOG_VOCAB["partner_codes"][@collection.partner_code], show_repository_path(@collection.partner_code)) %>
+</h3>
 
 <h4><%= link_to(@collection.collection_code + ": " + @collection.title, @collection) %> # <%= @mlog_entry.media_id %></h2>
 

@@ -1,4 +1,6 @@
-<h3><%= link_to(MLOG_VOCAB["partner_codes"][@col.partner_code], "/repository/" + @col.partner_code) %></h3>
+<h3>
+  <%= link_to(MLOG_VOCAB["partner_codes"][@col.partner_code], show_repository_path(@col.partner_code)) %>
+</h3>
 
 <h4><%= link_to(@col.collection_code + ": " + @col.title, @col) %></h2>
 
@@ -12,7 +14,8 @@ total stock size: <%= @sum %>
 total size imaged: <%= @image_sum %>
 
 <br />
+<br />
 <b>media objects</b>
 <br />
-
+<br />
 <%= render 'btable' %>

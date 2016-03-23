@@ -13,6 +13,25 @@ module MlogEntriesHelper
 
   end
 
+  class Min_Col
+
+    attr_accessor :c_code, :p_code
+
+    def initialize(c_code, p_code)
+      @c_code = c_code
+      @p_code = p_code
+    end  
+  end
+
+  def getMinimalCols
+    min_cols = Hash.new
+    cols = Collection.select("id, collection_code, partner_code")
+    cols.each do |col|
+      min_cols[col.id] = Min_Col.new(col.collection_code, col.partner_code)
+    end
+    min_cols
+  end
+
   def get_sizes(cols)
     colls = Hash.new
 
@@ -38,13 +57,13 @@ module MlogEntriesHelper
           end
         end
 
-        if !colls.include? entry.collection_code then
-          colls[col.collection_code.to_sym] = Repository_Coll.new(col.title, stock_size, image_size, col.id)
+        if !colls.include? entry.collection_id then
+          colls[col.id] = Repository_Coll.new(col.title, stock_size, image_size, col.id)
         else 
-          coll = colls[col_code]
+          coll = colls[col.id]
           new_image_size  = coll.image_size + image_size
           new_stock_size = coll.stock_size + stock_size
-          colls[col.collection_code.to_sym] = Repository_Coll.new(col.title, stock_size, new_image_size, col.id)
+          colls[col.id] = Repository_Coll.new(col.title, stock_size, new_image_size, col.id)
         end
       end
     end
