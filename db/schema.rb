@@ -11,11 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323114132) do
+ActiveRecord::Schema.define(version: 20160324124700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+
+  create_table "accessions", force: true do |t|
+    t.string   "accession_num"
+    t.integer  "collection_id"
+    t.text     "accession_note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "collections", force: true do |t|
     t.string   "title"
@@ -74,6 +82,7 @@ ActiveRecord::Schema.define(version: 20160323114132) do
     t.integer  "created_by"
     t.integer  "modified_by"
     t.integer  "collection_id"
+    t.integer  "accession_id"
   end
 
   create_table "users", force: true do |t|

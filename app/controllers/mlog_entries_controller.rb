@@ -146,7 +146,7 @@ class MlogEntriesController < ApplicationController
 
   # GET /mlog_entries/new
   def new
-
+    puts params
     @mlog_entry = MlogEntry.new
     @col = Collection.find(params[:id])
   end
@@ -213,6 +213,6 @@ class MlogEntriesController < ApplicationController
         :image_format, :encoding_scheme, :partition_table_format, :number_of_partitions, :filesystem, :has_dfxml, 
         :has_ftk_csv, :has_mactime_csv, :image_size_bytes, :md5_checksum, :sha1_checksum, :date_imaged, :date_ftk_loaded, 
         :date_metadata_extracted, :date_photographed, :date_qc, :date_packaged, :date_transferred, :number_of_image_segments, 
-        :ref_id, :box_number, :stock_size, :sip_id, :original_id, :disposition_note, :stock_unit, :stock_size_num, :created_by, :modified_by, :collection_id)
+        :ref_id, :box_number, :stock_size, :sip_id, :original_id, :disposition_note, :stock_unit, :stock_size_num, :created_by, :modified_by, :collection_id, :accession_id)
     end
 end

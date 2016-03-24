@@ -4,14 +4,13 @@ Medialog::Application.routes.draw do
   resources :users, except: :create
   resources :mlog_entries
   resources :collections
+  resources :accessions
 
   root 'mlog_entries#index'
 
   get 'media/:id' => 'mlog_entries#media'
   
   get 'repository/:repo' => 'mlog_entries#repository', as: :show_repository
-
-  get 'accession/' => 'mlog_entries#accession'
   
   get 'nav/' => 'mlog_entries#nav'
 

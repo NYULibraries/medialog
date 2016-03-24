@@ -14,6 +14,9 @@
 
   <h3><%= MLOG_VOCAB["partner_codes"][@col.partner_code] %></h3>
   <h2><%= @col.title %></h2>
+  
+  <h1><%= params[:accession_id] %></h1>
+
   <div class="field">
     <%= f.label :accession_num %><br>
     <%= f.text_field :accession_num %>

@@ -1,0 +1,11 @@
+<table class="table">
+  <tr>
+  	<th>accession number</th>
+  </tr>
+  
+  <% @accessions.each do |accession| %>
+  	<tr>
+  	  <td><%= link_to accession.accession_num, accession %></td>
+  	</tr>
+  <% end %>
+</table>
