@@ -1,0 +1,16 @@
+<h4> <%= MLOG_VOCAB["partner_codes"][@collection.partner_code] %> </h4>
+
+<h4><%= @collection.collection_code  + ": " + @collection.title %></h4>
+
+<%= form_for :accession, url: accessions_path  do |f| %>
+
+  <p>
+    <%= f.label :accession_num %><br>
+    <%= f.text_field :accession_num %>
+  </p>
+
+  <%= f.hidden_field :collection_id, :value => @collection.id %>
+
+  <p><%= f.submit %></p>
+
+<% end %>

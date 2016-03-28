@@ -15,6 +15,12 @@ RSpec.describe CollectionsController, type: :controller do
     "partner_code" => "fa",
     "collection_code" => "mssxxx" } }
 
+    let(:valid_accession_attributes) { {
+    "id" => 1,
+    "accession_num" => "1999.99",
+    "collection_id" => 55
+  } }
+
   let(:valid_session) { {} }
 
 
@@ -31,10 +37,10 @@ RSpec.describe CollectionsController, type: :controller do
   end
 
   describe "GET show" do
-    it "assigns the requested collection as @col" do
-      col = Collection.create! valid_col_attributes
-      get :show, {:id => col.to_param}, valid_session
-      assigns(:col).should eq(col)
+    it "assigns the requested collection as @collection" do
+      collection = Collection.create! valid_col_attributes
+      get :show, {:id => collection.to_param}, valid_session
+      assigns(:collection).should eq(collection)
     end
   end
   

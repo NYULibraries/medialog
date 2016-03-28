@@ -40,4 +40,32 @@ module ApplicationHelper
    	end
   end
 
+  class Min_Col
+
+    attr_accessor :c_code, :p_code
+
+    def initialize(c_code, p_code)
+      @c_code = c_code
+      @p_code = p_code
+    end  
+  end
+
+  def getMinCollections
+    min_cols = Hash.new
+    cols = Collection.select("id, collection_code, partner_code")
+    cols.each do |col|
+      min_cols[col.id] = Min_Col.new(col.collection_code, col.partner_code)
+    end
+    min_cols
+  end
+
+  def getMinAccessions
+    min_accs = Hash.new
+    accs = Accession.select("id, accession_num")
+    accs.each do |acc|
+      min_accs[acc.id] = acc.accession_num
+    end
+    min_accs
+  end
+  
 end

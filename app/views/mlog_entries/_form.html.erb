@@ -1,26 +1,27 @@
+<br />
+<br />
 <%= form_for(@mlog_entry, html: {role: 'form'}) do |f| %>
-<% if @mlog_entry.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@mlog_entry.errors.count, "error") %> prohibited this mlog_entry from being saved:</h2>
+  <% if @mlog_entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mlog_entry.errors.count, "error") %> prohibited this mlog_entry from being saved:</h2>
 
-  <ul>
-    <% @mlog_entry.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+      <ul>
+        <% @mlog_entry.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 
-  <h3><%= MLOG_VOCAB["partner_codes"][@col.partner_code] %></h3>
-  <h2><%= @col.title %></h2>
-  
-  <h1><%= params[:accession_id] %></h1>
-
-  <div class="field">
-    <%= f.label :accession_num %><br>
-    <%= f.text_field :accession_num %>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h4><%= MLOG_VOCAB["partner_codes"][@collection.partner_code] %></h4>
+    <h4><%= @collection.title %></h4>
+    <h4><%= "accession: " + @accession.accession_num %></h4>
   </div>
+</div>
+
 
 <div class="panel panel-info">
   <!-- Default panel contents -->
@@ -168,43 +169,15 @@
   </div>
 </div>
 
-<!--
-<div class="panel panel-info">
+<%= f.hidden_field :collection_id, :value => @collection.id %>
+<%= f.hidden_field :accession_id, :value => @accession.id %>
 
-  <div class="panel-heading"><h4><%= t(:section_workflow_job_tracking) %></h4></div>
-  <div class="panel-body">
-    <div class="field">
-      <%= f.label "Date Imaged or Transferred"%><br>
-      <%= f.datetime_select :date_imaged, :include_blank => true %>
-    </div>
-    <div class="field">
-      <%= f.label :date_ftk_loaded %><br>
-      <%= f.datetime_select :date_ftk_loaded, :include_blank => true %>
-    </div>
-    <div class="field">
-      <%= f.label :date_metadata_extracted %><br>
-      <%= f.datetime_select :date_metadata_extracted, :include_blank => true %>
-    </div>
-    <div class="field">
-      <%= f.label :date_photographed %><br>
-      <%= f.datetime_select :date_photographed, :include_blank => true %>
-    </div>
-    <div class="field">
-      <%= f.label :date_qc %><br>
-      <%= f.datetime_select :date_qc, :include_blank => true %>
-    </div>
-    <div class="field">
-      <%= f.label :date_transferred %><br>
-      <%= f.datetime_select :date_transferred, :include_blank => true %>
-    </div>
-  </div>
-</div>
--->
-<%= f.hidden_field :collection_id, :value => @col.id %>
 <%= f.hidden_field :modified_by, :value => current_user.id %>
+
 <% if action_name == "new" %>
   <%= f.hidden_field :created_by, :value => current_user.id %>
 <% end %>
+
 <div class="actions">
   <input type="submit" value="Submit" class="btn btn-primary"/>
 </div>

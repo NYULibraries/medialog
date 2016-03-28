@@ -84,11 +84,12 @@ class MlogEntriesController < ApplicationController
     source_entry = MlogEntry.find(params[:id])
     @mlog_entry = MlogEntry.new
     @mlog_entry[:collection_id] = source_entry[:collection_id]
-    @mlog_entry[:accession_num] = source_entry[:accession_num]
+    @mlog_entry[:accession_id] = source_entry[:accession_id]
     @mlog_entry[:mediatype] = source_entry[:mediatype]
     @mlog_entry[:box_number] = source_entry[:box_number]
     @mlog_entry[:media_id] = source_entry[:media_id] + 1
-    @col = Collection.find(source_entry.collection_id)
+    @collection = Collection.find(source_entry.collection_id)
+    @accession = Accession.find(source_entry.accession_id)
   end
 
   def accession
@@ -131,41 +132,44 @@ class MlogEntriesController < ApplicationController
   # GET /mlog_entries.json
   def index
     @mlog_entries = MlogEntry.order(updated_at: :desc).page params[:page]
-    @cols = getMinimalCols
+    @collections = getMinCollections
+    @accessions = getMinAccessions
   end
 
   # GET /mlog_entries/1
   # GET /mlog_entries/1.json
   def show
+
     @creator = "unknown"
     @modifier = "unknown"
+    
     @collection = Collection.find(@mlog_entry.collection_id)
+    @accession = Accession.find(@mlog_entry.accession_id)
+
     if @mlog_entry.created_by != nil then @creator = User.find(@mlog_entry.created_by).email end
     if @mlog_entry.modified_by != nil then @modifier = User.find(@mlog_entry.modified_by).email end
   end
 
   # GET /mlog_entries/new
   def new
-    puts params
     @mlog_entry = MlogEntry.new
-    @col = Collection.find(params[:id])
+    @collection = Collection.find(params[:id])
+    @accession = Accession.find(params[:accession_id])
   end
 
   # GET /mlog_entries/1/edit
-  def edit
-    u = current_user
-    @user = User.find(u)
-    @col = Collection.find(@mlog_entry.collection_id) 
+  def edit    
+    @collection = Collection.find(@mlog_entry.collection_id)
+    @accession = Accession.find(@mlog_entry.accession_id)
   end
 
   # POST /mlog_entries
   # POST /mlog_entries.json
   def create
     @mlog_entry = MlogEntry.new(mlog_entry_params)
-    @col = Collection.find(@mlog_entry.collection_id)
     respond_to do |format|
       if @mlog_entry.save
-        format.html { redirect_to @col, notice: 'Entry was successfully created.' }
+        format.html { redirect_to @mlog_entry, notice: 'Entry was successfully created.' }
         format.json { render action: 'show', status: :created, location: @mlog_entry }
       else
         format.html { render action: 'new' }
@@ -177,10 +181,13 @@ class MlogEntriesController < ApplicationController
   # PATCH/PUT /mlog_entries/1
   # PATCH/PUT /mlog_entries/1.json
   def update
-    @col = Collection.find(@mlog_entry.collection_id)
+    
+    @collection = Collection.find(@mlog_entry.collection_id)
+    @accession = Accession.find(@mlog_entry.accession_id)
+
     respond_to do |format|
       if @mlog_entry.update(mlog_entry_params)
-        format.html { redirect_to @col, notice: 'Entry was successfully updated.' }
+        format.html { redirect_to @mlog_entry, notice: 'Entry was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -207,12 +214,13 @@ class MlogEntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mlog_entry_params
-      params.require(:mlog_entry).permit(:accession_num, :media_id, :mediatype, 
-        :manufacturer, :manufacturer_serial, :label_text, :media_note, :photo_url, :image_filename, :interface, 
-        :imaging_software, :hdd_interface, :imaging_success, :interpretation_success, :imaged_by, :imaging_note, 
-        :image_format, :encoding_scheme, :partition_table_format, :number_of_partitions, :filesystem, :has_dfxml, 
-        :has_ftk_csv, :has_mactime_csv, :image_size_bytes, :md5_checksum, :sha1_checksum, :date_imaged, :date_ftk_loaded, 
+      params.require(:mlog_entry).permit(
+        :accession_num, :media_id, :mediatype, :manufacturer, :manufacturer_serial, :label_text, :media_note, 
+        :photo_url, :image_filename, :interface, :imaging_software, :hdd_interface, :imaging_success, :interpretation_success, 
+        :imaged_by, :imaging_note, :image_format, :encoding_scheme, :partition_table_format, :number_of_partitions, :filesystem, 
+        :has_dfxml, :has_ftk_csv, :has_mactime_csv, :image_size_bytes, :md5_checksum, :sha1_checksum, :date_imaged, :date_ftk_loaded, 
         :date_metadata_extracted, :date_photographed, :date_qc, :date_packaged, :date_transferred, :number_of_image_segments, 
-        :ref_id, :box_number, :stock_size, :sip_id, :original_id, :disposition_note, :stock_unit, :stock_size_num, :created_by, :modified_by, :collection_id, :accession_id)
+        :ref_id, :box_number, :stock_size, :sip_id, :original_id, :disposition_note, :stock_unit, :stock_size_num, :created_by, 
+        :modified_by, :collection_id, :accession_id)
     end
 end
