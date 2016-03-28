@@ -6,7 +6,12 @@
   		<%= link_to(MLOG_VOCAB["partner_codes"][@collection.partner_code], "/repository/" + @collection.partner_code) %>
 	</h4>
 	<h3><%= @collection.collection_code + " " + @collection.title %></h3>
-	<p>created at <%= @collection.created_at %> updated at <%= @collection.updated_at %> </p>
+	 <p>
+      created at <%= @collection.created_at %> <br/>
+      updated at <%= @collection.updated_at %><br/>
+      total size inventoried: <b><%= @summaries["stock_size"] %></b><br/>
+      total size imaged: <b><%= @summaries["image_size"] %></b>
+    </p>
 	<%= link_to 'Edit', edit_collection_path(@collection), class: "btn btn-primary" %>
 	<%= link_to 'Destroy', @collection, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
   </div>
@@ -39,8 +44,8 @@
 		    <th>Accession Num</th>
 		    <th>Media ID</th>
 		    <th>Media Type</th>
-		    <th>Imaging success</th>
 		    <th>Size</th>
+		    <th>Imaging success</th>
 		  </tr>
   		<div class="page">
   			<%= paginate @mlog_entries %>
@@ -54,14 +59,8 @@
 	        </td>
 		      <td><%= link_to mlog_entry.media_id, mlog_entry_path(mlog_entry) %></td>
 		      <td><%= MLOG_VOCAB["mediatypes"][mlog_entry.mediatype] %></td>
+		      <td><%= mlog_entry.stock_size_num.to_s  + " " + mlog_entry.stock_unit %></td>
 		      <td><%= MLOG_VOCAB["image_success"][mlog_entry.imaging_success] %></td>
-		      <td>
-		        <% if mlog_entry.image_size_bytes != nil then %>
-		          <%= human_size(mlog_entry.image_size_bytes) %>
-		        <% else %>
-		         --
-		        <% end %>
-		      </td>
 		    </tr>
   		<% end %>
 		</table><br />

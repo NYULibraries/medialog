@@ -18,8 +18,6 @@ Medialog::Application.routes.draw do
 
   get 'collections/:id/uuid/' => 'collections#uuids'
 
-  get 'mlog_entries/:file/text' => 'mlog_entries#textfile'
-
   get 'mlog_entries/:id/json' => 'mlog_entries#mlog_json'
 
   post 'create_user' => 'users#create', as: :create_user

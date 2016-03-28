@@ -67,5 +67,30 @@ module ApplicationHelper
     end
     min_accs
   end
+
+  def get_summaries(mlog_entries)
+    summaries = Hash.new
+    sum = 0.0
+    image_sum = 0.0
+    
+    mlog_entries.each do |entry|
+      if(entry.stock_unit == 'KB') then
+        sum = sum + kb_to_byte(entry.stock_size_num)
+      elsif(entry.stock_unit == 'MB') then
+        sum = sum + mb_to_byte(entry.stock_size_num)
+      elsif (entry.stock_unit == 'GB') then
+        sum = sum + gb_to_byte(entry.stock_size_num)
+      end
+
+      if(entry.image_size_bytes != nil) then
+        image_sum = image_sum + entry.image_size_bytes
+      end
+    end
+
+    summaries["stock_size"] = human_size(sum)
+    summaries["image_size"] = human_size(image_sum)
+
+    summaries
+  end
   
 end

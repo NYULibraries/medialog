@@ -6,35 +6,6 @@ class MlogEntriesController < ApplicationController
   
   before_action :set_mlog_entry, only: [:show, :edit, :update, :destroy]
 
-  def media
-    @result = JSON.parse(open("http://localhost:9000/accession/media/" + params[:id]).read)
-    puts @result.class
-  end
-  
-  def textfile
-    @request = params[:file].split("_")
-    @partner = MLOG_VOCAB["filename_partner_codes"][@request[0]]
-    @col_code = @request[1] + @request[2]
-    @media_num = @request[3]
-    @result = MlogEntry.where("collection_code = ? and partner_code = ? and media_id =?", @col_code, @partner, @media_num)
-    @size = @result.size
-    puts @size.class
-
-    respond_to do |format|
-      format.html { 
-        if @size == 1 then render json: @result[0].id 
-        elsif @size == 0 then render json: "no resource" 
-        end
-      }
-
-      format.json { 
-        if @size == 1 then render json: @result[0].id 
-        elsif @size == 0 then render json: "no resource" 
-        end
-      }
-    end
-  end
-
   def repository
 
     collections = Collection.where("partner_code = ?", params[:repo])
@@ -90,30 +61,6 @@ class MlogEntriesController < ApplicationController
     @mlog_entry[:media_id] = source_entry[:media_id] + 1
     @collection = Collection.find(source_entry.collection_id)
     @accession = Accession.find(source_entry.accession_id)
-  end
-
-  def accession
-    
-    @mlog_entries = MlogEntry.where("accession_num = ? and collection_id = ?", params[:accession], params[:collection])
-    @col = Collection.find(params[:collection])
-    @sum = 0.0
-    @image_sum = 0.0
-    @mlog_entries.each do |entry|
-      if(entry.stock_unit == 'MB') then
-        @sum = @sum + mb_to_byte(entry.stock_size_num)
-      elsif (entry.stock_unit == 'GB') then
-        @sum = @sum + gb_to_byte(entry.stock_size_num)
-      end
-
-      if(entry.image_size_bytes != nil) then
-        @image_sum = @image_sum + entry.image_size_bytes
-      end
-    end
-
-    @sum = human_size(@sum)
-    @image_sum = human_size(@image_sum)
-    @mlog_entries = MlogEntry.where("accession_num = ? and collection_id = ?", params[:accession], params[:collection]).order(media_id: :asc).page params[:page]
-
   end
 
   def mlog_json
