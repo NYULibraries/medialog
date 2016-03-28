@@ -55,7 +55,7 @@ class MlogEntriesController < ApplicationController
     
     @sum_image = human_size(@sum_image)
     @sum_stock = human_size(@sum_stock)
-    @min_cols = getMinimalCols
+    @min_cols = getMinCollections
  
   end
   
