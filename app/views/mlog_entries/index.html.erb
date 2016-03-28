@@ -22,14 +22,15 @@
 
       <tr>  
         <td>
-          <%=  link_to @cols[mlog_entry.collection_id].p_code, show_repository_path(@cols[mlog_entry.collection_id].p_code) %>
+          <%=  link_to @collections[mlog_entry.collection_id].p_code, show_repository_path(@collections[mlog_entry.collection_id].p_code) %>
         </td>
         <td>
-          <%=  link_to @cols[mlog_entry.collection_id].c_code, collection_path(mlog_entry.collection_id) %>
+          <%=  link_to @collections[mlog_entry.collection_id].c_code, collection_path(mlog_entry.collection_id) %>
         </td>
         <td>
-          <%= link_to(mlog_entry.accession_num, 
-            "/accession?accession=" + mlog_entry.accession_num + "&collection=" + mlog_entry.collection_id.to_s) %>
+          <% if (mlog_entry.accession_id != nil) then %>
+            <%= link_to @accessions[mlog_entry.accession_id], accession_path(mlog_entry.accession_id) %>
+          <% end %>
         </td>
         <td><%= link_to mlog_entry.media_id, mlog_entry_path(mlog_entry) %></td>
         <td><%= MLOG_VOCAB["mediatypes"][mlog_entry.mediatype] %></td>

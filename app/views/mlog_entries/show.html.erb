@@ -1,22 +1,24 @@
 
 <br>
 <%= render 'nav' %>
+<br/>
 
-<h3>
+<h4>
   <%= link_to(MLOG_VOCAB["partner_codes"][@collection.partner_code], show_repository_path(@collection.partner_code)) %>
-</h3>
+</h4>
 
 <h4><%= link_to(@collection.collection_code + ": " + @collection.title, @collection) %> # <%= @mlog_entry.media_id %></h2>
 
-<h4><%= link_to("accession number: " + @mlog_entry.accession_num, "/accession?accession=" + @mlog_entry.accession_num + "&collection=" + @collection.id.to_s) %></h4>
-
+<% if @accession == nil %>
+  <h4>accession: </h4>
+<% else %>
+  <h4><%= link_to("accession: " + @accession.accession_num, @accession) %></h4>
+<% end %>
 <p>
   <b>created by: </b><%= @creator %><b> on: </b><%= @mlog_entry.created_at.to_s %><br/> 
   <b>modified by: </b><%= @modifier %><b> on: </b><%= @mlog_entry.updated_at.to_s %>
 </p>
-
-
-<br />
+<br/>
 
 <div class="panel panel-info">
   <div class="panel-heading"><h4><%= t(:physical_data) %></h4></div>
@@ -30,15 +32,11 @@
     <td><%= @mlog_entry.media_id %></td>
   </tr>
 
-
-
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.mediatype') %>:</strong></td>
     <td><%= MLOG_VOCAB["mediatypes"][@mlog_entry.mediatype] %></td>
   </tr>
 
-
-  
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.box_number') %>:</strong></td>
     <td><%= @mlog_entry.box_number %></td>
@@ -48,7 +46,6 @@
     <td><strong><%= t('helpers.label.mlog_entry.label_text') %>:</strong></td>
     <td><%= @mlog_entry.label_text %></td>
   </tr>
-  
 
   <tr>
     <td class="col-md-3"><strong><%= t('Original Id') %>:</strong></td>

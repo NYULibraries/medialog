@@ -5,8 +5,10 @@ class CollectionsController < ApplicationController
   end
 
   def show
-    @col = Collection.find(params[:id])
-    @mlog_entries = MlogEntry.where("collection_id = ?", params[:id]).order(media_id: :asc).page params[:page]
+    @collection = Collection.find(params[:id])
+    @accessions = Accession.where("collection_id = ?", @collection.id)
+    @min_accessions = getMinAccessions
+    @mlog_entries = MlogEntry.where("collection_id = ?", @collection.id).order(media_id: :asc).page params[:page]
     
   end
 

@@ -1,12 +1,70 @@
-<h3>
-  <%= link_to(MLOG_VOCAB["partner_codes"][@col.partner_code], "/repository/" + @col.partner_code) %>
-</h3>
-<h4><%= @col.collection_code + " " + @col.title %></h4>
-<p>created at <%= @col.created_at %> updated at <%= @col.updated_at %> </p>
-<%= link_to 'Edit', edit_collection_path(@col), class: "btn btn-primary" %>
-<%= link_to 'Destroy', @col, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
 <br/>
-<br/>
-<h3>media objects</h3>
-<%= link_to 'Add New', new_mlog_entry_path(:id => @col.id), class: "btn btn-primary" %>
-<%= render 'entrytable' %>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+  	<h4>
+  		<%= link_to(MLOG_VOCAB["partner_codes"][@collection.partner_code], "/repository/" + @collection.partner_code) %>
+	</h4>
+	<h3><%= @collection.collection_code + " " + @collection.title %></h3>
+	<p>created at <%= @collection.created_at %> updated at <%= @collection.updated_at %> </p>
+	<%= link_to 'Edit', edit_collection_path(@collection), class: "btn btn-primary" %>
+	<%= link_to 'Destroy', @collection, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+  </div>
+</div>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Accessions</h3>
+  </div>
+  <div class="panel-body">
+  	<table class="table-striped">
+	  <% @accessions.each do |accession| %>	
+	    <tr>
+	      <td><%= link_to accession.accession_num, accession_path(accession.id) %></td>
+	    </tr>
+	  <% end %>
+  	</table><br/>
+  	<%= link_to 'Add Accession', new_accession_path(:collection_id => @collection.id), class: "btn btn-primary" %>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Media Objects</h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+		  <tr>
+		    <th>Accession Num</th>
+		    <th>Media ID</th>
+		    <th>Media Type</th>
+		    <th>Imaging success</th>
+		    <th>Size</th>
+		  </tr>
+  		<div class="page">
+  			<%= paginate @mlog_entries %>
+  		</div>
+  		<% @mlog_entries.each do |mlog_entry| %>
+		    <tr>
+	        <td>
+	          <% if (mlog_entry.accession_id != nil) then %>
+	            <%= link_to @min_accessions[mlog_entry.accession_id], accession_path(mlog_entry.accession_id) %>
+	          <% end %>
+	        </td>
+		      <td><%= link_to mlog_entry.media_id, mlog_entry_path(mlog_entry) %></td>
+		      <td><%= MLOG_VOCAB["mediatypes"][mlog_entry.mediatype] %></td>
+		      <td><%= MLOG_VOCAB["image_success"][mlog_entry.imaging_success] %></td>
+		      <td>
+		        <% if mlog_entry.image_size_bytes != nil then %>
+		          <%= human_size(mlog_entry.image_size_bytes) %>
+		        <% else %>
+		         --
+		        <% end %>
+		      </td>
+		    </tr>
+  		<% end %>
+		</table><br />
+		<%= link_to 'Add Entry', new_mlog_entry_path(:id => @collection.id), class: "btn btn-primary" %>
+	</div>
+</div>
