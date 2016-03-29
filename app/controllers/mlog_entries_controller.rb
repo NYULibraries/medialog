@@ -5,30 +5,6 @@ class MlogEntriesController < ApplicationController
   include MlogEntriesHelper
   
   before_action :set_mlog_entry, only: [:show, :edit, :update, :destroy]
-
-  def repository
-
-    collections = Collection.where("partner_code = ?", params[:repo])
-    @colls = get_sizes(collections)
-
-    @sum_stock = 0.0
-    @sum_image = 0.0
-
-    @colls.each do |coll|
-      if coll[1].stock_size != nil then
-        @sum_stock = @sum_stock + coll[1].stock_size
-      end
-
-      if coll[1].image_size != nil then
-        @sum_image = @sum_image + coll[1].image_size
-      end
-    end
-    
-    @sum_image = human_size(@sum_image)
-    @sum_stock = human_size(@sum_stock)
-    @min_cols = getMinCollections
- 
-  end
   
   def nav 
     mlog = MlogEntry.find(params[:id]) 

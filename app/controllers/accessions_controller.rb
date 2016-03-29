@@ -33,6 +33,22 @@ class AccessionsController < ApplicationController
     redirect_to accession
   end
 
+  def destroy
+
+    accession = Accession.find(params[:id])
+    collection = Collection.find(accession.collection_id)
+    mlog_entries = MlogEntry.where("accession_id = ?", accession.id)
+
+    mlog_entries.each do |entry|
+      entry.destroy
+    end
+
+    accession.destroy
+
+    redirect_to collection
+
+  end
+
   private 
     def accession_params
       params.require(:accession).permit(:accession_num, :accession_note, :collection_id)

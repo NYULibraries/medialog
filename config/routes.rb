@@ -10,7 +10,7 @@ Medialog::Application.routes.draw do
 
   get 'media/:id' => 'mlog_entries#media'
   
-  get 'repository/:repo' => 'mlog_entries#repository', as: :show_repository
+  get 'repository/:repository_code' => 'collections#repository', as: :show_repository
   
   get 'nav/' => 'mlog_entries#nav'
 

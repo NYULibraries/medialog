@@ -1,0 +1,44 @@
+<br />
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h3><%= MLOG_VOCAB["partner_codes"][params[:repository_code]] %></h3>
+    <p>
+      total size inventoried: <b><%= human_size(@summaries["stock_size"]) %></b><br/>
+      total size imaged: <b><%= human_size(@summaries["image_size"]) %></b>
+    </p>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">collections</h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped repository">
+      <theader>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>stock size</th>
+          <th>imaged size</th>
+        <tr>
+      </theader>
+      <tbody>
+        <% @collections.each do |collection| %>
+          <tr>
+            <td><%= link_to collection.collection_code, collection_path(collection.id) %> </td>
+            <td><%= collection.title %></td>
+            <% if @sizes[collection.id] != nil then %>
+              <td><%= human_size(@sizes[collection.id].stock_size) %></td>
+              <td><%= human_size(@sizes[collection.id].image_size) %></td>
+            <% else %>
+              <td/><td/>
+            <% end %>
+          </tr>
+        <% end %>   
+      </tbody>
+    </table>
+    <%= link_to 'Add Collection', new_collection_path, class: "btn btn-primary" %>
+  </div>
+</div>
