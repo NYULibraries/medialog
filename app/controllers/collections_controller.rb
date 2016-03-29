@@ -9,7 +9,7 @@ class CollectionsController < ApplicationController
     @accessions = Accession.where("collection_id = ?", @collection.id)
     @min_accessions = getMinAccessions
     @mlog_entries = MlogEntry.where("collection_id = ?", @collection.id).order(media_id: :asc).page params[:page]
-    
+    @summaries = get_summaries(@mlog_entries)
   end
 
   def edit
@@ -53,5 +53,4 @@ class CollectionsController < ApplicationController
     def collection_params
       params.require(:collection).permit(:title, :collection_code, :partner_code)
     end
-
 end

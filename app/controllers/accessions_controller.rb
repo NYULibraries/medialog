@@ -5,9 +5,10 @@ class AccessionsController < ApplicationController
   end
 
   def show
-  	@accession = Accession.find(params[:id])
-  	@collection = Collection.find(@accession.collection_id)
-  	@mlog_entries = MlogEntry.where("accession_id = ? and collection_id = ?", @accession.id, @collection.id).order(media_id: :asc).page params[:page]
+    @accession = Accession.find(params[:id])
+    @collection = Collection.find(@accession.collection_id)
+    @mlog_entries = MlogEntry.where("accession_id = ?", @accession.id).order(media_id: :asc).page params[:page]
+    @summaries = get_summaries(@mlog_entries)
   end
 
   def new
@@ -36,5 +37,4 @@ class AccessionsController < ApplicationController
     def accession_params
       params.require(:accession).permit(:accession_num, :accession_note, :collection_id)
     end
-
 end
