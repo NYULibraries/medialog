@@ -36,11 +36,37 @@ RSpec.describe CollectionsController, type: :controller do
     end
   end
 
+  describe "GET repository" do
+    it "displays all collections as a repository" do
+      collection = Collection.create! valid_col_attributes
+      get :repository, {:repository_code => "fa"}, valid_session
+      assigns(:collections).should eq([collection])
+    end
+  end
+
   describe "GET show" do
     it "assigns the requested collection as @collection" do
       collection = Collection.create! valid_col_attributes
       get :show, {:id => collection.to_param}, valid_session
       assigns(:collection).should eq(collection)
+    end
+  end
+
+  describe "PUT update" do
+    describe "with valid params" do
+      it "updates the requested mlog_entry" do
+        collection = Collection.create! valid_col_attributes
+        Collection.any_instance.should_receive(:update).with({ "collection_code" => "mssXXX" })
+        put :update, {:id => collection.to_param, :collection => { "collection_code" => "mssXXX" }}, valid_session
+      end
+    end
+  end
+
+  describe "DELETE destroy" do
+    it "destroys the requested collection record" do
+      collection = Collection.create! valid_col_attributes
+      delete :destroy, {:id => collection.to_param}, valid_session
+      response.should redirect_to(:controller => "collections", :action => "repository", :repository_code => collection.partner_code)
     end
   end
   
