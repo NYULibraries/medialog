@@ -59,14 +59,29 @@ RSpec.describe CollectionsController, type: :controller do
         Collection.any_instance.should_receive(:update).with({ "collection_code" => "mssXXX" })
         put :update, {:id => collection.to_param, :collection => { "collection_code" => "mssXXX" }}, valid_session
       end
+
+      it ("redirects to collection") do
+        collection = Collection.create! valid_col_attributes
+        put :update, {:id => collection.to_param, :collection => { "collection_code" => "mssXXX" }}, valid_session
+        response.should redirect_to(collection)
+      end
+
     end
   end
 
   describe "DELETE destroy" do
     it "destroys the requested collection record" do
       collection = Collection.create! valid_col_attributes
-      delete :destroy, {:id => collection.to_param}, valid_session
-      response.should redirect_to(:controller => "collections", :action => "repository", :repository_code => collection.partner_code)
+      expect {
+        delete :destroy, {:id => collection.to_param}, valid_session
+      }.to change(Collection, :count).by(-1)
+      #response.should redirect_to(:controller => "collections", :action => "repository", :repository_code => collection.partner_code)
+    end
+
+    it "should redirect to collections" do
+      collection = Collection.create! valid_col_attributes
+      delete :destroy, { :id =>  collection.to_param }, valid_session
+      response.should redirect_to(:action => "repository", :repository_code => collection.partner_code)
     end
   end
   

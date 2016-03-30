@@ -122,9 +122,10 @@ class MlogEntriesController < ApplicationController
   # DELETE /mlog_entries/1
   # DELETE /mlog_entries/1.json
   def destroy
+    collection = Collection.find(@mlog_entry.collection_id)
     @mlog_entry.destroy
     respond_to do |format|
-      format.html { redirect_to mlog_entries_url }
+      format.html { redirect_to collection}
       format.json { head :no_content }
     end
   end
