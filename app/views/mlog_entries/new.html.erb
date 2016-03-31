@@ -1,4 +1,4 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', mlog_entries_path, class: "btn btn-info" %>
+<%= link_to 'Cancel', {:controller => "accessions", :action => "show", :id => @accession.id }, :class => "btn btn-danger" %>

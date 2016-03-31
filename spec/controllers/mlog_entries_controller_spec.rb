@@ -167,11 +167,11 @@ describe MlogEntriesController do
       }.to change(MlogEntry, :count).by(-1)
     end
 
-    it "redirects to the mlog_entries list" do
+    it "redirects to the collection record" do
       collection = Collection.create! valid_col_attributes
       mlog_entry = MlogEntry.create! valid_entry_attributes
       delete :destroy, {:id => mlog_entry.to_param}, valid_session
-      response.should redirect_to(mlog_entries_url)
+      response.should redirect_to(collection)
     end
 
   end
