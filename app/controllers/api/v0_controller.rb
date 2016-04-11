@@ -17,7 +17,7 @@ class Api::V0Controller < ApplicationController
       end
     end
     
-    render :json => {"media_formats" => formats, "inventory" => entries }
+    render :json => {"accession" => accession, "media_formats" => formats, "inventory" => entries }
   end
 
   def mlog_entry
