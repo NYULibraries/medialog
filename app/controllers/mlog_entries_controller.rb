@@ -39,18 +39,6 @@ class MlogEntriesController < ApplicationController
     @accession = Accession.find(source_entry.accession_id)
   end
 
-  def mlog_json
-    respond_to do |format|
-      format.html { 
-        render json: MlogEntry.where("id = ?", params[:id])
-      }
-
-      format.json { 
-        render json: params[:id]
-      }
-    end
-  end
-
   # GET /mlog_entries
   # GET /mlog_entries.json
   def index

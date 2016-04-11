@@ -1,10 +1,13 @@
 class Api::V0Controller < ApplicationController
 
   def accession 
-    mlog_entries = MlogEntry.where("accession_num = ? and collection_code = ?", params["accession_num"], params["collection_code"])
+    mlog_entries = MlogEntry.where("accession_id = ?", params["id"])
+    accession =  Accession.find(params["id"])
     formats = Hash.new
+    entries = Hash.new
     
     mlog_entries.each do |entry|
+      entries[entry.id] = entry.media_id
       format =MLOG_VOCAB["mediatypes"][entry["mediatype"]]
       if formats.has_key? format
       	prev = formats[format] 
@@ -14,6 +17,10 @@ class Api::V0Controller < ApplicationController
       end
     end
     
-    render :json => {"media_formats" => formats }
+    render :json => {"media_formats" => formats, "inventory" => entries }
+  end
+
+  def mlog_entry
+    render :json => MlogEntry.find(params["id"])
   end
 end
