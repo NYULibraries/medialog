@@ -10,18 +10,9 @@
         <span class="caret"></span>
 		</button>
     <ul class="dropdown-menu">
-    	<li>
-    		<%= link_to 'Fales', "/repository/fales", class: "btn btn-info btn-xs" %>
-    	</li>
-			<li>
-				<%= link_to 'Tamiment Wagner', "/repository/tamwag", class: "btn btn-info btn-xs" %>
-			</li>
-			<li>
-				<%= link_to 'University Archives', "/repository/nyuarchives", class: "btn btn-info btn-xs" %>
-			</li>
-			<li>
-				<%= link_to 'Abu Dhabi', "/repository/abudhabi", class: "btn btn-info btn-xs" %>
-			</li>
+      <% MLOG_VOCAB['partner_codes'].each do |col| %>
+        <li><%= link_to col[1], "/repository/" + col[0], class: "btn btn-info btn-xs" %></li>
+      <% end %>
     </ul>
   </div>
 </td>
