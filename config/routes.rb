@@ -18,7 +18,7 @@ Medialog::Application.routes.draw do
 
   get 'collections/:id/uuid/' => 'collections#uuids'
 
-  get 'mlog_entries/:id/json' => 'mlog_entries#mlog_json'
+  get 'mlog_entries/:id/json' => 'api/v0#mlog_entry'
 
   post 'create_user' => 'users#create', as: :create_user
 
@@ -32,9 +32,10 @@ Medialog::Application.routes.draw do
 
   get 'reports/format/:type' => 'reports#type'  
 
-  namespace :api, constraints: { format: 'json' } do
-    namespace :v0 do
-      get :accession
-    end
-  end  
+  get 'api/v0/accession/:id' => 'api/v0#accession'
+
+  get 'api/v0/mlog_entry/:id' => 'api/v0#mlog_entry'
+
+  get 'api/v0/collection/:id' => 'api/v0#collection'
+
 end
