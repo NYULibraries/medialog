@@ -8,7 +8,7 @@ module ApplicationHelper
     bytes.nil? ? '' : ((bytes / 1024.0) / 1024.0).round(2)
   end
 
-  def display_in_kilabytes(bytes)
+  def display_in_kilobytes(bytes)
     bytes.nil? ? '' : (bytes / 1024.0).round(2)
   end
 
@@ -32,7 +32,7 @@ module ApplicationHelper
   	if(bytes <= 1024.0) then
   	  bytes.to_s + " B"
   	elsif (bytes > 1024.0 && bytes <= 1048576.0) then 
- 	  display_in_kilabytes(bytes).to_s + " KB"
+ 	  display_in_kilobytes(bytes).to_s + " KB"
    	elsif (bytes > 1048576.0 && bytes <= 1073741824.0) then
    	  display_in_megabytes(bytes).to_s + " MB"
    	elsif (bytes > 1073741824.0) then
