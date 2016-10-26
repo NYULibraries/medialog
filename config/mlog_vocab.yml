@@ -78,7 +78,7 @@ interpret_success:
   interpret_succes_no: 		"No"
 
 stock_unit:
-  KB: "Kilabytes"
+  KB: "Kilobytes"
   MB: "Megabytes"
   GB: "Gigabytes"
   TB: "Terabytes"
