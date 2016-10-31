@@ -44,6 +44,7 @@ hdd_interfaces:
   hdd_interface_fw400:  "FW400"
   hdd_interface_fw800:  "FW800"
   hdd_interface_scsi:   "SCSI"
+  hdd_interface_ide:	"IDE"
 
 image_formats:
   image_format_raw:     "Raw"
