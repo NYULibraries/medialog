@@ -22,9 +22,17 @@ Medialog::Application.routes.draw do
 
   post 'create_user' => 'users#create', as: :create_user
 
+  get 'admin', to: 'users#admin', as: :admin_path
+
   get 'password' => 'users#reset_password'
 
   post 'password' => 'users#update_password', as: :update_password
+
+  post 'users/destroy' => 'users#destroy'
+
+  post 'users/make_admin' => 'users#make_admin'
+
+  # devise_for :users, :controllers => { :registrations => 'users/registrations' }
 
   get 'reports' => 'reports#index' 
 
