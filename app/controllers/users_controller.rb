@@ -9,8 +9,11 @@ class UsersController < ApplicationController
     @user.email = @u['email']
     @user.password = @u['password']
     @user.admin = false
-    @user.save
-    redirect_to root_path, notice: ('Account created for ' + @user.email)
+    if @user.save then 
+     redirect_to "/admin", notice: ('Account created for ' + @user.email)
+    else
+      redirect_to "/admin", notice: ('Account not created for ' + @user.email)
+    end
   end
 
   def destroy
