@@ -13,16 +13,11 @@
     <td><%= user.admin %></td>
     <td><%= user.is_active %></td>
     <td>
-    <% if user.is_active %>
-
-	      <%= link_to "Deactivate", '/users/destroy?id=' + user.id.to_s , method: :post, class: "btn btn-danger" %> 
-	      <%= link_to "Update Password", 'password?id=' + user.id.to_s , class: "btn btn-primary" %> 
-
-    <% end %>
-    <% if !user.admin %>
-    	  <%= link_to "Make Admin", '/users/make_admin?id=' + user.id.to_s, method: :post, class: "btn btn-primary" %>
-	<% end %>
-
+      <% if user.is_active %>
+        <%= link_to "Deactivate", '/users/destroy?id=' + user.id.to_s , method: :post, class: "btn btn-danger" %> 
+        <%= link_to "Update Password", 'password?id=' + user.id.to_s , class: "btn btn-primary" %> 
+        <%= link_to "Make Admin", '/users/make_admin?id=' + user.id.to_s, method: :post, class: "btn btn-primary" %>
+      <% end %>
     </td>
   </tr>
 <% end %>
