@@ -32,8 +32,9 @@
 </td>
 -->
 
-<% if current_user.try(:admin?) %>
-  <%= link_to 'Register User', '/users/new' %>
+<% if current_user.try(:admin?) %> 
+  <!-- <%= link_to 'Register User', '/users/new' %> -->
+  <%= link_to 'Admin Options', '/admin' %>
 <% end %>
 
 <% if user_signed_in? %>
