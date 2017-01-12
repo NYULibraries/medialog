@@ -13,7 +13,9 @@
       total size imaged: <b><%= @summaries["image_size"] %></b>
     </p>
 	<%= link_to 'Edit', edit_collection_path(@collection), class: "btn btn-primary" %>
-	<%= link_to 'Destroy', @collection, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+	<% if current_user.try(:admin?) %> 
+	  <%= link_to 'Destroy', @collection, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+	<% end %>
   </div>
 </div>
 
