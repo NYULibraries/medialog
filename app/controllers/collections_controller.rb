@@ -4,6 +4,16 @@ class CollectionsController < ApplicationController
     @collections = Collection.order(updated_at: :desc)
   end
 
+  def lookup
+    mlog_entries = lookup_mlog_entry(params['collection_id'], params['media_id'])
+    if mlog_entries.size != 0 then 
+      redirect_to mlog_entries[0]
+    else
+      flash[:notice] = "id #{params[:media_id]} does not exist in current collection."
+      redirect_to Collection.find(params['collection_id'])
+    end
+  end
+
   def repository
 
     @collections = Collection.where("partner_code = ?", params[:repository_code]).order(collection_code: :asc)
