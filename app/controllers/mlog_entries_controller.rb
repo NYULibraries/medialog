@@ -27,6 +27,16 @@ class MlogEntriesController < ApplicationController
 
   end
 
+  def lookup
+    mlog_entries = lookup_mlog_entry(params['collection_id'], params['media_id'])
+    if mlog_entries.size != 0 then 
+      redirect_to mlog_entries[0]
+    else
+      flash[:notice] = "id #{params[:media_id]} does not exist in current collection."
+      redirect_to MlogEntry.find(params['current_id'])
+    end
+  end
+
   def clone
     source_entry = MlogEntry.find(params[:id])
     @mlog_entry = MlogEntry.new

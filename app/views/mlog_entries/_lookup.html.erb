@@ -1,0 +1,13 @@
+<%= form_tag("/mlog_entries/lookup", method: "post", role: "form") do %>
+  
+  <div class="form-inline">
+    <div class="form-group">
+      <label for="mediaId">Lookup Media</label> 
+      <input type="number" id="media_id" name="media_id" >
+      <input type="hidden" id="collection_id" name="collection_id" value= "<%= @collection.id %>" >
+      <input type="hidden" id="current_id" name="current_id" value="<%= @mlog_entry.id %>" >
+      <button type="submit" class="btn btn-primary btn-sm">Go</button>
+    </div>
+  </div>
+<% end %>
+
