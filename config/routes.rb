@@ -14,6 +14,8 @@ Medialog::Application.routes.draw do
   
   get 'nav/' => 'mlog_entries#nav'
 
+  post 'mlog_entries/lookup' => 'mlog_entries#lookup'
+
   get 'mlog_entries/:id/clone', to: 'mlog_entries#clone', as: :clone_mlog_entry
 
   get 'collections/:id/uuid/' => 'collections#uuids'

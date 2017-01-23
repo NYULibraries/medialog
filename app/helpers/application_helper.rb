@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def lookup_mlog_entry(col_id, m_id)
+    MlogEntry.where("collection_id = ? and media_id =?", col_id, m_id) 
+  end
+
   def display_in_gigabytes(bytes)
     bytes.nil? ? '' : (((bytes / 1024.0) / 1024.0) / 1024.0).round(2)
   end  
