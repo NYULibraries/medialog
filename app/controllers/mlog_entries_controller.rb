@@ -75,8 +75,9 @@ class MlogEntriesController < ApplicationController
 
   # GET /mlog_entries/new
   def new
+
     @mlog_entry = MlogEntry.new
-    @collection = Collection.find(params[:id])
+    @collection = Collection.find(params[:collection_id])
     @accession = Accession.find(params[:accession_id])
   end
 
