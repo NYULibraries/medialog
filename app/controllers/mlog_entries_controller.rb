@@ -45,6 +45,8 @@ class MlogEntriesController < ApplicationController
     @mlog_entry[:mediatype] = source_entry[:mediatype]
     @mlog_entry[:box_number] = source_entry[:box_number]
     @mlog_entry[:media_id] = source_entry[:media_id] + 1
+    @mlog_entry[:stock_size_num] =  source_entry[:stock_size_num]
+    @mlog_entry[:stock_unit] =  source_entry[:stock_unit]
     @collection = Collection.find(source_entry.collection_id)
     @accession = Accession.find(source_entry.accession_id)
   end
@@ -73,8 +75,9 @@ class MlogEntriesController < ApplicationController
 
   # GET /mlog_entries/new
   def new
+
     @mlog_entry = MlogEntry.new
-    @collection = Collection.find(params[:id])
+    @collection = Collection.find(params[:collection_id])
     @accession = Accession.find(params[:accession_id])
   end
 

@@ -70,7 +70,7 @@ describe MlogEntriesController do
     it "assigns a new mlog_entry as @mlog_entry" do
       collection = Collection.create! valid_col_attributes
       accession = Accession.create! valid_accession_attributes
-      get :new, {:id => collection.id, :accession_id => accession.id}, valid_session
+      get :new, {:collection_id => collection.id, :accession_id => accession.id}, valid_session
       assigns(:mlog_entry).should be_a_new(MlogEntry)
     end
   end
