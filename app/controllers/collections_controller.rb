@@ -23,11 +23,18 @@ class CollectionsController < ApplicationController
   end
 
   def show
+    
+    #MlogEntry.where(:collection_id => 11).group(:mediatype).count
+
     @collection = Collection.find(params[:id])
     @accessions = Accession.where("collection_id = ?", @collection.id)
     @min_accessions = getMinAccessions
     @mlog_entries = MlogEntry.where("collection_id = ?", @collection.id).order(media_id: :asc).page params[:page]
+
+    @media_counts = MlogEntry.where(:collection_id => @collection.id).group(:mediatype).order(:mediatype).count
+
     @summaries = get_summaries(@mlog_entries)
+    @total = MlogEntry.where("collection_id = ?", @collection.id).size
   end
 
   def edit
