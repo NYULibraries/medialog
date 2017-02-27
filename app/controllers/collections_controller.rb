@@ -34,7 +34,9 @@ class CollectionsController < ApplicationController
     @media_counts = MlogEntry.where(:collection_id => @collection.id).group(:mediatype).order(:mediatype).count
 
     @summaries = get_summaries(@mlog_entries)
+    @media_counts = MlogEntry.where(:collection_id => @collection.id).group(:mediatype).order(:mediatype).count
     @total = MlogEntry.where("collection_id = ?", @collection.id).size
+
   end
 
   def edit
