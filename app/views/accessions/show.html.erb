@@ -9,12 +9,35 @@
     <h4><%= link_to(@collection.collection_code  + ": " + @collection.title, @collection) %></h4>
 
     <h3>accession number: <%= @accession.accession_num %></h3>
-    <p>
-      created at <%= @accession.created_at %> <br/>
-      updated at <%= @accession.updated_at %><br/>
-      total size inventoried: <b><%= @summaries["stock_size"] %></b><br/>
-      total size imaged: <b><%= @summaries["image_size"] %></b>
-    </p>
+<table width="100%">
+    <tr>
+      <td width="50%" valign="top">
+        <p>
+          created at <%= @collection.created_at %> <br/>
+          updated at <%= @collection.updated_at %><br/>
+          total size inventoried: <b><%= @summaries["stock_size"] %></b><br/>
+          total size imaged: <b><%= @summaries["image_size"] %></b>
+        </p>
+      </td>
+      <td>
+        <table class="table table-condensed">
+          <tr>
+            <th>type</th>
+            <th>count</th>
+          </tr>
+          <% @media_counts.each do |media| %>
+            <tr>
+              <td><%= MLOG_VOCAB['mediatypes'][media[0]] %></td>
+              <td><%= media[1] %></td>
+            </tr>
+          <% end %>
+          <tr>
+            <td><b>total</b></td>
+            <td><b><%= @total %></b></td>
+        </table>
+      </td>
+    </tr>
+  </table>
 
     <%= link_to 'Edit', edit_accession_path(@accession), class: "btn btn-primary" %>
     <% if current_user.try(:admin?) %> 
