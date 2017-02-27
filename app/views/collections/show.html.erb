@@ -6,12 +6,35 @@
   		<%= link_to(MLOG_VOCAB["partner_codes"][@collection.partner_code], "/repository/" + @collection.partner_code) %>
 	</h4>
 	<h3><%= @collection.collection_code + " " + @collection.title %></h3>
-	 <p>
-      created at <%= @collection.created_at %> <br/>
-      updated at <%= @collection.updated_at %><br/>
-      total size inventoried: <b><%= @summaries["stock_size"] %></b><br/>
-      total size imaged: <b><%= @summaries["image_size"] %></b>
-    </p>
+  <table width="100%">
+    <tr>
+      <td width="50%" valign="top">
+  	    <p>
+        	created at <%= @collection.created_at %> <br/>
+        	updated at <%= @collection.updated_at %><br/>
+        	total size inventoried: <b><%= @summaries["stock_size"] %></b><br/>
+        	total size imaged: <b><%= @summaries["image_size"] %></b>
+      	</p>
+      </td>
+      <td>
+        <table class="table table-condensed">
+          <tr>
+            <th>type</th>
+            <th>count</th>
+          </tr>
+          <% @media_counts.each do |media| %>
+            <tr>
+              <td><%= MLOG_VOCAB['mediatypes'][media[0]] %></td>
+              <td><%= media[1] %></td>
+            </tr>
+          <% end %>
+          <tr>
+            <td><b>total</b></td>
+            <td><b><%= @total %></b></td>
+        </table>
+      </td>
+    </tr>
+  </table>
 	<%= link_to 'Edit', edit_collection_path(@collection), class: "btn btn-primary" %>
 	<% if current_user.try(:admin?) %> 
 	  <%= link_to 'Destroy', @collection, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
