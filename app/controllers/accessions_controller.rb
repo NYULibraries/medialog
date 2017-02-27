@@ -22,7 +22,7 @@ class AccessionsController < ApplicationController
     @summaries = get_summaries(@mlog_entries)
 
     @media_counts = MlogEntry.where(:accession_id => @accession.id).group(:mediatype).order(:mediatype).count
-    @total = MlogEntry.where(:collection_id => @collection.id).size
+    @total = MlogEntry.where(:accession_id => @accession.id).size
 
   end
 
