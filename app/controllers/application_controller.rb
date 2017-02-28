@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     bytes.nil? ? '' : (bytes / 1024.0).round(2)
   end
 
-  def tb_to_byte(tbyte)
+  def tb_to_byte(tbytes)
     tbytes.nil? ? 0.0 : ((((tbytes * 1024.0) * 1024.0) * 1024.0) * 1924.0).round(2)
   end
 
