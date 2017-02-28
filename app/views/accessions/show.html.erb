@@ -9,13 +9,37 @@
     <h4><%= link_to(@collection.collection_code  + ": " + @collection.title, @collection) %></h4>
 
     <h3>accession number: <%= @accession.accession_num %></h3>
-    <p>
-      created at <%= @accession.created_at %> <br/>
-      updated at <%= @accession.updated_at %><br/>
-      total size inventoried: <b><%= @summaries["stock_size"] %></b><br/>
-      total size imaged: <b><%= @summaries["image_size"] %></b>
-    </p>
-
+<table width="100%">
+    <tr>
+      <td width="50%" valign="top">
+        <p>
+          created at <%= @collection.created_at %> <br/>
+          updated at <%= @collection.updated_at %><br/>
+        </p>
+      </td>
+      <td>
+        <table class="table table-condensed">
+          <tr>
+            <th>type</th>
+            <th>count</th>
+            <th>size</th>
+          </tr>
+          <% @type_data.each do |media_type, value| %>
+            <tr>
+              <td><%= MLOG_VOCAB['mediatypes'][media_type] %></td>
+              <td><%= value[:count] %></td>
+              <td><%= human_size value[:size] %></td>
+            </tr>
+          <% end %>
+          <tr>
+            <td><b>total</b></td>
+            <td><b><%= @type_data.size %></b></td>
+            <td><b><%= human_size(@total_size) %></b></td>
+        </table>
+      </td>
+    </tr>
+  </table>
+    
     <%= link_to 'Edit', edit_accession_path(@accession), class: "btn btn-primary" %>
     <% if current_user.try(:admin?) %> 
       <%= link_to 'Destroy', @accession, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>

@@ -19,7 +19,8 @@ class AccessionsController < ApplicationController
     @accession = Accession.find(params[:id])
     @collection = Collection.find(@accession.collection_id)
     @mlog_entries = MlogEntry.where("accession_id = ?", @accession.id).order(media_id: :asc).page params[:page]
-    @summaries = get_summaries(@mlog_entries)
+    @type_data = get_type_data(MlogEntry.where("accession_id = ?", @accession.id))
+    @total_size = get_total_size(@type_data)
   end
 
   def new

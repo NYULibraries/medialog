@@ -71,7 +71,7 @@ module ApplicationHelper
     end
     min_accs
   end
-
+  
   def get_summaries(mlog_entries)
     summaries = Hash.new
     sum = 0.0
