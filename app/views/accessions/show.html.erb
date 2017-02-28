@@ -15,8 +15,6 @@
         <p>
           created at <%= @collection.created_at %> <br/>
           updated at <%= @collection.updated_at %><br/>
-          total size inventoried: <b><%= @summaries["stock_size"] %></b><br/>
-          total size imaged: <b><%= @summaries["image_size"] %></b>
         </p>
       </td>
       <td>
@@ -24,16 +22,19 @@
           <tr>
             <th>type</th>
             <th>count</th>
+            <th>size</th>
           </tr>
-          <% @media_counts.each do |media| %>
+          <% @type_data.each do |media_type, value| %>
             <tr>
-              <td><%= MLOG_VOCAB['mediatypes'][media[0]] %></td>
-              <td><%= media[1] %></td>
+              <td><%= MLOG_VOCAB['mediatypes'][media_type] %></td>
+              <td><%= value[:count] %></td>
+              <td><%= human_size value[:size] %></td>
             </tr>
           <% end %>
           <tr>
-            <td><b>total</b></td>
             <td><b><%= @total %></b></td>
+            <td><b><%= @type_data.size %></b></td>
+            <td><b><%= human_size(@total_size) %></b></td>
         </table>
       </td>
     </tr>
