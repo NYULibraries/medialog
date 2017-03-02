@@ -52,4 +52,6 @@ Medialog::Application.routes.draw do
 
   get 'api/v0/collection/:id' => 'api/v0#collection'
 
+  get 'api/v0/collection/:code/find' => 'api/v0#collection_find'
+
 end

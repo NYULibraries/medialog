@@ -24,6 +24,11 @@ class Api::V0Controller < ApplicationController
     render :json => {"collection" => collection, "acccessions" => accessions, "media_formats" => stuff["formats"], "inventory" => stuff["entries"]}
   end
 
+  def collection_find 
+    collection = Collection.where(:collection_code => params[:code])
+    render :json => collection
+  end
+
   private
     def getTypes(mlog_entries)
       entries = Hash.new
