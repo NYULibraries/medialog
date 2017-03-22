@@ -19,7 +19,9 @@ describe MlogEntriesController do
     "collection_id" => 55,
     "mediatype" => "my media", 
     "media_id" => 55,
-    "accession_id" => 42
+    "accession_id" => 42,
+    "stock_size_num" => 1.5,
+    "stock_unit" => "GB"
   } }
 
   let(:valid_col_attributes) { { 
