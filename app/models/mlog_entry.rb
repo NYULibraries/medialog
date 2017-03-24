@@ -53,7 +53,6 @@ class MlogEntry < ActiveRecord::Base
   #validates :collection_code, presence: true
   validates :media_id, presence: true
   validates :mediatype, presence: true
-  validates :stock_size_num, presence: true
-  validates :stock_unit, presence: true
+
   validates_uniqueness_of :media_id, :scope => [:collection_id]
 end

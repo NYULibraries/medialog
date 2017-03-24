@@ -4,8 +4,7 @@
   <div class="panel-body">
     <h3><%= MLOG_VOCAB["partner_codes"][params[:repository_code]] %></h3>
     <p>
-      total size inventoried: <b><%= human_size(@summaries["stock_size"]) %></b><br/>
-      total size imaged: <b><%= human_size(@summaries["image_size"]) %></b>
+
     </p>
   </div>
 </div>
@@ -20,8 +19,6 @@
         <tr>
           <th>id</th>
           <th>name</th>
-          <th>stock size</th>
-          <th>imaged size</th>
         <tr>
       </theader>
       <tbody>
@@ -29,12 +26,6 @@
           <tr>
             <td><%= link_to collection.collection_code, collection_path(collection.id) %> </td>
             <td><%= collection.title %></td>
-            <% if @sizes[collection.id] != nil then %>
-              <td><%= human_size(@sizes[collection.id].stock_size) %></td>
-              <td><%= human_size(@sizes[collection.id].image_size) %></td>
-            <% else %>
-              <td/><td/>
-            <% end %>
           </tr>
         <% end %>   
       </tbody>

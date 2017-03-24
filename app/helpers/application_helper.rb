@@ -4,6 +4,10 @@ module ApplicationHelper
     MlogEntry.where("collection_id = ? and media_id =?", col_id, m_id) 
   end
 
+  def display_in_terabytes(bytes)
+    bytes.nil? ? '' : ((((bytes / 1024.0) / 1024.0) / 1024.0) / 1024.0).round(2)
+  end  
+
   def display_in_gigabytes(bytes)
     bytes.nil? ? '' : (((bytes / 1024.0) / 1024.0) / 1024.0).round(2)
   end  
@@ -39,9 +43,11 @@ module ApplicationHelper
  	  display_in_kilobytes(bytes).to_s + " KB"
    	elsif (bytes > 1048576.0 && bytes <= 1073741824.0) then
    	  display_in_megabytes(bytes).to_s + " MB"
-   	elsif (bytes > 1073741824.0) then
+   	elsif (bytes > 1073741824.0 && bytes <= 1099511627776.0 ) then
    	  display_in_gigabytes(bytes).to_s + " GB"
-   	end
+    elsif (bytes > 1099511627776.0) then
+      display_in_terabytes(bytes).to_s + " TB"
+    end
   end
 
   class Min_Col

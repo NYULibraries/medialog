@@ -54,7 +54,10 @@ class MlogEntriesController < ApplicationController
   # GET /mlog_entries
   # GET /mlog_entries.json
   def index
-    @mlog_entries = MlogEntry.order(updated_at: :desc).page params[:page]
+    @mlog = MlogEntry.all
+    @mlog_entries = @mlog.order(updated_at: :desc).page params[:page]
+    @type_data = get_type_data(@mlog)
+    @total_size = get_total_size(@type_data)
     @collections = getMinCollections
     @accessions = getMinAccessions
   end
