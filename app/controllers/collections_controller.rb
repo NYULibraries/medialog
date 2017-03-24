@@ -16,10 +16,10 @@ class CollectionsController < ApplicationController
 
   def repository
 
-    @collections = Collection.where("partner_code = ?", params[:repository_code]).order(collection_code: :asc)
-    @sizes = get_sizes(@collections)
-    @summaries = get_collection_summaries(@sizes)
- 
+    @cols = Collection.where("partner_code = ?", params[:repository_code])
+    @collections = @cols.order(collection_code: :asc)
+
+
   end
 
   def show
