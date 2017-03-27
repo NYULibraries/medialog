@@ -92,6 +92,7 @@ describe MlogEntriesController do
 
       it "creates a new MlogEntry" do
         collection = Collection.create! valid_col_attributes
+        accession = Accession.create! valid_accession_attributes
         expect {
           post :create, {:mlog_entry => valid_entry_attributes}, valid_session
         }.to change(MlogEntry, :count).by(1)
