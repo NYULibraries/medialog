@@ -82,6 +82,12 @@ class MlogEntriesController < ApplicationController
     @mlog_entry = MlogEntry.new
     @collection = Collection.find(params[:collection_id])
     @accession = Accession.find(params[:accession_id])
+
+    if (@collection == nil || @accession == nil)
+      @collection = Collection.find(:id => @mlog_entry[:collection_id])
+      @accession = Accession.find(:id => @mlog_entry[:accession_id])
+    end
+
   end
 
   # GET /mlog_entries/1/edit
@@ -94,6 +100,8 @@ class MlogEntriesController < ApplicationController
   # POST /mlog_entries.json
   def create
     @mlog_entry = MlogEntry.new(mlog_entry_params)
+    @collection = Collection.find(@mlog_entry.collection_id)
+    @accession = Accession.find(@mlog_entry.accession_id)
     respond_to do |format|
       if @mlog_entry.save
         format.html { redirect_to @mlog_entry, notice: 'Entry was successfully created.' }
