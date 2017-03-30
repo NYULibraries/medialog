@@ -15,11 +15,28 @@ class CollectionsController < ApplicationController
   end
 
   def repository
-
+    @type_data = Hash.new
+    @total_count = 0
     @cols = Collection.where("partner_code = ?", params[:repository_code])
     @collections = @cols.order(collection_code: :asc)
-
-
+    @cols.each do |c|
+      @acc = Accession.where(:collection_id => c[:id])
+      @acc.each do |a|
+        @mlog = MlogEntry.where(:accession_id => a[:id])
+        get_type_data(@mlog).each do |key, value|
+          if (@type_data.key? key) then
+            old_data = @type_data[key]
+            @type_data[key] = { :count => old_data[:count] + value[:count], :size => old_data[:size] + value[:size] }
+            @total_count = @total_count + value[:count]
+          else
+            @type_data[key] = { :count => value[:count], :size => value[:size] } 
+            @total_count = @total_count + value[:count]
+          end
+        end
+      end
+    end
+    @total_size = get_total_size(@type_data)
+  
   end
 
   def show
