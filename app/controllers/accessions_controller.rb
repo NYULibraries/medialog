@@ -52,6 +52,26 @@ class AccessionsController < ApplicationController
   end
 
   def create_slew
+    slew = params[:slew_create]
+    accession = Accession.find(params[:id])
+    max_id = get_max_mlog_id(slew[:collection_id])
+    slew_count = slew[:slew_count].to_i
+    
+    while(slew_count > 0)
+      max_id = max_id + 1
+      mlog_entry = MlogEntry.new
+      mlog_entry[:collection_id] = slew[:collection_id]
+      mlog_entry[:accession_id] = slew[:accession_id]
+      mlog_entry[:mediatype] = slew[:mediatype]
+      mlog_entry[:media_id] = max_id
+      mlog_entry[:stock_size_num] =  slew[:stock_size_num]
+      mlog_entry[:stock_unit] = slew[:stock_unit]
+      mlog_entry.save
+      slew_count = slew_count - 1
+    end
+
+    redirect_to accession
+
   end
 
   def destroy
@@ -74,4 +94,15 @@ class AccessionsController < ApplicationController
     def accession_params
       params.require(:accession).permit(:accession_num, :accession_note, :collection_id)
     end
+
+    def get_max_mlog_id(col_id)
+      mlogs = MlogEntry.all
+      ids = Array.new
+      mlogs.each do |mlog|
+        ids.push mlog[:media_id]
+      end
+
+      ids.sort!
+      ids.pop
+    end  
 end

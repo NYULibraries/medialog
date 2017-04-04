@@ -27,11 +27,12 @@
        
         <tr>
           <td><%= f.select(:mediatype, MLOG_VOCAB["mediatypes"].invert, :include_blank => false) %></td>
-          <td><%= f.number_field :stock_size %></td>
-          <td><%= f.select(:mediatype, MLOG_VOCAB["stock_unit"], :include_blank => false) %></td>
-          <td><%= f.number_field :count %></td>
+          <td><%= f.number_field :stock_size_num, step: :any %></td>
+          <td><%= f.select(:stock_unit, MLOG_VOCAB["stock_unit"].invert, :include_blank => false) %></td>
+          <td><%= f.number_field :slew_count %></td>
         </tr>
-        
+        <%= f.hidden_field :collection_id, :value => @collection.id %>
+        <%= f.hidden_field :accession_id, :value => @accession.id %>
       </table>
             <div class="actions">
   <input type="submit" value="Submit" class="btn btn-primary"/>
