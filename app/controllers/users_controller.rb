@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @user.email = @u['email']
     @user.password = @u['password']
     @user.admin = false
+    @user.is_active = true
     if @user.save then 
      redirect_to "/admin", notice: ('Account created for ' + @user.email)
     else

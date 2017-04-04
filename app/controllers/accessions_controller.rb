@@ -67,6 +67,8 @@ class AccessionsController < ApplicationController
       mlog_entry[:stock_size_num] =  slew[:stock_size_num]
       mlog_entry[:stock_unit] = slew[:stock_unit]
       mlog_entry[:box_number] = slew[:box_number]
+      mlog_entry[:created_by] = current_user[:id]
+      mlog_entry[:modified_by] = current_user[:id]
       mlog_entry.save
       slew_count = slew_count - 1
     end
