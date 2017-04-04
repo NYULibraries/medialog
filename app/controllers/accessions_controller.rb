@@ -98,12 +98,17 @@ class AccessionsController < ApplicationController
 
     def get_max_mlog_id(col_id)
       mlogs = MlogEntry.where(:collection_id => col_id)
-      ids = Array.new
-      mlogs.each do |mlog|
-        ids.push mlog[:media_id]
-      end
 
-      ids.sort!
-      ids.pop
+      if mlogs.size != 0  
+        ids = Array.new
+        mlogs.each do |mlog|
+          ids.push mlog[:media_id]
+        end
+
+        ids.sort!
+        ids.pop
+      else
+        0
+      end
     end  
 end
