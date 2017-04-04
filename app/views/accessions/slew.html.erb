@@ -18,18 +18,20 @@
     <%= form_for :slew_create do |f| %>
       <table class="table">
         <tr>
+          <th>number of objects</th>
           <th>format</th>
           <th>stock size</th>
           <th>stock unit</th>
-          <th>number of objects</th>
+          
         </tr>	
 
        
         <tr>
+          <td><%= f.number_field :slew_count %></td>
           <td><%= f.select(:mediatype, MLOG_VOCAB["mediatypes"].invert, :include_blank => false) %></td>
           <td><%= f.number_field :stock_size_num, step: :any %></td>
           <td><%= f.select(:stock_unit, MLOG_VOCAB["stock_unit"].invert, :include_blank => false) %></td>
-          <td><%= f.number_field :slew_count %></td>
+          <td><%= f.number_field :box_number%></td>
         </tr>
         <%= f.hidden_field :collection_id, :value => @collection.id %>
         <%= f.hidden_field :accession_id, :value => @accession.id %>

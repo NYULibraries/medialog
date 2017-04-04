@@ -66,6 +66,7 @@ class AccessionsController < ApplicationController
       mlog_entry[:media_id] = max_id
       mlog_entry[:stock_size_num] =  slew[:stock_size_num]
       mlog_entry[:stock_unit] = slew[:stock_unit]
+      mlog_entry[:box_number] = slew[:box_number]
       mlog_entry.save
       slew_count = slew_count - 1
     end
@@ -96,7 +97,7 @@ class AccessionsController < ApplicationController
     end
 
     def get_max_mlog_id(col_id)
-      mlogs = MlogEntry.all
+      mlogs = MlogEntry.where(:collection_id => col_id)
       ids = Array.new
       mlogs.each do |mlog|
         ids.push mlog[:media_id]
