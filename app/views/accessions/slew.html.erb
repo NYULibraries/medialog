@@ -1,0 +1,41 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h4>
+      <%= link_to(MLOG_VOCAB["partner_codes"][@collection.partner_code], show_repository_path(@collection.partner_code)) %>
+    </h4>
+
+    <h4><%= link_to(@collection.collection_code  + ": " + @collection.title, @collection) %></h4>
+
+    <h3>accession number: <%= @accession.accession_num %></h3>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Create multiple Medialog Entries</h3>
+  </div>
+  <div class="panel-body">
+    <%= form_for :slew_create do |f| %>
+      <table class="table">
+        <tr>
+          <th>format</th>
+          <th>stock size</th>
+          <th>stock unit</th>
+          <th>number of objects</th>
+        </tr>	
+
+       
+        <tr>
+          <td><%= f.select(:mediatype, MLOG_VOCAB["mediatypes"].invert, :include_blank => false) %></td>
+          <td><%= f.number_field :stock_size %></td>
+          <td><%= f.select(:mediatype, MLOG_VOCAB["stock_unit"], :include_blank => false) %></td>
+          <td><%= f.number_field :count %></td>
+        </tr>
+        
+      </table>
+            <div class="actions">
+  <input type="submit" value="Submit" class="btn btn-primary"/>
+</div>
+    <% end %>
+  </div>
+</div>

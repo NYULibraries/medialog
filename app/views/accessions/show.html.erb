@@ -90,5 +90,6 @@
     </table>
 
     <%= link_to 'Add New', new_mlog_entry_path(:collection_id => @collection.id, :accession_id => @accession.id), class: "btn btn-primary" %>
+        <%= link_to 'Slew New', slew_accession_path(:id => @accession.id), class: "btn btn-primary" %>
   </div>
 </div>

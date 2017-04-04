@@ -14,8 +14,7 @@ class CollectionsController < ApplicationController
     end
   end
 
-  def repository
-    
+  def repository 
     @cols = Collection.where("partner_code = ?", params[:repository_code])
     @collections = @cols.order(collection_code: :asc)
     @type_data = get_collection_summary(@cols)

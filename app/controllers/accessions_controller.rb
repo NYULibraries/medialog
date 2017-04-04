@@ -46,6 +46,14 @@ class AccessionsController < ApplicationController
     redirect_to accession
   end
 
+  def slew
+    @accession = Accession.find(params[:id])
+    @collection =  Collection.find(@accession.collection_id) 
+  end
+
+  def create_slew
+  end
+
   def destroy
 
     accession = Accession.find(params[:id])
