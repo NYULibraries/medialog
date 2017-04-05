@@ -72,7 +72,8 @@ class AccessionsController < ApplicationController
       mlog_entry.save
       slew_count = slew_count - 1
     end
-
+    
+    flash[:notice] = "#{slew[:slew_count]} entries added to medialog of type #{MLOG_VOCAB['mediatypes'][slew[:mediatype]]}"
     redirect_to accession
 
   end
@@ -88,7 +89,6 @@ class AccessionsController < ApplicationController
     end
 
     accession.destroy
-
     redirect_to collection
 
   end
