@@ -46,6 +46,38 @@ class AccessionsController < ApplicationController
     redirect_to accession
   end
 
+  def slew
+    @accession = Accession.find(params[:id])
+    @collection =  Collection.find(@accession.collection_id) 
+  end
+
+  def create_slew
+    slew = params[:slew_create]
+    accession = Accession.find(params[:id])
+    max_id = get_max_mlog_id(slew[:collection_id])
+    slew_count = slew[:slew_count].to_i
+    
+    while(slew_count > 0)
+      max_id = max_id + 1
+      mlog_entry = MlogEntry.new
+      mlog_entry[:collection_id] = slew[:collection_id]
+      mlog_entry[:accession_id] = slew[:accession_id]
+      mlog_entry[:mediatype] = slew[:mediatype]
+      mlog_entry[:media_id] = max_id
+      mlog_entry[:stock_size_num] =  slew[:stock_size_num]
+      mlog_entry[:stock_unit] = slew[:stock_unit]
+      mlog_entry[:box_number] = slew[:box_number]
+      mlog_entry[:created_by] = current_user[:id]
+      mlog_entry[:modified_by] = current_user[:id]
+      mlog_entry.save
+      slew_count = slew_count - 1
+    end
+    
+    flash[:notice] = "#{slew[:slew_count]} entries added to medialog of type #{MLOG_VOCAB['mediatypes'][slew[:mediatype]]}"
+    redirect_to accession
+
+  end
+
   def destroy
 
     accession = Accession.find(params[:id])
@@ -57,7 +89,6 @@ class AccessionsController < ApplicationController
     end
 
     accession.destroy
-
     redirect_to collection
 
   end
@@ -66,4 +97,20 @@ class AccessionsController < ApplicationController
     def accession_params
       params.require(:accession).permit(:accession_num, :accession_note, :collection_id)
     end
+
+    def get_max_mlog_id(col_id)
+      mlogs = MlogEntry.where(:collection_id => col_id)
+
+      if mlogs.size != 0  
+        ids = Array.new
+        mlogs.each do |mlog|
+          ids.push mlog[:media_id]
+        end
+
+        ids.sort!
+        ids.pop
+      else
+        0
+      end
+    end  
 end

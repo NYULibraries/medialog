@@ -1,0 +1,44 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h4>
+      <%= link_to(MLOG_VOCAB["partner_codes"][@collection.partner_code], show_repository_path(@collection.partner_code)) %>
+    </h4>
+
+    <h4><%= link_to(@collection.collection_code  + ": " + @collection.title, @collection) %></h4>
+
+    <h3>accession number: <%= @accession.accession_num %></h3>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Create multiple Medialog Entries</h3>
+  </div>
+  <div class="panel-body">
+    <%= form_for :slew_create do |f| %>
+      <table class="table">
+        <tr>
+          <th>number of objects</th>
+          <th>format</th>
+          <th>stock size</th>
+          <th>stock unit</th>
+          <th>box number</th>
+        </tr>	
+
+       
+        <tr>
+          <td><%= f.number_field :slew_count %></td>
+          <td><%= f.select(:mediatype, MLOG_VOCAB["mediatypes"].invert, :include_blank => false) %></td>
+          <td><%= f.number_field :stock_size_num, step: :any %></td>
+          <td><%= f.select(:stock_unit, MLOG_VOCAB["stock_unit"].invert, :include_blank => false) %></td>
+          <td><%= f.number_field :box_number%></td>
+        </tr>
+        <%= f.hidden_field :collection_id, :value => @collection.id %>
+        <%= f.hidden_field :accession_id, :value => @accession.id %>
+      </table>
+            <div class="actions">
+  <input type="submit" value="Submit" class="btn btn-primary"/>
+</div>
+    <% end %>
+  </div>
+</div>
