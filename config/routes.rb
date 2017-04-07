@@ -22,6 +22,8 @@ Medialog::Application.routes.draw do
 
   post 'accessions/:id/slew' => 'accessions#create_slew'
 
+  get 'accessions/:id/box/:box_id' => 'accessions#box'
+
   get 'accessions/:id/slew', to: 'accessions#slew', as: :slew_accession
 
   get 'mlog_entries/:id/clone', to: 'mlog_entries#clone', as: :clone_mlog_entry

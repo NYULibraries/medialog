@@ -78,6 +78,15 @@ class AccessionsController < ApplicationController
 
   end
 
+  def box
+    @accession = Accession.find(params[:id])
+    @collection = Collection.find(@accession[:collection_id]) 
+    @mlog = MlogEntry.where(:accession_id => @accession[:id], :box_number => params[:box_id])
+    @mlog_entries = @mlog.order(media_id: :asc).page params[:page]
+    @type_data = get_type_data(@mlog)
+    @total_size = get_total_size(@type_data)    
+  end
+
   def destroy
 
     accession = Accession.find(params[:id])
