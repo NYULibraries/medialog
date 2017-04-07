@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  def lookup_mlog_entry(col_id, m_id)
+    def lookup_mlog_entry(col_id, m_id)
     MlogEntry.where("collection_id = ? and media_id =?", col_id, m_id) 
   end
 
@@ -20,32 +20,32 @@ module ApplicationHelper
     bytes.nil? ? '' : (bytes / 1024.0).round(2)
   end
 
-  def tb_to_byte(tbyte)
-    tbytes.nil? ? 0.0 : ((((tbytes * 1024.0) * 1024.0) * 1024.0) * 1924.0).round(2)
+  def tb_to_byte(tbytes)
+    tbytes.nil? ? 0.0 : (1099511627776.0 * tbytes).round(2)
   end
 
   def gb_to_byte(gbytes)
-    gbytes.nil? ? 0.0 : (((gbytes * 1024.0) * 1024.0) * 1024.0).round(2)
+    gbytes.nil? ? 0.0 : (1073741824 * gbytes).round(2)
   end
 
   def mb_to_byte(mbytes)
-    mbytes.nil? ? 0.0 : ((mbytes * 1024.0) * 1024.0).round(2)
+    mbytes.nil? ? 0.0 : (1048576.0 * mbytes).round(2)
   end
 
   def kb_to_byte(kbytes)
-    kbytes.nil? ? 0.0 : (kbytes * 1024.0).round(2)
+    kbytes.nil? ? 0.0 : (1024.0 * kbytes).round(2)
   end
 
   def human_size(bytes)
-  	if(bytes <= 1024.0) then
-  	  bytes.to_s + " B"
-  	elsif (bytes > 1024.0 && bytes <= 1048576.0) then 
- 	  display_in_kilobytes(bytes).to_s + " KB"
-   	elsif (bytes > 1048576.0 && bytes <= 1073741824.0) then
-   	  display_in_megabytes(bytes).to_s + " MB"
-   	elsif (bytes > 1073741824.0 && bytes <= 1099511627776.0 ) then
-   	  display_in_gigabytes(bytes).to_s + " GB"
-    elsif (bytes > 1099511627776.0) then
+    if(bytes <= 1023.0) then
+      bytes.to_s + " B"
+    elsif (bytes > 1023.0 && bytes <= 1048575.0) then 
+      display_in_kilobytes(bytes).to_s + " KB"
+    elsif (bytes > 1048575.0 && bytes <= 1073741823.0) then
+      display_in_megabytes(bytes).to_s + " MB"
+    elsif (bytes > 1073741823.0 && bytes <= 1099511627775.0) then
+      display_in_gigabytes(bytes).to_s + " GB"
+    elsif (bytes > 1099511627775) then
       display_in_terabytes(bytes).to_s + " TB"
     end
   end
