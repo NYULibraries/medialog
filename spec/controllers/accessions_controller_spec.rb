@@ -40,7 +40,7 @@ RSpec.describe AccessionsController, type: :controller do
     it "assigns all accessions as @accessions" do
       accession = Accession.create! valid_accession_attributes
       get :index, {}, valid_session
-      assigns(:accessions).should eq([accession])
+      expect(assigns(:accessions)).to eq([accession])
     end
   end
 
@@ -49,7 +49,7 @@ RSpec.describe AccessionsController, type: :controller do
   		accession = Accession.create! valid_accession_attributes
   		collection = Collection.create! valid_collection_attributes
   		get :show, { :id => accession.to_param }, valid_session
-  		assigns(:accession).should eq accession
+  		expect(assigns(:accession)).to eq accession
   	end
   end
 
@@ -58,7 +58,7 @@ RSpec.describe AccessionsController, type: :controller do
   		it "updates the requested acccesion" do
   			accession = Accession.create! valid_accession_attributes
   			collection = Collection.create! valid_collection_attributes
-  			Accession.any_instance.should_receive(:update).with({ "accession_num" => "XXX.XXX.XXX.XXX" })
+  			allow_any_instance_of(Accession).to receive(:update).with({ "accession_num" => "XXX.XXX.XXX.XXX" })
         put :update, {:id => accession.to_param, :accession => { "accession_num" => "XXX.XXX.XXX.XXX" }}, valid_session
   		end
 
@@ -66,7 +66,7 @@ RSpec.describe AccessionsController, type: :controller do
         Collection.create! valid_collection_attributes
         accession = Accession.create! valid_accession_attributes
         put :update, {:id => accession.to_param, :accession => valid_accession_attributes}, valid_session
-        response.should redirect_to(accession)
+        expect(response).to redirect_to(accession)
       end
   	end
   end
@@ -84,7 +84,7 @@ RSpec.describe AccessionsController, type: :controller do
   		accession = Accession.create! valid_accession_attributes
   		collection = Collection.create! valid_collection_attributes
   		delete :destroy, { :id => accession.to_param }, valid_session
-  		response.should redirect_to(collection)
+  		expect(response).to redirect_to(collection)
   	end
   end
 end

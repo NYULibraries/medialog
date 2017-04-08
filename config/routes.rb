@@ -46,12 +46,6 @@ Medialog::Application.routes.draw do
 
   # devise_for :users, :controllers => { :registrations => 'users/registrations' }
 
-  get 'reports' => 'reports#index' 
-
-  get 'reports/format' => 'reports#format'
-
-  get 'reports/format/:type' => 'reports#type'  
-
   get 'api/v0/accession/:id' => 'api/v0#accession'
 
   get 'api/v0/mlog_entry/:id' => 'api/v0#mlog_entry'

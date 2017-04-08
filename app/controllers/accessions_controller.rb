@@ -6,20 +6,20 @@ class AccessionsController < ApplicationController
 
     def lookup
       puts params
-      mlog_entries = lookup_mlog_entry(params['collection_id'], params['media_id'])
+      mlog_entries = lookup_mlog_entry(params[:collection_id], params[:media_id])
       if mlog_entries.size != 0 then 
         redirect_to mlog_entries[0]
       else
         flash[:notice] = "id #{params[:media_id]} does not exist in current collection."
-        redirect_to Accession.find(params['accession_id'])
+        redirect_to Accession.find(params[:accession_id])
       end
     end
 
   def show
     @accession = Accession.find(params[:id])
-    @collection = Collection.find(@accession.collection_id)
-    @mlog = MlogEntry.where("accession_id = ?", @accession.id)
-    @mlog_entries = MlogEntry.where("accession_id = ?", @accession.id).order(media_id: :asc).page params[:page]
+    @collection = Collection.find(@accession[:collection_id])
+    @mlog = MlogEntry.where(:accession_id => @accession[:id])
+    @mlog_entries = MlogEntry.where(:accession_id => @accession.id).order(media_id: :asc).page params[:page]
     @type_data = get_type_data(@mlog)
     @total_size = get_total_size(@type_data)
   end
@@ -31,13 +31,13 @@ class AccessionsController < ApplicationController
   def create
     @accession = Accession.new(accession_params)
     @accession.save
-    @collection = Collection.find(@accession.collection_id)
+    @collection = Collection.find(@accession[:collection_id])
     redirect_to @collection
   end
 
   def edit
     @accession = Accession.find(params[:id])
-    @collection = Collection.find(@accession.collection_id)
+    @collection = Collection.find(@accessio[:collection_id])
   end
 
   def update
@@ -48,7 +48,7 @@ class AccessionsController < ApplicationController
 
   def slew
     @accession = Accession.find(params[:id])
-    @collection =  Collection.find(@accession.collection_id) 
+    @collection =  Collection.find(@accession[:collection_id]) 
   end
 
   def create_slew
@@ -91,7 +91,7 @@ class AccessionsController < ApplicationController
 
     accession = Accession.find(params[:id])
     collection = Collection.find(accession.collection_id)
-    mlog_entries = MlogEntry.where("accession_id = ?", accession.id)
+    mlog_entries = MlogEntry.where(:accession_id => accession.id)
 
     mlog_entries.each do |entry|
       entry.destroy

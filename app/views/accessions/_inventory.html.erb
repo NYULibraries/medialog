@@ -6,14 +6,12 @@
 
     <%= render 'lookup' %>
     <table class="table table-striped">
-
       <tr>
         <th>Media ID</th>
         <th>Media Type</th>
         <th>Size</th>
         <th>Box Number</th>  
       </tr>
-
       <div class="page">
         <%= paginate @mlog_entries %>
       </div>
@@ -29,5 +27,4 @@
           <td><%= link_to mlog_entry[:box_number], '/accessions/' + @accession[:id].to_s + "/box/" + mlog_entry[:box_number].to_s %></td>
         </tr>
       <% end %>
-
     </table>

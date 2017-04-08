@@ -4,6 +4,6 @@
 <%= render 'inventory', :locals => { :info => "Box #" + params[:box_id] } %>
 
 <div class="button">
-<%= link_to "Return To Accession Record", "/accessions/" + @accession[:id].to_s, class: "btn btn-primary"   %>
+  <%= link_to "Return To Accession Record", "/accessions/" + @accession[:id].to_s, class: "btn btn-primary"   %>
 </div>
 </div>
