@@ -1,45 +1,45 @@
 class UsersController < ApplicationController
   
-
   def create
     :authorize_admin
     # admins only
-    @u = params['user']
-    @user = User.new
-    @user.email = @u['email']
-    @user.password = @u['password']
-    @user.admin = false
-    @user.is_active = true
-    if @user.save then 
-     redirect_to "/admin", notice: ('Account created for ' + @user.email)
+    u = params[:user]
+    user = User.new
+    user.email = u[:email]
+    user.password = u[:password]
+    user.admin = false
+    user.is_active = true
+
+    if user.save then 
+     redirect_to "/admin", notice: ('Account created for ' + user.email)
     else
-      redirect_to "/admin", notice: ('Account not created for ' + @user.email)
+      redirect_to "/admin", notice: ('Account not created for ' + user.email)
     end
   end
 
   def destroy
-    @user = User.find(params['id'] )
-    @user.is_active = false
-    @user.deleted_at = Time.now
-    if @user.save
-      redirect_to "/admin", notice: (@user.email + "deactivated")
+    user = User.find(params[:id] )
+    user.is_active = false
+    user.deleted_at = Time.now
+    if user.save
+      redirect_to "/admin", notice: (user.email + "deactivated")
     else
-      redirect_to "/admin",   notice: (@user.email + "not deactivated")
+      redirect_to "/admin",   notice: (@ser.email + "not deactivated")
     end
   end
 
   
   def reset_password
-    @user = User.find(params['id'])
+    @user = User.find(params[:id])
   end
 
   def update_password
     puts(params)
-    puts(@password)
-    @user = User.find(params['password_request']['id'])
-    @user.password = params['password_request']['password']
-    @user.password_confirmation = params['password_request']['password']
-    if @user.save then
+    user = User.find(params[:password_request][:id])
+    user.password = params[:password_request][:password]
+    user.password_confirmation = params[:password_request][:password]
+    
+    if user.save then
       redirect_to "/admin", notice: 'password updated'
     else
       redirect_to "/admin", alert: 'password update unsuccessful'
@@ -48,12 +48,13 @@ class UsersController < ApplicationController
 
 
   def make_admin
-    @user = User.find(params['id'] )
-    @user.admin = true
-    if @user.save
-      redirect_to "/admin", notice: (@user.email + "given admin priviledges")
+    user = User.find(params[:id] )
+    user.admin = true
+    
+    if user.save
+      redirect_to "/admin", notice: (user.email + "given admin priviledges")
     else
-      redirect_to "/admin",   notice: (@user.email + "not given admin priviledges")
+      redirect_to "/admin",   notice: (user.email + "not given admin priviledges")
     end
   end
 

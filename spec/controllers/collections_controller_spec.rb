@@ -32,7 +32,7 @@ RSpec.describe CollectionsController, type: :controller do
     it "assigns all collections as @collections" do
       col = Collection.create! valid_col_attributes
       get :index, {}, valid_session
-      assigns(:collections).should eq([col])
+      expect(assigns(:collections)).to eq([col])
     end
   end
 
@@ -40,7 +40,7 @@ RSpec.describe CollectionsController, type: :controller do
     it "displays all collections as a repository" do
       collection = Collection.create! valid_col_attributes
       get :repository, {:repository_code => "fa"}, valid_session
-      assigns(:collections).should eq([collection])
+      expect(assigns(:collections)).to eq([collection])
     end
   end
 
@@ -48,7 +48,7 @@ RSpec.describe CollectionsController, type: :controller do
     it "assigns the requested collection as @collection" do
       collection = Collection.create! valid_col_attributes
       get :show, {:id => collection.to_param}, valid_session
-      assigns(:collection).should eq(collection)
+      expect(assigns(:collection)).to eq(collection)
     end
   end
 
@@ -56,14 +56,14 @@ RSpec.describe CollectionsController, type: :controller do
     describe "with valid params" do
       it "updates the requested mlog_entry" do
         collection = Collection.create! valid_col_attributes
-        Collection.any_instance.should_receive(:update).with({ "collection_code" => "mssXXX" })
+        allow_any_instance_of(Collection).to receive(:update).with({ "collection_code" => "mssXXX" })
         put :update, {:id => collection.to_param, :collection => { "collection_code" => "mssXXX" }}, valid_session
       end
 
       it ("redirects to collection") do
         collection = Collection.create! valid_col_attributes
         put :update, {:id => collection.to_param, :collection => { "collection_code" => "mssXXX" }}, valid_session
-        response.should redirect_to(collection)
+        expect(response).to redirect_to(collection)
       end
 
     end
@@ -81,7 +81,7 @@ RSpec.describe CollectionsController, type: :controller do
     it "should redirect to collections" do
       collection = Collection.create! valid_col_attributes
       delete :destroy, { :id =>  collection.to_param }, valid_session
-      response.should redirect_to(:action => "repository", :repository_code => collection.partner_code)
+      expect(response).to redirect_to(:action => "repository", :repository_code => collection.partner_code)
     end
   end
   

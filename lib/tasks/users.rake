@@ -4,7 +4,7 @@ admin = config['admin']
 namespace :users do
   desc "Create and admin user from accounts.yml"
   task create_admin: :environment do
-    u = User.create!(email: admin["email"], password: admin["password"], admin: true)
+    u = User.create!(email: admin["email"], password: admin["password"], admin: true, is_active: true)
     if(u.save) then 
       puts("admin created")
     end 

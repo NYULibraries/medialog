@@ -54,7 +54,7 @@ describe MlogEntriesController do
       accession = Accession.create! valid_accession_attributes
       mlog_entry = MlogEntry.create! valid_entry_attributes
       get :index, {}, valid_session
-      assigns(:mlog_entries).should eq([mlog_entry])
+      expect(assigns(:mlog_entries)).to eq([mlog_entry])
     end
   end
 
@@ -64,7 +64,7 @@ describe MlogEntriesController do
       accession = Accession.create! valid_accession_attributes
       collection = Collection.create! valid_col_attributes
       get :show, {:id => mlog_entry.to_param}, valid_session
-      assigns(:mlog_entry).should eq(mlog_entry)
+      expect(assigns(:mlog_entry)).to eq(mlog_entry)
     end
   end
 
@@ -73,7 +73,7 @@ describe MlogEntriesController do
       collection = Collection.create! valid_col_attributes
       accession = Accession.create! valid_accession_attributes
       get :new, {:collection_id => collection.id, :accession_id => accession.id}, valid_session
-      assigns(:mlog_entry).should be_a_new(MlogEntry)
+      expect(assigns(:mlog_entry)).to be_a_new(MlogEntry)
     end
   end
 
@@ -83,7 +83,7 @@ describe MlogEntriesController do
       accession = Accession.create! valid_accession_attributes
       mlog_entry = MlogEntry.create! valid_entry_attributes
       get :edit, {:id => mlog_entry.to_param}, valid_session
-      assigns(:mlog_entry).should eq(mlog_entry)
+      expect(assigns(:mlog_entry)).to eq(mlog_entry)
     end
   end
 
@@ -102,15 +102,15 @@ describe MlogEntriesController do
         collection = Collection.create! valid_col_attributes
         accession = Accession.create! valid_accession_attributes
         post :create, {:mlog_entry => valid_entry_attributes}, valid_session
-        assigns(:mlog_entry).should be_a(MlogEntry)
-        assigns(:mlog_entry).should be_persisted
+        expect(assigns(:mlog_entry)).to be_a(MlogEntry)
+        expect(assigns(:mlog_entry)).to be_persisted
       end
 
       it "redirects to the collection of the created mlog_entry" do
         collection = Collection.create! valid_col_attributes
         accession = Accession.create! valid_accession_attributes
         post :create, {:mlog_entry => valid_entry_attributes}, valid_session
-        response.should redirect_to(MlogEntry.last)
+        expect(response).to redirect_to(MlogEntry.last)
       end
     end
   end
@@ -125,7 +125,7 @@ describe MlogEntriesController do
         # specifies that the MlogEntry created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        MlogEntry.any_instance.should_receive(:update).with({ "label_text" => "35" })
+        allow_any_instance_of(MlogEntry).to receive(:update).with({ "label_text" => "35" })
         put :update, {:id => mlog_entry.to_param, :mlog_entry => { "label_text" => "35" }}, valid_session
       end
 
@@ -134,7 +134,7 @@ describe MlogEntriesController do
         mlog_entry = MlogEntry.create! valid_entry_attributes
         accession = Accession.create! valid_accession_attributes
         put :update, {:id => mlog_entry.to_param, :mlog_entry => valid_entry_attributes}, valid_session
-        assigns(:mlog_entry).should eq(mlog_entry)
+        expect(assigns(:mlog_entry)).to eq(mlog_entry)
       end
 
       it "redirects to the mlog_entry" do
@@ -142,7 +142,7 @@ describe MlogEntriesController do
         Accession.create! valid_accession_attributes
         mlog_entry = MlogEntry.create! valid_entry_attributes
         put :update, {:id => mlog_entry.to_param, :mlog_entry => valid_entry_attributes}, valid_session
-        response.should redirect_to(mlog_entry)
+        expect(response).to redirect_to(mlog_entry)
       end
     end
 
@@ -152,9 +152,9 @@ describe MlogEntriesController do
         mlog_entry = MlogEntry.create! valid_entry_attributes
         accession = Accession.create! valid_accession_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        MlogEntry.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(MlogEntry).to receive(:save).and_return(false)
         put :update, {:id => mlog_entry.to_param, :mlog_entry => { "collection_id" => "invalid value" }}, valid_session
-        assigns(:mlog_entry).should eq(mlog_entry)
+        expect(assigns(:mlog_entry)).to eq(mlog_entry)
       end
     end  
   end
@@ -174,7 +174,7 @@ describe MlogEntriesController do
       collection = Collection.create! valid_col_attributes
       mlog_entry = MlogEntry.create! valid_entry_attributes
       delete :destroy, {:id => mlog_entry.to_param}, valid_session
-      response.should redirect_to(collection)
+      expect(response).to redirect_to(collection)
     end
 
   end

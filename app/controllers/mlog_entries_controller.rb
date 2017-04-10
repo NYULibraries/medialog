@@ -16,7 +16,7 @@ class MlogEntriesController < ApplicationController
       nId = id - 1
     end
 
-    nextMlog = MlogEntry.where("collection_id = ? and media_id =?", mlog.collection_id, nId)
+    nextMlog = MlogEntry.where(:collection_id => mlog.collection_id, :media_id => nId)
     
     if nextMlog[0] != nil 
       redirect_to :action => 'show',  :id => nextMlog[0]
@@ -28,12 +28,12 @@ class MlogEntriesController < ApplicationController
   end
 
   def lookup
-    mlog_entries = lookup_mlog_entry(params['collection_id'], params['media_id'])
+    mlog_entries = lookup_mlog_entry(params[:collection_id], params[:media_id])
     if mlog_entries.size != 0 then 
       redirect_to mlog_entries[0]
     else
       flash[:notice] = "id #{params[:media_id]} does not exist in current collection."
-      redirect_to MlogEntry.find(params['current_id'])
+      redirect_to MlogEntry.find(params[:current_id])
     end
   end
 
@@ -92,16 +92,16 @@ class MlogEntriesController < ApplicationController
 
   # GET /mlog_entries/1/edit
   def edit    
-    @collection = Collection.find(@mlog_entry.collection_id)
-    @accession = Accession.find(@mlog_entry.accession_id)
+    @collection = Collection.find(@mlog_entry[:collection_id])
+    @accession = Accession.find(@mlog_entry[:accession_id])
   end
 
   # POST /mlog_entries
   # POST /mlog_entries.json
   def create
     @mlog_entry = MlogEntry.new(mlog_entry_params)
-    @collection = Collection.find(@mlog_entry.collection_id)
-    @accession = Accession.find(@mlog_entry.accession_id)
+    @collection = Collection.find(@mlog_entry[:collection_id])
+    @accession = Accession.find(@mlog_entry[:accession_id])
     respond_to do |format|
       if @mlog_entry.save
         format.html { redirect_to @mlog_entry, notice: 'Entry was successfully created.' }
@@ -117,8 +117,8 @@ class MlogEntriesController < ApplicationController
   # PATCH/PUT /mlog_entries/1.json
   def update
     
-    @collection = Collection.find(@mlog_entry.collection_id)
-    @accession = Accession.find(@mlog_entry.accession_id)
+    @collection = Collection.find(@mlog_entry[:collection_id])
+    @accession = Accession.find(@mlog_entry[:accession_id])
 
     respond_to do |format|
       if @mlog_entry.update(mlog_entry_params)
@@ -134,7 +134,7 @@ class MlogEntriesController < ApplicationController
   # DELETE /mlog_entries/1
   # DELETE /mlog_entries/1.json
   def destroy
-    collection = Collection.find(@mlog_entry.collection_id)
+    collection = Collection.find(@mlog_entry[:collection_id])
     @mlog_entry.destroy
     respond_to do |format|
       format.html { redirect_to collection}

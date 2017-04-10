@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= "Media Objects, " + locals[:info] %></h3>
+  </div>
+  <div class="panel-body">
+
+    <%= render 'lookup' %>
+    <table class="table table-striped">
+      <tr>
+        <th>Media ID</th>
+        <th>Media Type</th>
+        <th>Size</th>
+        <th>Box Number</th>  
+      </tr>
+      <div class="page">
+        <%= paginate @mlog_entries %>
+      </div>
+      <% @mlog_entries.each do |mlog_entry| %>
+        <tr>
+          <td><%= link_to mlog_entry.media_id, mlog_entry_path(mlog_entry) %></td>
+          <td><%= MLOG_VOCAB["mediatypes"][mlog_entry.mediatype] %></td>     
+          <td>
+            <% if mlog_entry.stock_size_num != nil %>
+              <%= mlog_entry.stock_size_num.to_s  + " " + mlog_entry.stock_unit %>
+            <% end %>
+          </td>
+          <td><%= link_to mlog_entry[:box_number], '/accessions/' + @accession[:id].to_s + "/box/" + mlog_entry[:box_number].to_s %></td>
+        </tr>
+      <% end %>
+    </table>

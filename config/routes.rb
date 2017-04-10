@@ -22,6 +22,8 @@ Medialog::Application.routes.draw do
 
   post 'accessions/:id/slew' => 'accessions#create_slew'
 
+  get 'accessions/:id/box/:box_id' => 'accessions#box'
+
   get 'accessions/:id/slew', to: 'accessions#slew', as: :slew_accession
 
   get 'mlog_entries/:id/clone', to: 'mlog_entries#clone', as: :clone_mlog_entry
@@ -43,12 +45,6 @@ Medialog::Application.routes.draw do
   post 'users/make_admin' => 'users#make_admin'
 
   # devise_for :users, :controllers => { :registrations => 'users/registrations' }
-
-  get 'reports' => 'reports#index' 
-
-  get 'reports/format' => 'reports#format'
-
-  get 'reports/format/:type' => 'reports#type'  
 
   get 'api/v0/accession/:id' => 'api/v0#accession'
 
