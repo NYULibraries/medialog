@@ -1,8 +1,8 @@
 <%= form_for :collection, url: collections_path  do |f| %>
 
   <p>
-      <%= f.label :repository %><br>
-      <%= f.select(:partner_code, MLOG_VOCAB["partner_codes"].invert, :include_blank => false ) %>
+      <%= f.label MLOG_VOCAB["partner_codes"][params[:repository_code]] %><br>
+      <%= f.hidden_field :partner_code, :value => params[:repository_code] %>
   <p>
  
   <p>
