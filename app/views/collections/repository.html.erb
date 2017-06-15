@@ -30,7 +30,7 @@
         <% end %>   
       </tbody>
     </table>
-    <%= link_to 'Add Collection', new_collection_path, class: "btn btn-primary" %>
+  <%= link_to 'Add Collection', new_collection_path(:repository_code => params[:repository_code]), class: "btn btn-primary" %>
   </div>
 </div>
 
