@@ -37,7 +37,7 @@ class AccessionsController < ApplicationController
 
   def edit
     @accession = Accession.find(params[:id])
-    @collection = Collection.find(@accessio[:collection_id])
+    @collection = Collection.find(@accession[:collection_id])
   end
 
   def update
