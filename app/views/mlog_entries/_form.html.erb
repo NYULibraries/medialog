@@ -173,6 +173,25 @@
   </div>
 </div>
 
+<div>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+    <h4 class="panel-title"><%= t(:workflow) %></h4>
+  </div>
+  <div class="panel-body">
+    <div class="field">
+      <%= f.label :is_transferred %><br>
+      <%= f.check_box :is_transferred %>
+    </div>
+        <div class="field">
+      <%= f.label :is_refreshed %><br>
+      <%= f.check_box :is_refreshed %>
+    </div>
+  </div>
+</div>
+
 <%= f.hidden_field :collection_id, :value => @collection.id %>
 <%= f.hidden_field :accession_id, :value => @accession.id %>
 

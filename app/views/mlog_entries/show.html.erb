@@ -212,6 +212,21 @@
   </tr>
 </table>
 
+<div class="panel panel-info">
+  <div class="panel-heading"><h4><%= t(:workflow) %></h4></div>
+</div>
+
+<table class="table table-hover">
+  <tr>
+    <td  class="col-md-3"><strong><%= t('helpers.label.mlog_entry.is_transferred') %>:</strong></td>
+    <td><%= @mlog_entry.is_transferred %></td>
+  </tr>
+    <tr>
+    <td  class="col-md-3"><strong><%= t('helpers.label.mlog_entry.is_refreshed') %>:</strong></td>
+    <td><%= @mlog_entry.is_refreshed %></td>
+  </tr>
+</table>
+
 <!--
 <div class="panel panel-info">
   <div class="panel-heading"><h4><%= t(:workflow) %></h4></div>
