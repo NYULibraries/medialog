@@ -1,1 +1,20 @@
-<h1>Hello from reports controller</h1>
+<p> Range <%= @beginDate %> - <%= @endDate %></p>
+
+<table class="table table-condensed">
+  <tr>
+    <th>type</th>
+    <th>count</th>
+    <th>size</th>
+  </tr>
+  <% @type_data.each do |media_type, value| %>
+    <tr>
+      <td><%= MLOG_VOCAB['mediatypes'][media_type] %></td>
+      <td><%= value[:count] %></td>
+      <td><%= human_size value[:size] %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td/>
+    <td><b><%= @mlog.size %></b></td>
+    <td><b><%= human_size(@total_size) %></b></td>
+</table>
