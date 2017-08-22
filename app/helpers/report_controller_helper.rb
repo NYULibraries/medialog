@@ -1,0 +1,2 @@
+module ReportControllerHelper
+end
