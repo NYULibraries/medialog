@@ -54,4 +54,6 @@ Medialog::Application.routes.draw do
 
   get 'api/v0/collection/:code/find' => 'api/v0#collection_find'
 
+  get 'reports' => 'reports#index'
+
 end
