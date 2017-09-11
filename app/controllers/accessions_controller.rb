@@ -104,7 +104,7 @@ class AccessionsController < ApplicationController
 
   private 
     def accession_params
-      params.require(:accession).permit(:accession_num, :accession_note, :collection_id)
+      params.require(:accession).permit(:accession_num, :accession_note, :collection_id, :accession_state)
     end
 
     def get_max_mlog_id(col_id)

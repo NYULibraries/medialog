@@ -84,3 +84,9 @@ stock_unit:
   GB: "Gigabytes"
   TB: "Terabytes"
 
+accession_state:
+  accession_not_started: "Not Started"
+  accession_queued: "Queued"
+  accession_in_progress:  "In Progress"
+  acceession_complete: "Complete"
+
