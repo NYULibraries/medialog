@@ -7,6 +7,7 @@
     <h4><%= link_to(@collection.collection_code  + ": " + @collection.title, @collection) %></h4>
 
     <h3>accession number: <%= @accession.accession_num %></h3>
+    <p>accession state: <%= MLOG_VOCAB["accession_state"][@accession.accession_state] %></p>
 <table width="100%">
     <tr>
       <td width="50%" valign="top">
