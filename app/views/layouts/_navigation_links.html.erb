@@ -18,19 +18,8 @@
 </td>
 
 
-<!--
-<td>
-  <div class="btn-group">
-		<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-    	Reports
-        <span class="caret"></span>
-		</button>
-    <ul class="dropdown-menu">
-      <li><%= link_to 'Formats', '/reports/format', class: "btn btn-info btn-xs" %></li>
-    </ul>
-  </div>
-</td>
--->
+
+<%= link_to 'Reports', reports_path %>
 
 <% if current_user.try(:admin?) %> 
   <!-- <%= link_to 'Register User', '/users/new' %> -->

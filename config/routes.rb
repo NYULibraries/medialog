@@ -44,8 +44,6 @@ Medialog::Application.routes.draw do
 
   post 'users/make_admin' => 'users#make_admin'
 
-  # devise_for :users, :controllers => { :registrations => 'users/registrations' }
-
   get 'api/v0/accession/:id' => 'api/v0#accession'
 
   get 'api/v0/mlog_entry/:id' => 'api/v0#mlog_entry'
@@ -55,5 +53,7 @@ Medialog::Application.routes.draw do
   get 'api/v0/collection/:code/find' => 'api/v0#collection_find'
 
   get 'reports' => 'reports#index'
+
+  get 'reports/year/:id' => 'reports#year'
 
 end

@@ -1,16 +1,8 @@
 <br/>
 
 <div class="panel panel-default">
-  <div class="panel-body">
-    <p class="text-right"><%= link_to "reset password", controller: "users", action: "reset_password" %></p>
-  </div>
-</div>
-
-
-
-<div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">MediaLog Entries</h3>
+    <h3 class="panel-title">Recent Medialog Entries</h3>
   </div>
   
   <div class="panel-body">
@@ -48,32 +40,5 @@
         <% end %>
       </tbody>
     </table>
-  </div>
-</div>
-
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Formats</h3>
-  </div>
-  <div class="panel-body">
-
-    <table class="table table-condensed">
-          <tr>
-            <th>type</th>
-            <th>count</th>
-            <th>size</th>
-          </tr>
-          <% @type_data.each do |media_type, value| %>
-            <tr>
-              <td><%= MLOG_VOCAB['mediatypes'][media_type] %></td>
-              <td><%= value[:count] %></td>
-              <td><%= human_size value[:size] %></td>
-            </tr>
-          <% end %>
-          <tr>
-            <td/>
-            <td><b><%= @mlog.size %></b></td>
-            <td><b><%= human_size(@total_size) %></b></td>
-        </table>
   </div>
 </div>

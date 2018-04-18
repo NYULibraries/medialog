@@ -1,7 +1,10 @@
 class ReportsController < ApplicationController
   
   def index
-    year = params["year"].to_i
+  end
+
+  def year
+    year = params[:id].to_i
     @beginDate = Date.new(year - 1, 9, 1) 
     @endDate =Date.new(year,8,31)
     
