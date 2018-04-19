@@ -15,6 +15,11 @@
   <%= f.text_field :title, :value => @col.title %>
 </p>
 
+
+<%= f.hidden_field :modified_by, :value => current_user.id %>
+
+
+
 <p>
   <%= f.submit %>
 </p>

@@ -21,6 +21,7 @@
 
   <%= f.hidden_field :collection_id, :value => @collection.id %>
 
+  <%= f.hidden_field :modified_by, :value => current_user.id %>
 
 <p>
   <%= f.submit %>

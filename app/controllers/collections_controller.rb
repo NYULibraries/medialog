@@ -23,6 +23,9 @@ class CollectionsController < ApplicationController
   end
 
   def show
+    @creator = "unknown"
+    @modifier = "unknown"
+
     @collection = Collection.find(params[:id])
     @accessions = Accession.where("collection_id = ?", @collection.id)
     @min_accessions = getMinAccessions
@@ -30,6 +33,10 @@ class CollectionsController < ApplicationController
     @mlog_entries = @mlog.order(media_id: :asc).page params[:page]
     @type_data = get_type_data(@mlog)
     @total_size = get_total_size(@type_data)
+
+    if @collection.created_by != nil then @creator = User.find(@collection.created_by).email end
+    if @collection.modified_by != nil then @modifier = User.find(@collection.modified_by).email end
+
   end
 
   def edit
@@ -102,7 +109,7 @@ class CollectionsController < ApplicationController
     end
     
     def collection_params
-      params.require(:collection).permit(:title, :collection_code, :partner_code)
+      params.require(:collection).permit(:title, :collection_code, :partner_code, :created_by, :modified_by)
     end
 
 
