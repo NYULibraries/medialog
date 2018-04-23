@@ -16,12 +16,21 @@ class AccessionsController < ApplicationController
     end
 
   def show
+    @creator = "unknown"
+    @modifier = "unknown"
+    
     @accession = Accession.find(params[:id])
     @collection = Collection.find(@accession[:collection_id])
+    
     @mlog = MlogEntry.where(:accession_id => @accession[:id])
     @mlog_entries = MlogEntry.where(:accession_id => @accession.id).order(media_id: :asc).page params[:page]
+    
     @type_data = get_type_data(@mlog)
     @total_size = get_total_size(@type_data)
+
+    if @accession.created_by != nil then @creator = User.find(@accession.created_by).email end
+    if @accession.modified_by != nil then @modifier = User.find(@accession.modified_by).email end
+
   end
 
   def new
@@ -104,7 +113,7 @@ class AccessionsController < ApplicationController
 
   private 
     def accession_params
-      params.require(:accession).permit(:accession_num, :accession_note, :collection_id, :accession_state)
+      params.require(:accession).permit(:accession_num, :accession_note, :collection_id, :accession_state, :created_by, :modified_by)
     end
 
     def get_max_mlog_id(col_id)

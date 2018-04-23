@@ -10,8 +10,8 @@
     <tr>
       <td width="50%" valign="top">
   	    <p>
-        	created at <%= @collection.created_at %> <br/>
-        	updated at <%= @collection.updated_at %><br/>
+        	created by <%= @creator %> at <%= @collection.created_at.to_date %> <br/>
+        	updated at <%= @modifier %> at <%= @collection.updated_at.to_date %><br/>
       	</p>
       </td>
       <td>

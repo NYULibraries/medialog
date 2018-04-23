@@ -58,19 +58,20 @@ class ApplicationController < ActionController::Base
 
   class Min_Col
 
-    attr_accessor :c_code, :p_code
+    attr_accessor :c_code, :p_code, :c_title
 
-    def initialize(c_code, p_code)
+    def initialize(c_code, p_code, c_title)
       @c_code = c_code
       @p_code = p_code
+      @c_title = c_title
     end  
   end
 
   def getMinCollections
     min_cols = Hash.new
-    cols = Collection.select("id, collection_code, partner_code")
+    cols = Collection.select("id, collection_code, partner_code, title")
     cols.each do |col|
-      min_cols[col.id] = Min_Col.new(col.collection_code, col.partner_code)
+      min_cols[col.id] = Min_Col.new(col.collection_code, col.partner_code, col.title)
     end
     min_cols
   end
