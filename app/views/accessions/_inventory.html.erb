@@ -24,7 +24,13 @@
               <%= mlog_entry.stock_size_num.to_s  + " " + mlog_entry.stock_unit %>
             <% end %>
           </td>
-          <td><%= link_to mlog_entry[:box_number], '/accessions/' + @accession[:id].to_s + "/box/" + mlog_entry[:box_number].to_s %></td>
+          
+          <% if !mlog_entry[:box_number].nil? then %>
+            <td><%= link_to mlog_entry[:box_number], '/accessions/' + @accession[:id].to_s + "/box/" + mlog_entry[:box_number].to_s %>
+            </td>
+          <% else %>
+            <td/>
+          <% end %>
         </tr>
       <% end %>
     </table>
