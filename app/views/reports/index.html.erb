@@ -3,10 +3,30 @@
   <% (2014..2018).to_a.each do |year| %>
    <li class="list-group-item">
    	<%= year %><br />
-   	<%= link_to "all", "/reports/year/" + year.to_s %> 
-   	<%= link_to "Fales", "#" %>
-   	<%= link_to "Tamiment-Wagner", "#" %>
-   	<%= link_to "NYU Archives", "#" %>
+   	<%= link_to "All Repositories", "/reports/year/" + year.to_s %> 
+   	<%= link_to "Fales", "/reports/repository/fales?ay=" + year.to_s %>
+   	<%= link_to "Tamiment-Wagner", "/reports/repository/tamwag?ay=" + year.to_s  %>
+   	<%= link_to "NYU Archives", "/reports/repository/nyuarchives?ay=" + year.to_s  %>
    </li>
   <% end %>
 </ul>
+<h1>Totals by Format</h1>
+<table class="table table-striped">
+  <tr>
+    <th>type</th>
+    <th>count</th>
+    <th>size</th>
+  </tr>
+  <%= @type_data.class %>
+  <% @type_data.each do |media_type, value| %>
+    <tr>
+      <td><%= MLOG_VOCAB['mediatypes'][media_type] %></td>
+      <td><%= value[:count] %></td>
+      <td><%= human_size value[:size] %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td/>
+    <td><b><%= @type_data.size %></b></td>
+    <td><b><%= human_size(@total_size) %></b></td>
+</table>

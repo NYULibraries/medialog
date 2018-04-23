@@ -1,5 +1,3 @@
-<p> Range <%= @beginDate %> - <%= @endDate %></p>
-
 <table class="table table-condensed">
   <tr>
     <th>type</th>
@@ -15,6 +13,6 @@
   <% end %>
   <tr>
     <td/>
-    <td><b><%= @mlog.size %></b></td>
+    <td><b><%= @type_data.size %></b></td>
     <td><b><%= human_size(@total_size) %></b></td>
 </table>

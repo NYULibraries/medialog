@@ -56,4 +56,6 @@ Medialog::Application.routes.draw do
 
   get 'reports/year/:id' => 'reports#year'
 
+  get 'reports/repository/:id' => 'reports#repository'
+
 end
