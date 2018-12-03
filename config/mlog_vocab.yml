@@ -47,10 +47,13 @@ hdd_interfaces:
   hdd_interface_ide:	"IDE"
 
 image_formats:
-  image_format_raw:     "Raw"
+  image_format_raw:     "Raw (dd)"
   image_format_e01:     "E01"
   image_format_ad1:     "AD1"
-  image_format_iso:     "ISO"
+  image_format_iso:     "ISO - Userspace"
+  image_format_iso_raw:     "ISO - Raw"
+  image_format_bincue:  "BIN/CUE"
+  image_format_wavcue:  "WAV/CUE"
 
 encoding_schemes:
   encoding_scheme_mfm:           "MFM"
