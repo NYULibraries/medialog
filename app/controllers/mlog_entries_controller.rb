@@ -99,7 +99,6 @@ class MlogEntriesController < ApplicationController
   # POST /mlog_entries
   # POST /mlog_entries.json
   def create
-    puts mlog_entry_params
     @mlog_entry = MlogEntry.new(mlog_entry_params)
     @collection = Collection.find(@mlog_entry[:collection_id])
     @accession = Accession.find(@mlog_entry[:accession_id])
