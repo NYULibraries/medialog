@@ -44,6 +44,11 @@
   </tr>
 
   <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.content_type') %>:</strong></td>
+    <td><%= MLOG_VOCAB["content_type"][@mlog_entry.content_type] %></td>
+  </tr>
+
+  <tr>
     <td><strong><%= t('helpers.label.mlog_entry.label_text') %>:</strong></td>
     <td><%= @mlog_entry.label_text %></td>
   </tr>
@@ -173,8 +178,22 @@
   </tr>
 
   <tr>
-    <td><strong><%= t('helpers.label.mlog_entry.filesystem') %>:</strong></td>
-    <td><%= MLOG_VOCAB["filesystems"][@mlog_entry.filesystem] %></td>
+    <td><strong><%= t('helpers.label.mlog_entry.session_count') %>:</strong></td>
+    <td><%= MLOG_VOCAB["structure"][@mlog_entry.structure] %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.session_count') %>:</strong></td>
+    <td><%= @mlog_entry.session_count %></td>
+  </tr>
+
+  <tr>
+    <td><strong><%= t('helpers.label.mlog_entry.file_systems') %>:</strong></td>
+    <td>
+      <% @mlog_entry.file_systems.each do |fs| %>
+        <%= (MLOG_VOCAB["filesystems"][fs] + "&nbsp;").html_safe %>
+      <% end %>
+    </td>
   </tr>
 <!--
   <tr>

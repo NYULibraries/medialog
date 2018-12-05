@@ -93,3 +93,13 @@ accession_state:
   accession_in_progress:  "In Progress"
   acceession_complete: "Complete"
 
+content_type:
+  content_video: "Video"
+  content_audio: "Audio"
+  content_data: "Data"
+
+structure:
+  structure_data: "Data Disc"
+  structure_dvdvideo: "DVD-Video"
+  structure_cdda: "Compact Disc Digital Audio"
+  structure_complex: "Complex Optical Image"

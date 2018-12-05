@@ -99,6 +99,7 @@ class MlogEntriesController < ApplicationController
   # POST /mlog_entries
   # POST /mlog_entries.json
   def create
+    puts mlog_entry_params
     @mlog_entry = MlogEntry.new(mlog_entry_params)
     @collection = Collection.find(@mlog_entry[:collection_id])
     @accession = Accession.find(@mlog_entry[:accession_id])
@@ -157,6 +158,6 @@ class MlogEntriesController < ApplicationController
         :has_dfxml, :has_ftk_csv, :has_mactime_csv, :image_size_bytes, :md5_checksum, :sha1_checksum, :date_imaged, :date_ftk_loaded, 
         :date_metadata_extracted, :date_photographed, :date_qc, :date_packaged, :date_transferred, :number_of_image_segments, 
         :ref_id, :box_number, :stock_size, :sip_id, :original_id, :disposition_note, :stock_unit, :stock_size_num, :created_by, 
-        :modified_by, :collection_id, :accession_id, :is_transferred, :is_refreshed)
+        :modified_by, :collection_id, :accession_id, :is_transferred, :is_refreshed, :session_count, :structure, :content_type, :file_systems => [])
     end
 end
