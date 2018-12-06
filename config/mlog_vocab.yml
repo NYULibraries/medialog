@@ -98,6 +98,7 @@ content_type:
   content_video: "Video"
   content_audio: "Audio"
   content_data: "Data"
+  content_data: "Email"
 
 structure:
   structure_data: "Data Disc"
