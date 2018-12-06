@@ -27,6 +27,7 @@ mediatypes:
   mediatype_zip:		              "Zip Disk"
   mediatype_sd:                   "SD Card"
   mediatype_minidisc:             "MiniDisc"
+  mediatype:                      "Laserdisc"
 
 interfaces:
   interface_tableau_ultrabay:     "Tableau Ultrabay"
