@@ -40,6 +40,7 @@ imaging_software:
   imaging_software_ftk_imager_v3146:           "FTK Imager (v3.1.4.6)"
   imaging_software_ftk_imager_v42013:          "FTK Imager (v4.2.0.13)"
   imaging_software_isobusterpro_v43:           "IsoBuster Pro (v4.3)"
+  imaging_software_eac_v13:                    "Exact Audio Copy (v1.3)"
 
 hdd_interfaces:
   hdd_interface_usb:    "USB"
