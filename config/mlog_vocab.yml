@@ -103,7 +103,7 @@ content_type:
   content_video: "Video"
   content_audio: "Audio"
   content_data: "Data"
-  content_data: "Email"
+  content_email: "Email"
 
 structure:
   structure_data: "Data Disc"
