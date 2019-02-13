@@ -29,7 +29,7 @@ mediatypes:
   mediatype_minidisc:             "MiniDisc"
   mediatype_data_cartridge:       "Data Cartridge"
   mediatype_laserdisc:            "Laserdisc"
-  mediatype_orb                   "Orb Disk"
+  mediatype_orb:                  "Orb Disk"
 
 interfaces:
   interface_tableau_ultrabay:     "Tableau Ultrabay"
