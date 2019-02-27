@@ -238,6 +238,11 @@
   <%= f.hidden_field :created_by, :value => current_user.id %>
 <% end %>
 
+<% if action_name == "clone" %>
+  <%= f.hidden_field :created_by, :value => current_user.id %>
+<% end %>
+
+
 <div class="actions">
   <input type="submit" value="Submit" class="btn btn-primary"/>
 </div>
