@@ -39,6 +39,7 @@ interfaces:
 
 imaging_software:
   imaging_software_kryoflux_imager_v220:        "KryoFlux Imager (DTC 2.20)"
+  imaging_software_kryoflux_imager_v30:        "KryoFlux Imager (DTC 3.0)"
   imaging_software_ftk_imager_v3146:            "FTK Imager (v3.1.4.6)"
   imaging_software_ftk_imager_v42013:           "FTK Imager (v4.2.0.13)"
   imaging_software_isobusterpro_v43:            "IsoBuster Pro (v4.3)"
