@@ -59,7 +59,7 @@ class MlogEntriesController < ApplicationController
     @type_data = get_type_data(@mlog)
     @total_size = get_total_size(@type_data)
     @collections = getMinCollections
-    @accessions = getMinAccessions
+    @min_accessions = getMinAccessions
   end
 
   # GET /mlog_entries/1

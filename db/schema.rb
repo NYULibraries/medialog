@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181205164256) do
+ActiveRecord::Schema.define(version: 20190227190222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20181205164256) do
     t.string   "mediatype"
     t.string   "manufacturer"
     t.string   "manufacturer_serial"
-    t.string   "label_text"
+    t.text     "label_text"
     t.text     "media_note"
     t.string   "photo_url"
     t.string   "image_filename"

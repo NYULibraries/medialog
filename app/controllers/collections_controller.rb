@@ -25,7 +25,7 @@ class CollectionsController < ApplicationController
   def show
     @creator = "unknown"
     @modifier = "unknown"
-
+    @collections = getMinCollections
     @collection = Collection.find(params[:id])
     @accessions = Accession.where("collection_id = ?", @collection.id)
     @min_accessions = getMinAccessions

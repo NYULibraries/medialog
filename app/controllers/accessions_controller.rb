@@ -21,6 +21,9 @@ class AccessionsController < ApplicationController
     
     @accession = Accession.find(params[:id])
     @collection = Collection.find(@accession[:collection_id])
+
+    @collections = getMinCollections
+    @min_accessions = getMinAccessions
     
     @mlog = MlogEntry.where(:accession_id => @accession[:id])
     @mlog_entries = MlogEntry.where(:accession_id => @accession.id).order(media_id: :asc).page params[:page]

@@ -7,11 +7,8 @@
     <h3 class="panel-title">Accession Note</h3>
   </div>
   <div class="panel-body"><%= @accession.accession_note %></div>
-</div>
-
-  <%= render 'inventory', :locals => { :info => "" } %>
-
+    <%= render :partial =>'shared/table' %>
     <%= link_to 'Add New', new_mlog_entry_path(:collection_id => @collection.id, :accession_id => @accession.id), class: "btn btn-primary" %>
-        <%= link_to 'Slew New', slew_accession_path(:id => @accession.id), class: "btn btn-primary" %>
+    <%= link_to 'Slew New', slew_accession_path(:id => @accession.id), class: "btn btn-danger" %>
   </div>
 </div>
