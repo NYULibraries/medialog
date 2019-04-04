@@ -50,10 +50,18 @@
             </td>
             
             <td>
-              <%= !MLOG_VOCAB[mlog_entry.is_refreshed].nil? %>
+              <% if mlog_entry.is_refreshed %>
+                  <span class="text-success glyphicon glyphicon-ok"></span>
+              <% else %>
+                <span class="text-danger glyphicon glyphicon-remove"></span>
+              <% end %> 
             </td>
             <td>
-              <%= !MLOG_VOCAB[mlog_entry.is_transferred].nil? %>    
+              <% if mlog_entry.is_transferred %> 
+                <span class="text-success glyphicon glyphicon-ok"></span>
+              <% else %>
+                <span class="text-danger glyphicon glyphicon-remove"></span>
+              <% end %>    
             </td>
           </tr>
         <% end %>
