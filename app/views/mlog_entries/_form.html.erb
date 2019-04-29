@@ -104,7 +104,7 @@
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading">
-    <h4 class="panel-title"><%= t(:image_file_data) %></h4>
+    <h4 class="panel-title"><%= t(:imaging_data) %></h4>
   </div>
   <div class="panel-body">
     
@@ -147,7 +147,15 @@
       <%= f.label :imaging_note %><br>
       <%= f.text_area :imaging_note %>
     </div>
-    
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+    <h4 class="panel-title"><%= t(:image_data) %></h4>
+  </div>
+  <div class="panel-body">  
     <div class="field">
       <%= f.label :image_format %><br>
       <%= f.select(:image_format, MLOG_VOCAB["image_formats"].invert, :include_blank => true ) %>
@@ -184,17 +192,15 @@
     </div>
     
     <div class="field">
-      <%= f.label :filesystem %><br>
-      <%= f.select(:filesystem, MLOG_VOCAB["filesystems"].invert, :include_blank => true ) %>
-    </div>
-    <div class="field">
       <%= f.label :image_size_bytes %><br>
       <%= f.number_field :image_size_bytes %>
     </div>
+
     <div class="field">
       <%= f.label :md5_checksum %><br>
       <%= f.text_field :md5_checksum %>
     </div>
+
     <div class="field">
       <%= f.label :sha1_checksum %><br>
       <%= f.text_field :sha1_checksum %>
@@ -207,8 +213,9 @@
         <%= f.check_box :file_systems, { multiple: true}, fs[1], false %>
       <% end %>
     </div>
+  
+    </div>
   </div>
-</div>
 
 <div>
 
