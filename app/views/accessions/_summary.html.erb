@@ -7,11 +7,13 @@
     <h4><%= link_to(@collection.collection_code  + ": " + @collection.title, @collection) %></h4>
 
     <h3>accession number: <%= @accession.accession_num %></h3>
-    <p>accession state: <%= MLOG_VOCAB["accession_state"][@accession.accession_state] %></p>
-<table width="100%">
+    <table width="100%">
     <tr>
       <td width="50%" valign="top">
         <p>
+          <strong>accession state</strong>: <%= MLOG_VOCAB["accession_state"][@accession.accession_state] %><br/>
+          <strong>accession note</strong><br />
+          <%= @accession.accession_note %>
           created by <%= @creator %> at <%= @accession.created_at.to_date %><br/>
           updated by <%= @modifier %> at <%= @accession.updated_at.to_date %><br/>
         </p>
