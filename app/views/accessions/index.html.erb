@@ -1,11 +1,27 @@
-<table class="table">
-  <tr>
-  	<th>accession number</th>
-  </tr>
-  
-  <% @accessions.each do |accession| %>
-  	<tr>
-  	  <td><%= link_to accession.accession_num, accession %></td>
-  	</tr>
-  <% end %>
-</table>
+<br>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">Accessions</div>
+  </div>
+  <div class="panel-body">	
+	<table class="table table-striped table-bordered">
+	  <tr>
+	  	<th>partner</th>
+	  	<th>collection</th>
+	  	<th>identifier</th>
+	  	<th>extent</th>
+	  	<th>state</th>
+	  </tr>  
+	  <% @accessions.each do |acc| %>
+	  	<tr>
+	  	  <td><%= link_to acc[1][:partner_code], "/repository/" +  acc[1][:partner_code] %></td>
+	  	  <td><%= link_to acc[1][:col_code] + " " + acc[1][:col_title], "/collections/" + (acc[1][:col_id].to_s) %></td>
+	  	  <td><%= link_to acc[1][:num], "/accessions/" + acc[1][:id].to_s %></td>
+	  	  <td><%= acc[1][:extent] + ", " + acc[1][:count].to_s + " objects" %></td>
+	  	  <td><%= MLOG_VOCAB['accession_state'][acc[1][:state]] %></td>
+	  	</tr>
+	  <% end %>
+	</table>
+  </div>
+</div>

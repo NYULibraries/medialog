@@ -1,45 +1,47 @@
 <div class="panel panel-default">
-  <div class="panel-body">
-    <h4>
+  <div class="panel-heading">
+    <div class="panel-title">
       <%= link_to(MLOG_VOCAB["partner_codes"][@collection.partner_code], show_repository_path(@collection.partner_code)) %>
-    </h4>
-
-    <h4><%= link_to(@collection.collection_code  + ": " + @collection.title, @collection) %></h4>
-
-    <h3>accession number: <%= @accession.accession_num %></h3>
+      <br>
+      <%= link_to(@collection.collection_code  + ": " + @collection.title, @collection) %></h4>
+      <br>
+      accession number: <%= @accession.accession_num %>
+    </div>
+  </div>    
+  <div class="panel-body">
     <table width="100%">
-    <tr>
-      <td width="50%" valign="top">
-        <p>
-          <strong>accession state</strong>: <%= MLOG_VOCAB["accession_state"][@accession.accession_state] %><br/>
-          <strong>accession note</strong><br />
-          <%= @accession.accession_note %>
-          created by <%= @creator %> at <%= @accession.created_at.to_date %><br/>
-          updated by <%= @modifier %> at <%= @accession.updated_at.to_date %><br/>
-        </p>
-      </td>
-      <td>
-        <table class="table table-condensed">
-          <tr>
-            <th>type</th>
-            <th>count</th>
-            <th>size</th>
-          </tr>
-          <% @type_data.each do |media_type, value| %>
+      <tr>
+        <td width="50%" valign="top">
+          <p>
+            <strong>accession state</strong>: <%= MLOG_VOCAB["accession_state"][@accession.accession_state] %><br/>
+            <strong>accession note</strong><br />
+            <%= @accession.accession_note %>
+            created by <%= @creator %> at <%= @accession.created_at.to_date %><br/>
+            updated by <%= @modifier %> at <%= @accession.updated_at.to_date %><br/>
+          </p>
+        </td>
+        <td>
+          <table class="table table-condensed">
             <tr>
-              <td><%= MLOG_VOCAB['mediatypes'][media_type] %></td>
-              <td><%= value[:count] %></td>
-              <td><%= human_size value[:size] %></td>
+              <th>type</th>
+              <th>count</th>
+              <th>size</th>
             </tr>
-          <% end %>
-          <tr>
-            <td/>
-            <td><b><%= @mlog.size %></b></td>
-            <td><b><%= human_size(@total_size) %></b></td>
-        </table>
-      </td>
-    </tr>
-  </table>
+            <% @type_data.each do |media_type, value| %>
+              <tr>
+                <td><%= MLOG_VOCAB['mediatypes'][media_type] %></td>
+                <td><%= value[:count] %></td>
+                <td><%= human_size value[:size] %></td>
+              </tr>
+            <% end %>
+            <tr>
+              <td/>
+              <td><b><%= @mlog.size %></b></td>
+              <td><b><%= human_size(@total_size) %></b></td>
+          </table>
+        </td>
+      </tr>
+    </table>
 
     <%= link_to 'Edit', edit_accession_path(@accession), class: "btn btn-primary" %>
     <% if current_user.try(:admin?) %> 

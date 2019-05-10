@@ -1,14 +1,25 @@
-<table class="table">
-  <tr>
-    <th>repository</th>
-    <th>collection</th>
-    <th />
-  </tr>
-  <% @collections.each do |col| %>
-    <tr>
-      <td><%= col.partner_code %></td>
-      <td><%= link_to (col.collection_code + " " +  col.title), col %></td>
-      <td><%= link_to 'Edit', edit_collection_path(col) %> <%= link_to 'Destroy', @col, method: :delete, data: { confirm: 'Are you sure?' }, :style=>'color:#FF0000;' %></td>
-    <tr>
-  <% end %>
-</table>
+<br/>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">Collections</div>
+  </div>
+  <div class="panel-body">  
+    <table class="table table-striped table-bordered">
+      <tr>
+        <th>repository</th>
+        <th>identifier</th>
+        <th>title</th>
+        <th>extent</th>
+      </tr>
+      <% @collections.each do |col| %>
+        <tr>
+          <td><%= link_to col[1][:partner_code], "repository/" + (col[1][:partner_code]) %></td>
+          <td><%= link_to col[1][:collection_code], collection_path(col[0]) %></td>
+          <td><%= link_to col[1][:title], collection_path(col[0]) %></td>
+          <td/><%= col[1][:extent] + ", " + col[1][:count].to_s + " objects"%></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

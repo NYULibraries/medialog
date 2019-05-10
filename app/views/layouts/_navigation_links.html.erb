@@ -18,7 +18,8 @@
 </td>
 
 
-
+<%= link_to 'Collections', collections_path %>
+<%= link_to 'Accessions', accessions_path %>
 <%= link_to 'Reports', reports_path %>
 
 <% if current_user.try(:admin?) %> 

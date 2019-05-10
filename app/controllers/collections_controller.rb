@@ -1,7 +1,36 @@
 class CollectionsController < ApplicationController
   
   def index
-    @collections = Collection.order(updated_at: :desc)
+    @collections = Hash.new
+    Collection.order(partner_code: :asc, title: :asc).each do |col|
+      @collection = Hash.new
+      @collection[:title] = col.title
+      @collection[:collection_code] = col.collection_code
+      @collection[:partner_code] = col.partner_code
+      mlog_entries = MlogEntry.where("collection_id = ?", col.id)
+      type_data = get_type_data(mlog_entries)
+      @collection[:count] = mlog_entries.size
+      @collection[:extent] = human_size(get_total_size(type_data))
+      @collections[col.id] = @collection
+    end  
+
+  end
+
+    def show
+    @creator = "unknown"
+    @modifier = "unknown"
+    @collections = getMinCollections
+    @collection = Collection.find(params[:id])
+    @accessions = Accession.where("collection_id = ?", @collection.id)
+    @min_accessions = getMinAccessions
+    @mlog = MlogEntry.where("collection_id = ?", @collection.id)
+    @mlog_entries = @mlog.order(media_id: :asc).page params[:page]
+    @type_data = get_type_data(@mlog)
+    @total_size = get_total_size(@type_data)
+
+    if @collection.created_by != nil then @creator = User.find(@collection.created_by).email end
+    if @collection.modified_by != nil then @modifier = User.find(@collection.modified_by).email end
+
   end
 
   def lookup

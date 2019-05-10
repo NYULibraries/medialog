@@ -1,19 +1,43 @@
 class AccessionsController < ApplicationController
 
   def index
-  	@accessions = Accession.all
+  	@accessions = Hash.new
+    Accession.order(id: :asc).each do |acc|
+      @accession = Hash.new
+      @accession[:id] = acc[:id]
+      @accession[:num] = acc[:accession_num]
+      col = Collection.where("id = ?", acc[:collection_id])
+      if(col.empty?) then
+        @accession[:col_id] = "NA"
+        @accession[:col_code] = "NA"
+        @accession[:col_title] = "NA"
+        @accession[:partner_code] = "NA"
+      else
+        @accession[:col_id] = col[0][:id]
+        @accession[:col_code] = col[0][:collection_code]
+        @accession[:col_title] = col[0][:title]
+        @accession[:partner_code] = col[0][:partner_code]
+      end 
+      mlog_entries = MlogEntry.where("accession_id = ?", acc.id)
+      type_data = get_type_data(mlog_entries)
+      @accession[:count] = mlog_entries.size
+      @accession[:extent] = human_size(get_total_size(type_data))
+      @accession[:state] = acc[:accession_state]
+      @accessions[acc.id] = @accession
+
+    end  
   end
 
-    def lookup
-      puts params
-      mlog_entries = lookup_mlog_entry(params[:collection_id], params[:media_id])
-      if mlog_entries.size != 0 then 
-        redirect_to mlog_entries[0]
-      else
-        flash[:notice] = "id #{params[:media_id]} does not exist in current collection."
-        redirect_to Accession.find(params[:accession_id])
-      end
+  def lookup
+    puts params
+    mlog_entries = lookup_mlog_entry(params[:collection_id], params[:media_id])
+    if mlog_entries.size != 0 then 
+      redirect_to mlog_entries[0]
+    else
+      flash[:notice] = "id #{params[:media_id]} does not exist in current collection."
+      redirect_to Accession.find(params[:accession_id])
     end
+  end
 
   def show
     @creator = "unknown"

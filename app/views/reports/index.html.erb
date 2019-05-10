@@ -1,32 +1,53 @@
-<h1>Annual Reports</h1>
-<ul class="list-group">
-  <% (2014..2018).to_a.each do |year| %>
-   <li class="list-group-item">
-   	<%= year %><br />
-   	<%= link_to "All Repositories", "/reports/year/" + year.to_s %> 
-   	<%= link_to "Fales", "/reports/repository/fales?ay=" + year.to_s %>
-   	<%= link_to "Tamiment-Wagner", "/reports/repository/tamwag?ay=" + year.to_s  %>
-   	<%= link_to "NYU Archives", "/reports/repository/nyuarchives?ay=" + year.to_s  %>
-   </li>
-  <% end %>
-</ul>
-<h1>Totals by Format</h1>
-<table class="table table-striped">
-  <tr>
-    <th>type</th>
-    <th>count</th>
-    <th>size</th>
-  </tr>
-  <%= @type_data.class %>
-  <% @type_data.each do |media_type, value| %>
-    <tr>
-      <td><%= MLOG_VOCAB['mediatypes'][media_type] %></td>
-      <td><%= value[:count] %></td>
-      <td><%= human_size value[:size] %></td>
-    </tr>
-  <% end %>
-  <tr>
-    <td/>
-    <td><b><%= @type_data.size %></b></td>
-    <td><b><%= human_size(@total_size) %></b></td>
-</table>
+<br />
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">Annual Reports</div>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped table-bordered">
+      <tbody>
+        <% (2014..2019).to_a.each do |year| %>
+       	  <tr>
+            <td><strong><%= year %></strong></td>
+           	<td><%= link_to "All", "/reports/year/" + year.to_s %></td> 
+           	<td><%= link_to "Fales", "/reports/repository/fales?ay=" + year.to_s %></td> 
+           	<td><%= link_to "Tamiment-Wagner", "/reports/repository/tamwag?ay=" + year.to_s  %></td> 
+            <td><%= link_to "NYU Archives", "/reports/repository/nyuarchives?ay=" + year.to_s  %></td> 
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">Totals By Format</div>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+         <th>type</th>
+         <th>count</th>
+         <th>size</th>
+       </tr>
+      </thead>
+      <tbody>
+        <% @type_data.each do |media_type, value| %>
+          <tr>
+            <td><%= MLOG_VOCAB['mediatypes'][media_type] %></td>
+            <td><%= value[:count] %></td>
+            <td><%= human_size value[:size] %></td>
+          </tr>
+        <% end %>
+        <tr>
+          <td/>
+          <td><b><%= @type_data.size %></b></td>
+          <td><b><%= human_size(@total_size) %></b></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
