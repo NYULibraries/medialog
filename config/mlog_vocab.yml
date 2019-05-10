@@ -98,8 +98,10 @@ accession_state:
   accession_not_started: "Not Started"
   accession_queued: "Queued"
   accession_in_progress:  "In Progress"
+  accession_needs_qa: "Needs QA"
+  accession_ready_for_transfer: "Ready For Transfer"
   acceession_complete: "Complete"
-
+  
 content_type:
   content_video: "Video"
   content_audio: "Audio"

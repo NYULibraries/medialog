@@ -166,19 +166,8 @@
     <td><%= MLOG_VOCAB["encoding_schemes"][@mlog_entry.encoding_scheme] %></td>
   </tr>
 
-<!--
   <tr>
-    <td><strong><%= t('helpers.label.mlog_entry.partition_table_format') %>:</strong></td>
-    <td><%= @mlog_entry.partition_table_format %></td>
-  </tr>
--->
-  <tr>
-    <td><strong><%= t('helpers.label.mlog_entry.number_of_partitions') %>:</strong></td>
-    <td><%= @mlog_entry.number_of_partitions %></td>
-  </tr>
-
-  <tr>
-    <td><strong><%= t('helpers.label.mlog_entry.structure') %>:</strong></td>
+    <td><strong><%= t('Optical Structure') %>:</strong></td>
     <td><%= MLOG_VOCAB["structure"][@mlog_entry.structure] %></td>
   </tr>
 
@@ -195,22 +184,7 @@
       <% end %>
     </td>
   </tr>
-<!--
-  <tr>
-    <td><strong><%= t('helpers.label.mlog_entry.has_dfxml') %>:</strong></td>
-    <td><%= @mlog_entry.has_dfxml %></td>
-  </tr>
 
-  <tr>
-    <td><strong><%= t('helpers.label.mlog_entry.has_ftk_csv') %>:</strong></td>
-    <td><%= @mlog_entry.has_ftk_csv %></td>
-  </tr>
-
-    <tr>
-    <td><strong><%= t('helpers.label.mlog_entry.has_mactime_csv') %>:</strong></td>
-    <td><%= @mlog_entry.has_mactime_csv %></td>
-  </tr>
--->
   <tr>
     <td><strong><%= t('helpers.label.mlog_entry.image_size_bytes') %>:</strong></td>
     <td><%= @mlog_entry.image_size_bytes %></td>
@@ -225,6 +199,7 @@
     <td><strong><%= t('helpers.label.mlog_entry.sha1_checksum') %>:</strong></td>
     <td><%= @mlog_entry.sha1_checksum %></td>
   </tr>
+
   <tr>
     <td><strong>SIP ID</strong></td>
     <td><%= @mlog_entry.sip_id %></td>

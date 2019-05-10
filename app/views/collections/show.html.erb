@@ -1,11 +1,14 @@
 <br/>
 
 <div class="panel panel-default">
-  <div class="panel-body">
-  	<h4>
+  <div class="panel-heading">
+    <div class="panel-title">
   		<%= link_to(MLOG_VOCAB["partner_codes"][@collection.partner_code], "/repository/" + @collection.partner_code) %>
-	</h4>
-	<h3><%= @collection.collection_code + " " + @collection.title %></h3>
+      <br />
+	    <%= @collection.collection_code + " " + @collection.title %>
+    </div>
+  </div>
+  <div class="panel-body">
   <table width="100%">
     <tr>
       <td width="50%" valign="top">

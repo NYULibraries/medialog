@@ -1,24 +1,16 @@
 <br />
 
 <div class="panel panel-default">
-  <div class="panel-body">
-    <h3><%= MLOG_VOCAB["partner_codes"][params[:repository_code]] %></h3>
-    <p>
-
-    </p>
-  </div>
-</div>
-
-<div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">collections</h3>
+    <div class="panel-title"><%= MLOG_VOCAB["partner_codes"][params[:repository_code]] %></div>
   </div>
   <div class="panel-body">
-    <table class="table table-striped repository">
+    <table class="table table-striped table-bordered">
       <theader>
         <tr>
-          <th>id</th>
-          <th>name</th>
+          <th>identifier</th>
+          <th>title</th>
+          <th>extent</th>
         <tr>
       </theader>
       <tbody>
@@ -26,6 +18,7 @@
           <tr>
             <td><%= link_to collection.collection_code, collection_path(collection.id) %> </td>
             <td><%= collection.title %></td>
+            <td>tbd</td>
           </tr>
         <% end %>   
       </tbody>
