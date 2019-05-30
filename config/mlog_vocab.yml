@@ -98,9 +98,10 @@ accession_state:
   accession_not_started: "Not Started"
   accession_queued: "Queued"
   accession_in_progress:  "In Progress"
-  accession_needs_qa: "Needs QA"
-  accession_ready_for_transfer: "Ready For Transfer"
-  acceession_complete: "Complete"
+  accession_needs_qa: "QA"
+  accession_ready_for_transfer: "Transferred"
+  acceession_complete: "Archivesspace Updated /  Complete"
+
   
 content_type:
   content_video: "Video"
