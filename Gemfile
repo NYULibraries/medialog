@@ -15,6 +15,7 @@ gem 'openurl', '~> 1.0.0'
 gem 'devise'
 gem 'thin'
 gem 'therubyracer'
+gem 'jquery-turbolinks'
 
 group :development do
   gem 'pry'
