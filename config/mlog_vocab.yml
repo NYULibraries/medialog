@@ -14,7 +14,7 @@ mediatypes:
   mediatype_transfer:             "Network Transfer"
   mediatype_floppy_3_5:           "3.5 in. Floppy Disk"
   mediatype_floppy_5_25:          "5.25 in. Floppy Disk"
-  mediatype_floppy_8		  "8 in. Floppy Disk"	
+  mediatype_floppy_8:		          "8 in. Floppy Disk"	
   mediatype_hard_disk_drive:      "Hard Disk Drive"
   mediatype_flash_drive:          "Flash Drive"
   mediatype_dvd:                  "DVD commercial"
