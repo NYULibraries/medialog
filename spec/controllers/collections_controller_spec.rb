@@ -22,7 +22,9 @@ RSpec.describe CollectionsController, type: :controller do
   } }
 
   let(:valid_session) { {} }
-
+  
+  valid_collection_table = {55=>{:title=>"test_collection", :collection_code=>"mssxxx", :partner_code=>"fa", :count=>0, :extent=>"0.0 B"}}
+  
 
   let(:user) { User.create! valid_user }
 
@@ -32,7 +34,7 @@ RSpec.describe CollectionsController, type: :controller do
     it "assigns all collections as @collections" do
       col = Collection.create! valid_col_attributes
       get :index, {}, valid_session
-      expect(assigns(:collections)).to eq([col])
+      expect(assigns(:collections)).to eq(valid_accession_table)
     end
   end
 
