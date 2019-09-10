@@ -28,6 +28,7 @@ RSpec.describe AccessionsController, type: :controller do
     "accession_id" => 42
   } }
 
+  valid_accession_table = {1=>{:id=>1, :num=>"1999.99", :col_id=>"NA", :col_code=>"NA", :col_title=>"NA", :partner_code=>"NA", :count=>0, :extent=>"0.0 B", :state=>nil}}
 
   let(:valid_session) { {} }
 
@@ -40,7 +41,7 @@ RSpec.describe AccessionsController, type: :controller do
     it "assigns all accessions as @accessions" do
       accession = Accession.create! valid_accession_attributes
       get :index, {}, valid_session
-      expect(assigns(:accessions)).to eq([accession])
+      expect(assigns(:accessions)).to eq(valid_accession_table)
     end
   end
 
