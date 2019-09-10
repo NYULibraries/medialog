@@ -34,7 +34,7 @@ RSpec.describe CollectionsController, type: :controller do
     it "assigns all collections as @collections" do
       col = Collection.create! valid_col_attributes
       get :index, {}, valid_session
-      expect(assigns(:collections)).to eq(valid_accession_table)
+      expect(assigns(:collections)).to eq(valid_collection_table)
     end
   end
 
