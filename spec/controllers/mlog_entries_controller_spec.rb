@@ -15,14 +15,17 @@ describe MlogEntriesController do
     "admin" => false 
   } }
   
-  let(:valid_entry_attributes) { { 
-    "collection_id" => 55,
-    "mediatype" => "my media", 
-    "media_id" => 55,
-    "accession_id" => 42,
-    "stock_size_num" => 1.5,
-    "stock_unit" => "GB"
-  } }
+  let(:valid_entry_attributes) {
+    {
+      "collection_id" => 55,
+      "mediatype" => "my media",
+      "media_id" => 55,
+      "accession_id" => 42,
+      "stock_size_num" => 1.5,
+      "stock_unit" => "GB",
+      "file_systems" => ["filesystem_fat12"]
+    }
+  }
 
   let(:valid_col_attributes) { { 
     "id" => 55,
@@ -54,6 +57,8 @@ describe MlogEntriesController do
       accession = Accession.create! valid_accession_attributes
       mlog_entry = MlogEntry.create! valid_entry_attributes
       get :index, {}, valid_session
+      a = assigns(:mlog_entries)
+      puts(a[0]["file_systems"])
       expect(assigns(:mlog_entries)).to eq([mlog_entry])
     end
   end
