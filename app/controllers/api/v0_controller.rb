@@ -12,6 +12,11 @@ class Api::V0Controller < ApplicationController
     render :json => MlogEntry.find(params["id"])
   end
 
+  def collections
+    collections = Collection.select(:id)
+    render :json => collections
+  end
+
   def collection
     collection = Collection.find(params["id"])
     accession_recs = Accession.where("collection_id = ?", collection.id)
