@@ -25,12 +25,13 @@ class Api::V0Controller < ApplicationController
     collection = Collection.find(params["id"])
     accession_recs = Accession.where("collection_id = ?", collection.id)
     stuff = getTypes(MlogEntry.where("collection_id = ?", collection.id))
-    
+    formats = getFormats(stuff["formats"])
+
     accessions = Hash.new
     accession_recs.each do |accession|
       accessions[accession.id] = accession.accession_num
     end
-    render :json => {"collection" => collection, "acccessions" => accessions, "media_formats" => stuff["formats"], "inventory" => stuff["entries"]}
+    render :json => {"collection" => collection, "acccessions" => accessions, "media_formats" => formats, "objects" => stuff["entries"]}
   end
 
   def collection_find 
@@ -47,14 +48,23 @@ class Api::V0Controller < ApplicationController
         entries[entry.id] = entry.media_id
         format =MLOG_VOCAB["mediatypes"][entry["mediatype"]]
         if formats.has_key? format
-          prev = formats[format] 
-          formats[format] = { "qty" => prev["qty"] + 1, "unit" => prev["unit"], "size" => prev["size"] + entry["stock_size"].to_f } 
+          prev = formats[format]
+          formats[format] = { "count" => prev["qty"] + 1, "size" => prev["size"] + get_in_bytes(entry["stock_size_num"], entry["stock_unit"]).to_f }
         else 
-          formats[format] = { "qty" => 1, "unit" => entry["stock_unit"], "size" => entry["stock_size"].to_f }
+          formats[format] = { "count" => 1, "size" => get_in_bytes(entry["stock_size_num"], entry["stock_unit"]).to_f }
         end
       end
       stuff["entries"] = entries
       stuff["formats"] = formats
       stuff
     end
+
+  def getFormats(fmts)
+    formats = Hash.new
+
+    fmts.each do |fmt, value|
+      formats[fmt] = { "count" => value["count"], "size_gb" => display_in_gigabytes(value) }
+    end
+  end
+
 end
