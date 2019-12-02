@@ -49,7 +49,7 @@ class Api::V0Controller < ApplicationController
         format =MLOG_VOCAB["mediatypes"][entry["mediatype"]]
         if formats.has_key? format
           prev = formats[format]
-          formats[format] = { "count" => prev["qty"] + 1, "size" => prev["size"] + get_in_bytes(entry["stock_size_num"], entry["stock_unit"]).to_f }
+          formats[format] = { "count" => prev["count"] + 1, "size" => prev["size"] + get_in_bytes(entry["stock_size_num"], entry["stock_unit"]).to_f }
         else 
           formats[format] = { "count" => 1, "size" => get_in_bytes(entry["stock_size_num"], entry["stock_unit"]).to_f }
         end
