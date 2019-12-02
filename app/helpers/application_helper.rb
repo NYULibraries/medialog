@@ -1,7 +1,21 @@
 module ApplicationHelper
 
-    def lookup_mlog_entry(col_id, m_id)
+
+  def lookup_mlog_entry(col_id, m_id)
     MlogEntry.where("collection_id = ? and media_id =?", col_id, m_id) 
+  end
+
+  def get_in_bytes(media_size, unit)
+    case unit
+    when "KB"
+      kb_to_byte(media_size)
+    when "MB"
+      mb_to_byte(media_size)
+    when "GB"
+      gb_to_byte(media_size)
+    when "TB"
+      tb_to_byte(media_size)
+    end
   end
 
   def display_in_terabytes(bytes)
