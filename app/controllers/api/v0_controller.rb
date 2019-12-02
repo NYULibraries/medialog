@@ -80,7 +80,7 @@ class Api::V0Controller < ApplicationController
       size = size + value["size_gb"]
     end
 
-    { :count => count, :size_gb => size.round(2) }
+    { :num_objects => count, :size_gb => size.round(2) }
   end
 
 end
