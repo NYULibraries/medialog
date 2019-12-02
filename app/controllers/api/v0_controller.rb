@@ -13,7 +13,7 @@ class Api::V0Controller < ApplicationController
   end
 
   def collections
-    collections = Collection.select(:id)
+    collections = Collection.select(:id).order(:id)
     coll_array = Array.new
     collections.each do |coll|
       coll_array << coll.id
