@@ -25,6 +25,7 @@ class Api::V0Controller < ApplicationController
     collection = Collection.find(params["id"])
     accession_recs = Accession.where("collection_id = ?", collection.id)
     stuff = getTypes(MlogEntry.where("collection_id = ?", collection.id))
+
     formats = getFormats(stuff["formats"])
 
     accessions = Hash.new
@@ -65,6 +66,8 @@ class Api::V0Controller < ApplicationController
     fmts.each do |fmt, value|
       formats[fmt] = { "count" => value["count"], "size_gb" => display_in_gigabytes(value["size"]) }
     end
+
+    formats
   end
 
 end
