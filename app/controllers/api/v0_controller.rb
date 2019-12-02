@@ -46,8 +46,8 @@ class Api::V0Controller < ApplicationController
       formats = Hash.new
       stuff = Hash.new
       mlog_entries.each do |entry|
-        entries[entry.id] = entry.media_id
-        format =MLOG_VOCAB["mediatypes"][entry["mediatype"]]
+        entries[entry.id] = { :media_id => entry.media_id, :is_transferred =>  entry.is_transferred, :is_refreshed => entry.is_refreshed }
+        format = MLOG_VOCAB["mediatypes"][entry["mediatype"]]
         if formats.has_key? format
           prev = formats[format]
           formats[format] = { "count" => prev["count"] + 1, "size" => prev["size"] + get_in_bytes(entry["stock_size_num"], entry["stock_unit"]).to_f }
