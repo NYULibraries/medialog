@@ -80,7 +80,7 @@ class Api::V0Controller < ApplicationController
       size = size + value["size_gb"]
     end
 
-    Hash.new(:size_gb => size, :count => count)
+    { :size_gb => size, :count => count }
   end
 
 end
