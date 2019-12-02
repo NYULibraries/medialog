@@ -27,12 +27,12 @@ class Api::V0Controller < ApplicationController
     stuff = getTypes(MlogEntry.where("collection_id = ?", collection.id))
 
     formats = getFormats(stuff["formats"])
-
+    totals = getTotals(formats)
     accessions = Hash.new
     accession_recs.each do |accession|
       accessions[accession.id] = accession.accession_num
     end
-    render :json => {"collection" => collection, "acccessions" => accessions, "media_formats" => formats, "objects" => stuff["entries"]}
+    render :json => {"collection" => collection, "acccessions" => accessions, :totals => totals, "media_formats" => formats, "objects" => stuff["entries"]}
   end
 
   def collection_find 
@@ -68,6 +68,19 @@ class Api::V0Controller < ApplicationController
     end
 
     formats
+  end
+
+  def getTotals(fmts)
+
+    count = 0
+    size = 0.0
+
+    fmts.each do |fmt, value|
+      count = count + value["count"]
+      size = size + value["size_gb"]
+    end
+
+    Hash.new(:size_gb => size, :count => count)
   end
 
 end
