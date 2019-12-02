@@ -63,7 +63,7 @@ class Api::V0Controller < ApplicationController
     formats = Hash.new
 
     fmts.each do |fmt, value|
-      formats[fmt] = { "count" => value["count"], "size_gb" => display_in_gigabytes(value) }
+      formats[fmt] = { "count" => value["count"], "size_gb" => display_in_gigabytes(value["size"]) }
     end
   end
 
