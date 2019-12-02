@@ -14,7 +14,11 @@ class Api::V0Controller < ApplicationController
 
   def collections
     collections = Collection.select(:id)
-    render :json => collections
+    coll_array = Array.new
+    collections.each do |coll|
+      coll_array << coll.id
+    end
+    render :json => coll_array
   end
 
   def collection
