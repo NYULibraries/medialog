@@ -1,5 +1,5 @@
-class V0Controller < ApiController
-
+class V0Controller < ActionController::Base
+  
   include ApplicationHelper
 
   def accession
