@@ -1,6 +1,6 @@
-class Api::V0Controller < ApplicationController
+class V0Controller < ApiController
 
-  def accession 
+  def accession
     mlog_entries = MlogEntry.where("accession_id = ?", params["id"])
     accession =  Accession.find(params["id"])
     collection = Collection.find(accession.collection_id)
@@ -12,7 +12,7 @@ class Api::V0Controller < ApplicationController
     render :json => MlogEntry.find(params["id"])
   end
 
-  def collections
+  def resources
     collections = Collection.select(:id).order(:id)
     coll_array = Array.new
     collections.each do |coll|
@@ -21,7 +21,7 @@ class Api::V0Controller < ApplicationController
     render :json => coll_array
   end
 
-  def collection
+  def resource
     collection = Collection.find(params["id"])
     accession_recs = Accession.where("collection_id = ?", collection.id)
     stuff = getTypes(MlogEntry.where("collection_id = ?", collection.id))
