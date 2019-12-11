@@ -44,9 +44,9 @@ Medialog::Application.routes.draw do
 
   post 'users/make_admin' => 'users#make_admin'
 
-  get 'api/v0/resources/:id' => 'v0#resource'
+  get 'api/v0/resources/:id' => 'api/v0#resource'
 
-  get 'api/v0/resources' => 'v0#resources'
+  get 'api/v0/resources' => 'api/v0#resources'
 
   get 'reports' => 'reports#index'
 
