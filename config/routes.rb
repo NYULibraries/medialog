@@ -48,11 +48,11 @@ Medialog::Application.routes.draw do
 
   get 'api/v0/mlog_entry/:id' => 'api/v0#mlog_entry'
 
-  get 'api/v0/collections/:id' => 'api/v0#collection'
+  get 'api/v0/resources/:id' => 'api/v0#collection'
 
   get 'api/v0/collection/:code/find' => 'api/v0#collection_find'
 
-  get 'api/v0/collections' => 'api/v0#collections'
+  get 'api/v0/resource' => 'api/v0#collections'
 
   get 'reports' => 'reports#index'
 
