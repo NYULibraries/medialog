@@ -1,4 +1,4 @@
-class Api::V0Controller < ApplicationController
+class V0Controller < ApiController
 
   def accession 
     mlog_entries = MlogEntry.where("accession_id = ?", params["id"])
