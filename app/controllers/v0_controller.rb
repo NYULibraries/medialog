@@ -1,6 +1,4 @@
-class V0Controller < ActionController::Base
-  
-  include ApplicationHelper
+class V0Controller < ApiController
 
   def accession
     mlog_entries = MlogEntry.where("accession_id = ?", params["id"])
@@ -14,7 +12,7 @@ class V0Controller < ActionController::Base
     render :json => MlogEntry.find(params["id"])
   end
 
-  def collections
+  def resources
     collections = Collection.select(:id).order(:id)
     coll_array = Array.new
     collections.each do |coll|
@@ -23,7 +21,7 @@ class V0Controller < ActionController::Base
     render :json => coll_array
   end
 
-  def collection
+  def resource
     collection = Collection.find(params["id"])
     accession_recs = Accession.where("collection_id = ?", collection.id)
     stuff = getTypes(MlogEntry.where("collection_id = ?", collection.id))
