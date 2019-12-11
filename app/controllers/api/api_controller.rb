@@ -1,4 +1,4 @@
-class Api::ApiController < ActionController::Base
+class ApiController < ActionController::Base
   include ApplicationHelper
 
 end
