@@ -1,6 +1,8 @@
 class V0Controller < ApiController
 
-  def accession 
+  include ApplicationHelper
+
+  def accession
     mlog_entries = MlogEntry.where("accession_id = ?", params["id"])
     accession =  Accession.find(params["id"])
     collection = Collection.find(accession.collection_id)
