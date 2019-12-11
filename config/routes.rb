@@ -46,7 +46,7 @@ Medialog::Application.routes.draw do
 
   get 'api/v0/resources/:id' => 'v0#resource'
 
-  get 'api/resources' => 'v0#resources'
+  get 'api/v0/resources' => 'v0#resources'
 
   get 'reports' => 'reports#index'
 
