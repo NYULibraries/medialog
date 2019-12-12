@@ -78,7 +78,7 @@ module ApplicationHelper
     min_cols = Hash.new
     cols = Collection.select("id, collection_code, partner_code, title")
     cols.each do |col|
-      min_cols[col.id] = Min_Col.new(col.collection_code, col.partner_code, title)
+      min_cols[col.id] = Min_Col.new(col.collection_code, col.partner_code, col.title)
     end
     min_cols
   end
