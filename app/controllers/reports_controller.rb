@@ -10,10 +10,10 @@ class ReportsController < ApplicationController
 
   def year
     year = params[:id].to_i
-    @beginDate = Date.new(year - 1, 9, 1) 
-    @endDate =Date.new(year,8,31)
+    @beginDate = Date.new(year, 1, 1)
+    @endDate =Date.new(year,12,31)
 
-    @mlog= MlogEntry.where("created_at >= ? AND created_at <= ?", @beginDate, @endDate)
+    @mlog= MlogEntry.where("created_at >= ? AND created_at < ?", @beginDate, @endDate)
 
     @type_data = get_type_data(@mlog)
     @total_size = get_total_size(@type_data)
@@ -36,8 +36,8 @@ class ReportsController < ApplicationController
     end
 
     year = params[:ay].to_i
-    @beginDate = Date.new(year - 1, 9, 1) 
-    @endDate =Date.new(year,8,31)
+    @beginDate = Date.new(year, 1, 1) 
+    @endDate =Date.new(year,12,31)
 
     @mlog = MlogEntry
         .where(accession_id: @accessions)
