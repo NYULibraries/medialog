@@ -32,7 +32,7 @@ mediatypes:
   mediatype_laserdisc:            "Laserdisc"
   mediatype_orb:                  "Orb Disk"
   mediatype_bd_r:                 "Blu-Ray Writable"
-  mediatype_bd_rw:                "Blu-Rau ReWriteable"
+  mediatype_bd_rw:                "Blu-Ray ReWritable"
   
 interfaces:
   interface_tableau_ultrabay:     "Tableau Ultrabay"
