@@ -31,7 +31,9 @@ mediatypes:
   mediatype_data_cartridge:       "Data Cartridge"
   mediatype_laserdisc:            "Laserdisc"
   mediatype_orb:                  "Orb Disk"
-
+  mediatype_bd_r:                 "Blu-Ray Writable"
+  mediatype_bd_rw:                "Blu-Rau ReWriteable"
+  
 interfaces:
   interface_tableau_ultrabay:     "Tableau Ultrabay"
   interface_kryoflux:             "KryoFlux"
